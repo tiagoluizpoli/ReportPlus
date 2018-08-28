@@ -1,0 +1,17 @@
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\bin\Release\ReportPlus.exe.config
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\obj\Release\ReportPlus.exe
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\obj\Release\ReportPlus.pdb
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\bin\Release\ReportPlus.exe
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\bin\Release\ReportPlus.pdb
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\bin\Release\MetroFramework.Design.dll
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\bin\Release\MetroFramework.dll
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\bin\Release\MetroFramework.Fonts.dll
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\obj\Release\ReportPlus.FRM_Main.resources
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\obj\Release\ReportPlus.Properties.Resources.resources
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\obj\Release\ReportPlus.csproj.GenerateResource.Cache
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\obj\Release\ReportPlus.csprojResolveAssemblyReference.cache
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\obj\Release\ReportPlus.FRM_Config.resources
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\ReportPlus\obj\Release\ReportPlus.FRM_Report_ProdVend.resources
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPluss\ReportPlus\bin\Release\ReportPlus.exe.config
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPluss\ReportPlus\obj\Release\ReportPlus.exe
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPluss\ReportPlus\obj\Release\ReportPlus.pdb
