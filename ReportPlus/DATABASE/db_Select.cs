@@ -31,6 +31,7 @@ namespace ReportPlus.DATABASE
             }
             catch (Exception ex)
             {
+                db_Connection.FecharConexao();
                 throw ex;
             }
         }
@@ -57,6 +58,7 @@ namespace ReportPlus.DATABASE
             }
             catch (Exception ex)
             {
+                db_Connection.FecharConexao();
                 throw ex;
             }
         }
@@ -83,6 +85,7 @@ namespace ReportPlus.DATABASE
             }
             catch (Exception ex)
             {
+                db_Connection.FecharConexao();
                 throw ex;
             }
         }
@@ -109,6 +112,7 @@ namespace ReportPlus.DATABASE
             }
             catch (Exception ex)
             {
+                db_Connection.FecharConexao();
                 throw ex;
             }
         }

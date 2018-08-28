@@ -67,7 +67,9 @@ namespace ReportPlus
             {
                 if (chckFiltroVendedor.Checked)
                 {
-                    CarregarVendedores();
+
+                    
+                        CarregarVendedores();
 
                 }
                 else
@@ -101,6 +103,7 @@ namespace ReportPlus
         {
             try
             {
+                
                 bgwFiltroVendedor.ReportProgress(1);
                 db_Select.CarregarVendedores(sigla, dtpckrPeriodoInicial.Value, dtpckrPeriodoFinal.Value, (List<_vendedor>)e.Argument);
                 e.Result = e.Argument;
@@ -147,7 +150,7 @@ namespace ReportPlus
             {
                 if (chckFiltroGrupoProduto.Checked)
                 {
-                    CarregarGruposProduto();
+                        CarregarGruposProduto();
                 }
                 else
                 {
@@ -214,7 +217,6 @@ namespace ReportPlus
         #endregion //Carregar Grupo de Produtos Background Work
 
 
-
         #region Carregar Produto (Background Worker)
 
         private void chckFiltroProduto_CheckedChanged(object sender, EventArgs e)
@@ -223,7 +225,7 @@ namespace ReportPlus
             {
                 if (chckFiltroProduto.Checked)
                 {
-                    CarregarProdutos();
+                        CarregarProdutos();
                 }
                 else
                 {
@@ -306,46 +308,17 @@ namespace ReportPlus
             {
                 if (chckFiltroVendedor.Checked)
                 {
-                    if (!bgwFiltroVendedor.IsBusy)
-                    {
-                        CarregarVendedores();
-                    }
+                    CarregarVendedores();
                 }
                 if (chckFiltroGrupoProduto.Checked)
                 {
-                    if (bgwFiltroGrupoProduto.IsBusy)
-                    {
-                        lblCarregandoGrupoProduto.Visible = true;
-                        while (bgwFiltroGrupoProduto.IsBusy)
-                        {
-                            lblCarregandoGrupoProduto.Text = "Aguardando";
-                        }
-
-                        lblCarregandoGrupoProduto.Visible = false;
-                        lblCarregandoGrupoProduto.Text = "Carregando";
-                        CarregarGruposProduto();
-                    }
-                    else
-                    {
-                        CarregarGruposProduto();
-                    }
+                    CarregarGruposProduto();
                 }
-                    if (chckFiltroProduto.Checked)
-                    {
-                    if (bgwFiltroGrupoProduto.IsBusy)
-                    {
-                        lblCarregandoProduto.Visible = true;
+                if (chckFiltroProduto.Checked)
+                {
+                    CarregarProdutos();
+                }
 
-                        while (bgwFiltroGrupoProduto.IsBusy)
-                        {                            
-                            lblCarregandoProduto.Text = "Aguardando";
-                        }
-
-                        lblCarregandoGrupoProduto.Visible = false;
-                        lblCarregandoProduto.Text = "Carregando";
-                        CarregarProdutos();
-                    }
-                    }
             }
             catch (Exception ex)
             {
