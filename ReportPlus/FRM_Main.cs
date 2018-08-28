@@ -139,7 +139,7 @@ namespace ReportPlus
 
         private void btnProdutosVendidos_Click(object sender, EventArgs e)
         {
-            FRM_Report_ProdVend f = new FRM_Report_ProdVend();
+            FRM_Report_ProdVend f = new FRM_Report_ProdVend((cmbxLoja.SelectedItem as _loja).Sigla);
             f.ShowDialog();
             
         }
@@ -154,7 +154,7 @@ namespace ReportPlus
                 if ((cmbxLoja.SelectedItem as _loja).Sigla != "00000")
                 {
                     List<_usuario> lista_usuarios = new List<_usuario>();
-                    db_Usuarios.CarregarUsuarios((cmbxLoja.SelectedItem as _loja).Sigla, lista_usuarios);
+                    db_Select.CarregarUsuarios((cmbxLoja.SelectedItem as _loja).Sigla, lista_usuarios);
                     cmbxUsuarios.ValueMember = "Codigo";
                     cmbxUsuarios.DisplayMember = "Codigo";
                     cmbxUsuarios.DataSource = lista_usuarios;

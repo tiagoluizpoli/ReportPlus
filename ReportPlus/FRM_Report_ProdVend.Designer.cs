@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Report_ProdVend));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.pnFiltros = new MetroFramework.Controls.MetroPanel();
@@ -58,11 +58,6 @@
             this.dtpckrPeriodoInicial = new MetroFramework.Controls.MetroDateTime();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvwMainReportScreen = new MetroFramework.Controls.MetroGrid();
-            this.btnExportPdf = new MetroFramework.Controls.MetroButton();
-            this.btnExportExcel = new MetroFramework.Controls.MetroButton();
-            this.pnExport = new MetroFramework.Controls.MetroPanel();
-            this.btnExportTexto = new MetroFramework.Controls.MetroButton();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.NLoja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Loja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +66,12 @@
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaSemana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExportPdf = new MetroFramework.Controls.MetroButton();
+            this.btnExportExcel = new MetroFramework.Controls.MetroButton();
+            this.pnExport = new MetroFramework.Controls.MetroPanel();
+            this.btnExportTexto = new MetroFramework.Controls.MetroButton();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.bgwFiltroGrupoProduto = new System.ComponentModel.BackgroundWorker();
             this.pnFiltros.SuspendLayout();
             this.pnTipo.SuspendLayout();
             this.metroPanel1.SuspendLayout();
@@ -198,7 +199,7 @@
             this.rdbtnOrdenarVendedor.AutoSize = true;
             this.rdbtnOrdenarVendedor.Location = new System.Drawing.Point(28, 63);
             this.rdbtnOrdenarVendedor.Name = "rdbtnOrdenarVendedor";
-            this.rdbtnOrdenarVendedor.Size = new System.Drawing.Size(73, 15);
+            this.rdbtnOrdenarVendedor.Size = new System.Drawing.Size(74, 15);
             this.rdbtnOrdenarVendedor.TabIndex = 39;
             this.rdbtnOrdenarVendedor.Text = "Vendedor";
             this.rdbtnOrdenarVendedor.UseSelectable = true;
@@ -307,6 +308,7 @@
             this.chckFiltroGrupoProduto.TabIndex = 30;
             this.chckFiltroGrupoProduto.Text = "Grupo de Produto";
             this.chckFiltroGrupoProduto.UseSelectable = true;
+            this.chckFiltroGrupoProduto.CheckedChanged += new System.EventHandler(this.chckFiltroGrupoProduto_CheckedChanged);
             // 
             // dtpckrPeriodoFinal
             // 
@@ -318,6 +320,7 @@
             this.dtpckrPeriodoFinal.Size = new System.Drawing.Size(111, 29);
             this.dtpckrPeriodoFinal.Style = MetroFramework.MetroColorStyle.Orange;
             this.dtpckrPeriodoFinal.TabIndex = 27;
+            this.dtpckrPeriodoFinal.ValueChanged += new System.EventHandler(this.datetime_ValueChanged);
             // 
             // chckFiltroVendedor
             // 
@@ -325,10 +328,11 @@
             this.chckFiltroVendedor.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
             this.chckFiltroVendedor.Location = new System.Drawing.Point(240, 3);
             this.chckFiltroVendedor.Name = "chckFiltroVendedor";
-            this.chckFiltroVendedor.Size = new System.Drawing.Size(92, 15);
+            this.chckFiltroVendedor.Size = new System.Drawing.Size(94, 15);
             this.chckFiltroVendedor.TabIndex = 26;
             this.chckFiltroVendedor.Text = "Por Vendedor";
             this.chckFiltroVendedor.UseSelectable = true;
+            this.chckFiltroVendedor.CheckedChanged += new System.EventHandler(this.chckFiltroVendedor_CheckedChanged);
             // 
             // metroLabel2
             // 
@@ -337,7 +341,7 @@
             this.metroLabel2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.metroLabel2.Location = new System.Drawing.Point(121, 5);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(74, 15);
+            this.metroLabel2.Size = new System.Drawing.Size(75, 15);
             this.metroLabel2.TabIndex = 25;
             this.metroLabel2.Text = "Período Final:";
             // 
@@ -347,7 +351,7 @@
             this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel7.Location = new System.Drawing.Point(4, 6);
             this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(78, 15);
+            this.metroLabel7.Size = new System.Drawing.Size(79, 15);
             this.metroLabel7.TabIndex = 24;
             this.metroLabel7.Text = "Período Inicial:";
             // 
@@ -361,6 +365,7 @@
             this.dtpckrPeriodoInicial.Size = new System.Drawing.Size(111, 29);
             this.dtpckrPeriodoInicial.Style = MetroFramework.MetroColorStyle.Orange;
             this.dtpckrPeriodoInicial.TabIndex = 22;
+            this.dtpckrPeriodoInicial.ValueChanged += new System.EventHandler(this.datetime_ValueChanged);
             // 
             // panel1
             // 
@@ -382,14 +387,14 @@
             this.dtgvwMainReportScreen.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvwMainReportScreen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtgvwMainReportScreen.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvwMainReportScreen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwMainReportScreen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgvwMainReportScreen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvwMainReportScreen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NLoja,
@@ -400,14 +405,14 @@
             this.Quantidade,
             this.DiaSemana,
             this.Dia});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvwMainReportScreen.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvwMainReportScreen.DefaultCellStyle = dataGridViewCellStyle5;
             this.dtgvwMainReportScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvwMainReportScreen.EnableHeadersVisualStyles = false;
             this.dtgvwMainReportScreen.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -415,18 +420,66 @@
             this.dtgvwMainReportScreen.Location = new System.Drawing.Point(0, 0);
             this.dtgvwMainReportScreen.Name = "dtgvwMainReportScreen";
             this.dtgvwMainReportScreen.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvwMainReportScreen.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwMainReportScreen.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvwMainReportScreen.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtgvwMainReportScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1326, 530);
             this.dtgvwMainReportScreen.TabIndex = 0;
+            // 
+            // NLoja
+            // 
+            this.NLoja.HeaderText = "Num. Loja";
+            this.NLoja.Name = "NLoja";
+            this.NLoja.ReadOnly = true;
+            // 
+            // Loja
+            // 
+            this.Loja.HeaderText = "Loja";
+            this.Loja.Name = "Loja";
+            this.Loja.ReadOnly = true;
+            // 
+            // Vendedor
+            // 
+            this.Vendedor.HeaderText = "Vendedor";
+            this.Vendedor.Name = "Vendedor";
+            this.Vendedor.ReadOnly = true;
+            // 
+            // GrupoProdutos
+            // 
+            this.GrupoProdutos.HeaderText = "Grupo Produtos";
+            this.GrupoProdutos.Name = "GrupoProdutos";
+            this.GrupoProdutos.ReadOnly = true;
+            // 
+            // Produtos
+            // 
+            this.Produtos.HeaderText = "Produtos";
+            this.Produtos.Name = "Produtos";
+            this.Produtos.ReadOnly = true;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            // 
+            // DiaSemana
+            // 
+            this.DiaSemana.HeaderText = "DiaSemana";
+            this.DiaSemana.Name = "DiaSemana";
+            this.DiaSemana.ReadOnly = true;
+            // 
+            // Dia
+            // 
+            this.Dia.HeaderText = "Dia";
+            this.Dia.Name = "Dia";
+            this.Dia.ReadOnly = true;
             // 
             // btnExportPdf
             // 
@@ -489,57 +542,16 @@
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.Location = new System.Drawing.Point(953, 1);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(60, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(59, 19);
             this.metroLabel5.TabIndex = 46;
             this.metroLabel5.Text = "Exportar";
             // 
-            // NLoja
+            // bgwFiltroGrupoProduto
             // 
-            this.NLoja.HeaderText = "Num. Loja";
-            this.NLoja.Name = "NLoja";
-            this.NLoja.ReadOnly = true;
-            // 
-            // Loja
-            // 
-            this.Loja.HeaderText = "Loja";
-            this.Loja.Name = "Loja";
-            this.Loja.ReadOnly = true;
-            // 
-            // Vendedor
-            // 
-            this.Vendedor.HeaderText = "Vendedor";
-            this.Vendedor.Name = "Vendedor";
-            this.Vendedor.ReadOnly = true;
-            // 
-            // GrupoProdutos
-            // 
-            this.GrupoProdutos.HeaderText = "Grupo Produtos";
-            this.GrupoProdutos.Name = "GrupoProdutos";
-            this.GrupoProdutos.ReadOnly = true;
-            // 
-            // Produtos
-            // 
-            this.Produtos.HeaderText = "Produtos";
-            this.Produtos.Name = "Produtos";
-            this.Produtos.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            // 
-            // DiaSemana
-            // 
-            this.DiaSemana.HeaderText = "DiaSemana";
-            this.DiaSemana.Name = "DiaSemana";
-            this.DiaSemana.ReadOnly = true;
-            // 
-            // Dia
-            // 
-            this.Dia.HeaderText = "Dia";
-            this.Dia.Name = "Dia";
-            this.Dia.ReadOnly = true;
+            this.bgwFiltroGrupoProduto.WorkerReportsProgress = true;
+            this.bgwFiltroGrupoProduto.WorkerSupportsCancellation = true;
+            
+            
             // 
             // FRM_Report_ProdVend
             // 
@@ -612,5 +624,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaSemana;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dia;
+        private System.ComponentModel.BackgroundWorker bgwFiltroGrupoProduto;
     }
 }

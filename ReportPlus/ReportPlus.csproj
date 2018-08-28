@@ -79,7 +79,7 @@
   <ItemGroup>
     <Compile Include="DATABASE\db_Connection.cs" />
     <Compile Include="DATABASE\db_Loja.cs" />
-    <Compile Include="DATABASE\db_Usuarios.cs" />
+    <Compile Include="DATABASE\db_Select.cs" />
     <Compile Include="FRM_Config.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,8 +98,10 @@
     <Compile Include="FRM_Report_ProdVend.Designer.cs">
       <DependentUpon>FRM_Report_ProdVend.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\_grupoProduto.cs" />
     <Compile Include="Models\_loja.cs" />
     <Compile Include="Models\_usuario.cs" />
+    <Compile Include="Models\_vendedor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\PasswordEncryption.cs" />
