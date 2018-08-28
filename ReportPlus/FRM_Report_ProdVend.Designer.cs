@@ -149,6 +149,7 @@
             // rdbtnTipoConsolidado
             // 
             this.rdbtnTipoConsolidado.AutoSize = true;
+            this.rdbtnTipoConsolidado.Enabled = false;
             this.rdbtnTipoConsolidado.Location = new System.Drawing.Point(120, 3);
             this.rdbtnTipoConsolidado.Name = "rdbtnTipoConsolidado";
             this.rdbtnTipoConsolidado.Size = new System.Drawing.Size(90, 15);
