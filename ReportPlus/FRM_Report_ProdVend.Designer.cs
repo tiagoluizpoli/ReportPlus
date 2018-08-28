@@ -72,6 +72,11 @@
             this.btnExportTexto = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.bgwFiltroGrupoProduto = new System.ComponentModel.BackgroundWorker();
+            this.lblCarregandoProduto = new MetroFramework.Controls.MetroLabel();
+            this.bgwFiltroProduto = new System.ComponentModel.BackgroundWorker();
+            this.lblCarregandoGrupoProduto = new MetroFramework.Controls.MetroLabel();
+            this.bgwFiltroVendedor = new System.ComponentModel.BackgroundWorker();
+            this.lblCarregandoVendedor = new MetroFramework.Controls.MetroLabel();
             this.pnFiltros.SuspendLayout();
             this.pnTipo.SuspendLayout();
             this.metroPanel1.SuspendLayout();
@@ -200,7 +205,7 @@
             this.rdbtnOrdenarVendedor.AutoSize = true;
             this.rdbtnOrdenarVendedor.Location = new System.Drawing.Point(28, 63);
             this.rdbtnOrdenarVendedor.Name = "rdbtnOrdenarVendedor";
-            this.rdbtnOrdenarVendedor.Size = new System.Drawing.Size(74, 15);
+            this.rdbtnOrdenarVendedor.Size = new System.Drawing.Size(73, 15);
             this.rdbtnOrdenarVendedor.TabIndex = 39;
             this.rdbtnOrdenarVendedor.Text = "Vendedor";
             this.rdbtnOrdenarVendedor.UseSelectable = true;
@@ -330,7 +335,7 @@
             this.chckFiltroVendedor.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
             this.chckFiltroVendedor.Location = new System.Drawing.Point(240, 3);
             this.chckFiltroVendedor.Name = "chckFiltroVendedor";
-            this.chckFiltroVendedor.Size = new System.Drawing.Size(94, 15);
+            this.chckFiltroVendedor.Size = new System.Drawing.Size(92, 15);
             this.chckFiltroVendedor.TabIndex = 26;
             this.chckFiltroVendedor.Text = "Por Vendedor";
             this.chckFiltroVendedor.UseSelectable = true;
@@ -343,7 +348,7 @@
             this.metroLabel2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.metroLabel2.Location = new System.Drawing.Point(121, 5);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(75, 15);
+            this.metroLabel2.Size = new System.Drawing.Size(74, 15);
             this.metroLabel2.TabIndex = 25;
             this.metroLabel2.Text = "Período Final:";
             // 
@@ -353,7 +358,7 @@
             this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel7.Location = new System.Drawing.Point(4, 6);
             this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(79, 15);
+            this.metroLabel7.Size = new System.Drawing.Size(78, 15);
             this.metroLabel7.TabIndex = 24;
             this.metroLabel7.Text = "Período Inicial:";
             // 
@@ -512,8 +517,8 @@
             // pnExport
             // 
             this.pnExport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnExport.Controls.Add(this.btnExportTexto);
             this.pnExport.Controls.Add(this.btnExportPdf);
+            this.pnExport.Controls.Add(this.btnExportTexto);
             this.pnExport.Controls.Add(this.btnExportExcel);
             this.pnExport.HorizontalScrollbarBarColor = true;
             this.pnExport.HorizontalScrollbarHighlightOnWheel = false;
@@ -544,7 +549,7 @@
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.Location = new System.Drawing.Point(953, 1);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(59, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(60, 19);
             this.metroLabel5.TabIndex = 46;
             this.metroLabel5.Text = "Exportar";
             // 
@@ -552,6 +557,61 @@
             // 
             this.bgwFiltroGrupoProduto.WorkerReportsProgress = true;
             this.bgwFiltroGrupoProduto.WorkerSupportsCancellation = true;
+            this.bgwFiltroGrupoProduto.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroGrupoProduto_DoWork);
+            this.bgwFiltroGrupoProduto.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroGrupoProduto_ProgressChanged);
+            this.bgwFiltroGrupoProduto.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroGrupoProduto_RunWorkerCompleted);
+            // 
+            // lblCarregandoProduto
+            // 
+            this.lblCarregandoProduto.AutoSize = true;
+            this.lblCarregandoProduto.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblCarregandoProduto.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblCarregandoProduto.Location = new System.Drawing.Point(527, 5);
+            this.lblCarregandoProduto.Name = "lblCarregandoProduto";
+            this.lblCarregandoProduto.Size = new System.Drawing.Size(67, 15);
+            this.lblCarregandoProduto.TabIndex = 43;
+            this.lblCarregandoProduto.Text = "Carregando";
+            this.lblCarregandoProduto.Visible = false;
+            // 
+            // bgwFiltroProduto
+            // 
+            this.bgwFiltroProduto.WorkerReportsProgress = true;
+            this.bgwFiltroProduto.WorkerSupportsCancellation = true;
+            this.bgwFiltroProduto.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroProduto_DoWork);
+            this.bgwFiltroProduto.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroProduto_ProgressChanged);
+            this.bgwFiltroProduto.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroProduto_RunWorkerCompleted);
+            // 
+            // lblCarregandoGrupoProduto
+            // 
+            this.lblCarregandoGrupoProduto.AutoSize = true;
+            this.lblCarregandoGrupoProduto.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblCarregandoGrupoProduto.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblCarregandoGrupoProduto.Location = new System.Drawing.Point(390, 5);
+            this.lblCarregandoGrupoProduto.Name = "lblCarregandoGrupoProduto";
+            this.lblCarregandoGrupoProduto.Size = new System.Drawing.Size(67, 15);
+            this.lblCarregandoGrupoProduto.TabIndex = 47;
+            this.lblCarregandoGrupoProduto.Text = "Carregando";
+            this.lblCarregandoGrupoProduto.Visible = false;
+            // 
+            // bgwFiltroVendedor
+            // 
+            this.bgwFiltroVendedor.WorkerReportsProgress = true;
+            this.bgwFiltroVendedor.WorkerSupportsCancellation = true;
+            this.bgwFiltroVendedor.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroVendedor_DoWork);
+            this.bgwFiltroVendedor.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroVendedor_ProgressChanged);
+            this.bgwFiltroVendedor.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroVendedor_RunWorkerCompleted);
+            // 
+            // lblCarregandoVendedor
+            // 
+            this.lblCarregandoVendedor.AutoSize = true;
+            this.lblCarregandoVendedor.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblCarregandoVendedor.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblCarregandoVendedor.Location = new System.Drawing.Point(253, 5);
+            this.lblCarregandoVendedor.Name = "lblCarregandoVendedor";
+            this.lblCarregandoVendedor.Size = new System.Drawing.Size(67, 15);
+            this.lblCarregandoVendedor.TabIndex = 48;
+            this.lblCarregandoVendedor.Text = "Carregando";
+            this.lblCarregandoVendedor.Visible = false;
             // 
             // FRM_Report_ProdVend
             // 
@@ -559,6 +619,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.lblCarregandoVendedor);
+            this.Controls.Add(this.lblCarregandoGrupoProduto);
+            this.Controls.Add(this.lblCarregandoProduto);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.pnExport);
             this.Controls.Add(this.panel1);
@@ -568,7 +631,7 @@
             this.MinimumSize = new System.Drawing.Size(1116, 720);
             this.Name = "FRM_Report_ProdVend";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Relatório: Produtos Vendidos";
+            this.Text = " ";
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
             this.pnTipo.ResumeLayout(false);
@@ -625,5 +688,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaSemana;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dia;
         private System.ComponentModel.BackgroundWorker bgwFiltroGrupoProduto;
+        private MetroFramework.Controls.MetroLabel lblCarregandoProduto;
+        private System.ComponentModel.BackgroundWorker bgwFiltroProduto;
+        private MetroFramework.Controls.MetroLabel lblCarregandoGrupoProduto;
+        private System.ComponentModel.BackgroundWorker bgwFiltroVendedor;
+        private MetroFramework.Controls.MetroLabel lblCarregandoVendedor;
     }
 }
