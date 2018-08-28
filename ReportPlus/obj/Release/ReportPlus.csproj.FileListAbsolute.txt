@@ -15,3 +15,17 @@ D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPlus\R
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPluss\ReportPlus\bin\Release\ReportPlus.exe.config
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPluss\ReportPlus\obj\Release\ReportPlus.exe
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\ReportPluss\ReportPlus\obj\Release\ReportPlus.pdb
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Release\ReportPlus.exe.config
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.exe
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.pdb
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Release\ReportPlus.exe
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Release\ReportPlus.pdb
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Release\MetroFramework.Design.dll
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Release\MetroFramework.dll
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Release\MetroFramework.Fonts.dll
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.csprojResolveAssemblyReference.cache
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Config.resources
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Main.resources
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Report_ProdVend.resources
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.Properties.Resources.resources
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.GenerateResource.Cache

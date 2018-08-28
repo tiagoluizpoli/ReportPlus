@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="Models\_grupoProduto.cs" />
     <Compile Include="Models\_loja.cs" />
+    <Compile Include="Models\_produto.cs" />
     <Compile Include="Models\_usuario.cs" />
     <Compile Include="Models\_vendedor.cs" />
     <Compile Include="Program.cs" />

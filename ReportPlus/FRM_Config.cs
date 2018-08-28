@@ -230,9 +230,12 @@ namespace ReportPlus
                 opfdpic.Title = "Selecione uma imagem para usar como \"Logo\" na tela inicial";
 
                 opfdpic.Filter = "Todos os tipos de imagem|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.tif;*.tiff|" + "BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff";
-                opfdpic.ShowDialog();
-                txtbxPicLogoPath.Text = opfdpic.FileName;
-                pbLogoImg.ImageLocation = opfdpic.FileName;
+                DialogResult dr = opfdpic.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    txtbxPicLogoPath.Text = opfdpic.FileName;
+                    pbLogoImg.ImageLocation = opfdpic.FileName;
+                }
             }
             catch (Exception ex)
             {

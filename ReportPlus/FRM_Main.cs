@@ -109,6 +109,7 @@ namespace ReportPlus
             FRM_Config f = new FRM_Config();
             f.ShowDialog();
             carregarLogo();
+            CarregarLojas();
         }
        
 

@@ -88,6 +88,24 @@ namespace ReportPlus
             }
         }
 
+        private void CarregarProdutos()
+        {
+            try
+            {
+                List<_produto> lista_produtos = new List<_produto>();
+                lstbxFiltroProduto.ValueMember = "codproduto";
+                lstbxFiltroProduto.DisplayMember = "descriproduto";
+                db_Select.CarregarProdutos(sigla, dtpckrPeriodoInicial.Value, dtpckrPeriodoFinal.Value, lista_produtos);
+                lstbxFiltroProduto.DataSource = lista_produtos;
+
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
 
         #endregion
 
@@ -122,6 +140,7 @@ namespace ReportPlus
                 {
                     CarregarUsuarios();
                     CarregarGruposProduto();
+                    CarregarProdutos();
                 }
             }
             catch (Exception ex)
@@ -132,17 +151,41 @@ namespace ReportPlus
 
         private void chckFiltroGrupoProduto_CheckedChanged(object sender, EventArgs e)
         {
-            if (chckFiltroGrupoProduto.Checked)
+            try
             {
-                CarregarGruposProduto();
+                if (chckFiltroGrupoProduto.Checked)
+                {
+                    CarregarGruposProduto();
+                }
+                else
+                {
+                    lstbxFiltroGrupoProduto.DataSource = null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lstbxFiltroGrupoProduto.DataSource = null;
+
+                MetroMessageBox.Show(this, ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
 
-        
+        private void chckFiltroProduto_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chckFiltroProduto.Checked)
+                {
+                    CarregarProdutos();
+                }
+                else
+                {
+                    lstbxFiltroProduto.DataSource = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 } 

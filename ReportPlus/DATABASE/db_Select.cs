@@ -86,5 +86,31 @@ namespace ReportPlus.DATABASE
                 throw ex;
             }
         }
+
+        public static void CarregarProdutos(string sigla, DateTime periodoInicial, DateTime periodoFinal, List<_produto> lista_Produtos)
+        {
+            try
+            {
+                db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
+                db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
+                db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
+                db_Connection.com.CommandText = "select p.codproduto, p.descriproduto from produto p inner join mov m on p.codproduto = m.produto where p.codproduto in (select mov.produto from mov where data between @periodoInicial and @periodoFinal) and p.loja = @sigla group by p.DescriProduto,p.codproduto order by p.DescriProduto";
+                db_Connection.AbrirConexao();
+                SqlDataReader r = db_Connection.com.ExecuteReader();
+                while (r.Read())
+                {
+                    lista_Produtos.Add(new _produto
+                    {
+                        codproduto = r["codproduto"].ToString(),
+                        descriproduto = r["descriproduto"].ToString()
+                    });
+                }
+                db_Connection.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
