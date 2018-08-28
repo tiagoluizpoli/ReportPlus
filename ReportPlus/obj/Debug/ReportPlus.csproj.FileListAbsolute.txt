@@ -1,0 +1,14 @@
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Debug\ReportPlus.exe.config
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.csprojResolveAssemblyReference.cache
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Config.resources
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Main.resources
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Report_ProdVend.resources
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.Properties.Resources.resources
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.csproj.GenerateResource.Cache
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Debug\ReportPlus.exe
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Debug\ReportPlus.pdb
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Debug\MetroFramework.Design.dll
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Debug\MetroFramework.dll
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\bin\Debug\MetroFramework.Fonts.dll
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.exe
+D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.pdb
