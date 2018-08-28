@@ -29,3 +29,14 @@ D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\Re
 D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Report_ProdVend.resources
 D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.Properties.Resources.resources
 D:\Program Files\Visual Studio\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.GenerateResource.Cache
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\bin\Release\ReportPlus.exe.config
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.exe
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.pdb
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\bin\Release\ReportPlus.exe
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\bin\Release\ReportPlus.pdb
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.csprojResolveAssemblyReference.cache
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Config.resources
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Main.resources
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Report_ProdVend.resources
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.Properties.Resources.resources
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.GenerateResource.Cache
