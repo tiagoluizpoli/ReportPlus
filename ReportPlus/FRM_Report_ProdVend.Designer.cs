@@ -38,7 +38,6 @@
             this.pnTipo = new MetroFramework.Controls.MetroPanel();
             this.rdbtnTipoConsolidado = new MetroFramework.Controls.MetroRadioButton();
             this.rdbtnTipoDetalhado = new MetroFramework.Controls.MetroRadioButton();
-            this.chckFiltroOrdenar = new MetroFramework.Controls.MetroCheckBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.rdbtnOrdenarVendedor = new MetroFramework.Controls.MetroRadioButton();
             this.rdbtnOrdenarData = new MetroFramework.Controls.MetroRadioButton();
@@ -77,6 +76,9 @@
             this.lblCarregandoGrupoProduto = new MetroFramework.Controls.MetroLabel();
             this.bgwFiltroVendedor = new System.ComponentModel.BackgroundWorker();
             this.lblCarregandoVendedor = new MetroFramework.Controls.MetroLabel();
+            this.bgwFiltroTudo = new System.ComponentModel.BackgroundWorker();
+            this.lblOrdenar = new MetroFramework.Controls.MetroLabel();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.pnFiltros.SuspendLayout();
             this.pnTipo.SuspendLayout();
             this.metroPanel1.SuspendLayout();
@@ -97,9 +99,10 @@
             // pnFiltros
             // 
             this.pnFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnFiltros.Controls.Add(this.metroTextBox1);
+            this.pnFiltros.Controls.Add(this.lblOrdenar);
             this.pnFiltros.Controls.Add(this.metroLabel3);
             this.pnFiltros.Controls.Add(this.pnTipo);
-            this.pnFiltros.Controls.Add(this.chckFiltroOrdenar);
             this.pnFiltros.Controls.Add(this.metroPanel1);
             this.pnFiltros.Controls.Add(this.lstbxFiltroDiaSemana);
             this.pnFiltros.Controls.Add(this.lstbxFiltroProduto);
@@ -120,7 +123,7 @@
             this.pnFiltros.HorizontalScrollbarSize = 10;
             this.pnFiltros.Location = new System.Drawing.Point(12, 23);
             this.pnFiltros.Name = "pnFiltros";
-            this.pnFiltros.Size = new System.Drawing.Size(935, 157);
+            this.pnFiltros.Size = new System.Drawing.Size(794, 195);
             this.pnFiltros.TabIndex = 27;
             this.pnFiltros.VerticalScrollbarBarColor = true;
             this.pnFiltros.VerticalScrollbarHighlightOnWheel = false;
@@ -130,7 +133,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel3.Location = new System.Drawing.Point(6, 60);
+            this.metroLabel3.Location = new System.Drawing.Point(6, 99);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(32, 15);
             this.metroLabel3.TabIndex = 42;
@@ -138,12 +141,13 @@
             // 
             // pnTipo
             // 
+            this.pnTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnTipo.Controls.Add(this.rdbtnTipoConsolidado);
             this.pnTipo.Controls.Add(this.rdbtnTipoDetalhado);
             this.pnTipo.HorizontalScrollbarBarColor = true;
             this.pnTipo.HorizontalScrollbarHighlightOnWheel = false;
             this.pnTipo.HorizontalScrollbarSize = 10;
-            this.pnTipo.Location = new System.Drawing.Point(6, 78);
+            this.pnTipo.Location = new System.Drawing.Point(6, 117);
             this.pnTipo.Name = "pnTipo";
             this.pnTipo.Size = new System.Drawing.Size(228, 22);
             this.pnTipo.TabIndex = 41;
@@ -172,18 +176,6 @@
             this.rdbtnTipoDetalhado.Text = "Detalhado";
             this.rdbtnTipoDetalhado.UseSelectable = true;
             // 
-            // chckFiltroOrdenar
-            // 
-            this.chckFiltroOrdenar.AutoSize = true;
-            this.chckFiltroOrdenar.BackColor = System.Drawing.Color.White;
-            this.chckFiltroOrdenar.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
-            this.chckFiltroOrdenar.Location = new System.Drawing.Point(788, 3);
-            this.chckFiltroOrdenar.Name = "chckFiltroOrdenar";
-            this.chckFiltroOrdenar.Size = new System.Drawing.Size(65, 15);
-            this.chckFiltroOrdenar.TabIndex = 40;
-            this.chckFiltroOrdenar.Text = "Ordenar";
-            this.chckFiltroOrdenar.UseSelectable = true;
-            // 
             // metroPanel1
             // 
             this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -192,9 +184,9 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(788, 22);
+            this.metroPanel1.Location = new System.Drawing.Point(6, 74);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(131, 121);
+            this.metroPanel1.Size = new System.Drawing.Size(228, 22);
             this.metroPanel1.TabIndex = 39;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -203,7 +195,7 @@
             // rdbtnOrdenarVendedor
             // 
             this.rdbtnOrdenarVendedor.AutoSize = true;
-            this.rdbtnOrdenarVendedor.Location = new System.Drawing.Point(28, 63);
+            this.rdbtnOrdenarVendedor.Location = new System.Drawing.Point(119, 2);
             this.rdbtnOrdenarVendedor.Name = "rdbtnOrdenarVendedor";
             this.rdbtnOrdenarVendedor.Size = new System.Drawing.Size(73, 15);
             this.rdbtnOrdenarVendedor.TabIndex = 39;
@@ -213,7 +205,7 @@
             // rdbtnOrdenarData
             // 
             this.rdbtnOrdenarData.AutoSize = true;
-            this.rdbtnOrdenarData.Location = new System.Drawing.Point(28, 40);
+            this.rdbtnOrdenarData.Location = new System.Drawing.Point(8, 2);
             this.rdbtnOrdenarData.Name = "rdbtnOrdenarData";
             this.rdbtnOrdenarData.Size = new System.Drawing.Size(47, 15);
             this.rdbtnOrdenarData.TabIndex = 38;
@@ -226,16 +218,16 @@
             this.lstbxFiltroDiaSemana.Location = new System.Drawing.Point(651, 22);
             this.lstbxFiltroDiaSemana.Name = "lstbxFiltroDiaSemana";
             this.lstbxFiltroDiaSemana.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbxFiltroDiaSemana.Size = new System.Drawing.Size(131, 121);
+            this.lstbxFiltroDiaSemana.Size = new System.Drawing.Size(131, 160);
             this.lstbxFiltroDiaSemana.TabIndex = 37;
             // 
             // lstbxFiltroProduto
             // 
             this.lstbxFiltroProduto.FormattingEnabled = true;
-            this.lstbxFiltroProduto.Location = new System.Drawing.Point(514, 22);
+            this.lstbxFiltroProduto.Location = new System.Drawing.Point(514, 48);
             this.lstbxFiltroProduto.Name = "lstbxFiltroProduto";
             this.lstbxFiltroProduto.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbxFiltroProduto.Size = new System.Drawing.Size(131, 121);
+            this.lstbxFiltroProduto.Size = new System.Drawing.Size(131, 134);
             this.lstbxFiltroProduto.TabIndex = 36;
             // 
             // lstbxFiltroGrupoProduto
@@ -244,7 +236,7 @@
             this.lstbxFiltroGrupoProduto.Location = new System.Drawing.Point(377, 22);
             this.lstbxFiltroGrupoProduto.Name = "lstbxFiltroGrupoProduto";
             this.lstbxFiltroGrupoProduto.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbxFiltroGrupoProduto.Size = new System.Drawing.Size(131, 121);
+            this.lstbxFiltroGrupoProduto.Size = new System.Drawing.Size(131, 160);
             this.lstbxFiltroGrupoProduto.TabIndex = 35;
             // 
             // lstbxFiltroVendedor
@@ -253,13 +245,13 @@
             this.lstbxFiltroVendedor.Location = new System.Drawing.Point(240, 22);
             this.lstbxFiltroVendedor.Name = "lstbxFiltroVendedor";
             this.lstbxFiltroVendedor.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbxFiltroVendedor.Size = new System.Drawing.Size(131, 121);
+            this.lstbxFiltroVendedor.Size = new System.Drawing.Size(131, 160);
             this.lstbxFiltroVendedor.TabIndex = 29;
             // 
             // btnRedefinirFiltros
             // 
             this.btnRedefinirFiltros.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnRedefinirFiltros.Location = new System.Drawing.Point(6, 108);
+            this.btnRedefinirFiltros.Location = new System.Drawing.Point(6, 147);
             this.btnRedefinirFiltros.Name = "btnRedefinirFiltros";
             this.btnRedefinirFiltros.Size = new System.Drawing.Size(111, 35);
             this.btnRedefinirFiltros.Style = MetroFramework.MetroColorStyle.White;
@@ -272,7 +264,7 @@
             // btnAplicarFiltros
             // 
             this.btnAplicarFiltros.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnAplicarFiltros.Location = new System.Drawing.Point(123, 108);
+            this.btnAplicarFiltros.Location = new System.Drawing.Point(123, 147);
             this.btnAplicarFiltros.Name = "btnAplicarFiltros";
             this.btnAplicarFiltros.Size = new System.Drawing.Size(111, 35);
             this.btnAplicarFiltros.Style = MetroFramework.MetroColorStyle.White;
@@ -327,7 +319,7 @@
             this.dtpckrPeriodoFinal.Size = new System.Drawing.Size(111, 29);
             this.dtpckrPeriodoFinal.Style = MetroFramework.MetroColorStyle.Orange;
             this.dtpckrPeriodoFinal.TabIndex = 27;
-            this.dtpckrPeriodoFinal.ValueChanged += new System.EventHandler(this.datetime_ValueChanged);
+            this.dtpckrPeriodoFinal.CloseUp += new System.EventHandler(this.datetime_ValueChanged);
             // 
             // chckFiltroVendedor
             // 
@@ -372,7 +364,7 @@
             this.dtpckrPeriodoInicial.Size = new System.Drawing.Size(111, 29);
             this.dtpckrPeriodoInicial.Style = MetroFramework.MetroColorStyle.Orange;
             this.dtpckrPeriodoInicial.TabIndex = 22;
-            this.dtpckrPeriodoInicial.ValueChanged += new System.EventHandler(this.datetime_ValueChanged);
+            this.dtpckrPeriodoInicial.CloseUp += new System.EventHandler(this.datetime_ValueChanged);
             // 
             // panel1
             // 
@@ -382,9 +374,9 @@
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.dtgvwMainReportScreen);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel1.Location = new System.Drawing.Point(12, 187);
+            this.panel1.Location = new System.Drawing.Point(12, 224);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1326, 530);
+            this.panel1.Size = new System.Drawing.Size(1326, 493);
             this.panel1.TabIndex = 28;
             // 
             // dtgvwMainReportScreen
@@ -437,7 +429,7 @@
             this.dtgvwMainReportScreen.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvwMainReportScreen.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtgvwMainReportScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1326, 530);
+            this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1326, 493);
             this.dtgvwMainReportScreen.TabIndex = 0;
             // 
             // NLoja
@@ -491,9 +483,9 @@
             // btnExportPdf
             // 
             this.btnExportPdf.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnExportPdf.Location = new System.Drawing.Point(9, 60);
+            this.btnExportPdf.Location = new System.Drawing.Point(3, 77);
             this.btnExportPdf.Name = "btnExportPdf";
-            this.btnExportPdf.Size = new System.Drawing.Size(111, 35);
+            this.btnExportPdf.Size = new System.Drawing.Size(111, 50);
             this.btnExportPdf.Style = MetroFramework.MetroColorStyle.White;
             this.btnExportPdf.TabIndex = 43;
             this.btnExportPdf.Text = "Pdf";
@@ -504,9 +496,9 @@
             // btnExportExcel
             // 
             this.btnExportExcel.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnExportExcel.Location = new System.Drawing.Point(9, 22);
+            this.btnExportExcel.Location = new System.Drawing.Point(3, 21);
             this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(111, 35);
+            this.btnExportExcel.Size = new System.Drawing.Size(111, 50);
             this.btnExportExcel.Style = MetroFramework.MetroColorStyle.White;
             this.btnExportExcel.TabIndex = 44;
             this.btnExportExcel.Text = "Excel";
@@ -523,9 +515,9 @@
             this.pnExport.HorizontalScrollbarBarColor = true;
             this.pnExport.HorizontalScrollbarHighlightOnWheel = false;
             this.pnExport.HorizontalScrollbarSize = 10;
-            this.pnExport.Location = new System.Drawing.Point(953, 23);
+            this.pnExport.Location = new System.Drawing.Point(812, 23);
             this.pnExport.Name = "pnExport";
-            this.pnExport.Size = new System.Drawing.Size(131, 157);
+            this.pnExport.Size = new System.Drawing.Size(131, 195);
             this.pnExport.TabIndex = 45;
             this.pnExport.VerticalScrollbarBarColor = true;
             this.pnExport.VerticalScrollbarHighlightOnWheel = false;
@@ -534,9 +526,9 @@
             // btnExportTexto
             // 
             this.btnExportTexto.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnExportTexto.Location = new System.Drawing.Point(9, 98);
+            this.btnExportTexto.Location = new System.Drawing.Point(3, 133);
             this.btnExportTexto.Name = "btnExportTexto";
-            this.btnExportTexto.Size = new System.Drawing.Size(111, 35);
+            this.btnExportTexto.Size = new System.Drawing.Size(111, 50);
             this.btnExportTexto.Style = MetroFramework.MetroColorStyle.White;
             this.btnExportTexto.TabIndex = 45;
             this.btnExportTexto.Text = "Texto";
@@ -547,7 +539,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(953, 1);
+            this.metroLabel5.Location = new System.Drawing.Point(812, 1);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(60, 19);
             this.metroLabel5.TabIndex = 46;
@@ -613,6 +605,56 @@
             this.lblCarregandoVendedor.Text = "Carregando";
             this.lblCarregandoVendedor.Visible = false;
             // 
+            // bgwFiltroTudo
+            // 
+            this.bgwFiltroTudo.WorkerReportsProgress = true;
+            this.bgwFiltroTudo.WorkerSupportsCancellation = true;
+            this.bgwFiltroTudo.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroTudo_DoWork);
+            this.bgwFiltroTudo.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroTudo_ProgressChanged);
+            this.bgwFiltroTudo.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroTudo_RunWorkerCompleted);
+            // 
+            // lblOrdenar
+            // 
+            this.lblOrdenar.AutoSize = true;
+            this.lblOrdenar.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblOrdenar.Location = new System.Drawing.Point(6, 56);
+            this.lblOrdenar.Name = "lblOrdenar";
+            this.lblOrdenar.Size = new System.Drawing.Size(74, 15);
+            this.lblOrdenar.TabIndex = 43;
+            this.lblOrdenar.Text = "Ordenar por:";
+            // 
+            // metroTextBox1
+            // 
+            // 
+            // 
+            // 
+            this.metroTextBox1.CustomButton.Image = null;
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(108, 1);
+            this.metroTextBox1.CustomButton.Name = "";
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox1.CustomButton.TabIndex = 1;
+            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox1.CustomButton.UseSelectable = true;
+            this.metroTextBox1.CustomButton.Visible = false;
+            this.metroTextBox1.Lines = new string[] {
+        "metroTextBox1"};
+            this.metroTextBox1.Location = new System.Drawing.Point(515, 22);
+            this.metroTextBox1.MaxLength = 32767;
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.PasswordChar = '\0';
+            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox1.SelectedText = "";
+            this.metroTextBox1.SelectionLength = 0;
+            this.metroTextBox1.SelectionStart = 0;
+            this.metroTextBox1.ShortcutsEnabled = true;
+            this.metroTextBox1.Size = new System.Drawing.Size(130, 23);
+            this.metroTextBox1.TabIndex = 44;
+            this.metroTextBox1.Text = "metroTextBox1";
+            this.metroTextBox1.UseSelectable = true;
+            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // FRM_Report_ProdVend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -664,7 +706,6 @@
         private System.Windows.Forms.ListBox lstbxFiltroDiaSemana;
         private System.Windows.Forms.ListBox lstbxFiltroProduto;
         private System.Windows.Forms.ListBox lstbxFiltroGrupoProduto;
-        private MetroFramework.Controls.MetroCheckBox chckFiltroOrdenar;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroRadioButton rdbtnOrdenarVendedor;
         private MetroFramework.Controls.MetroRadioButton rdbtnOrdenarData;
@@ -693,5 +734,8 @@
         private MetroFramework.Controls.MetroLabel lblCarregandoGrupoProduto;
         private System.ComponentModel.BackgroundWorker bgwFiltroVendedor;
         private MetroFramework.Controls.MetroLabel lblCarregandoVendedor;
+        private System.ComponentModel.BackgroundWorker bgwFiltroTudo;
+        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroLabel lblOrdenar;
     }
 }
