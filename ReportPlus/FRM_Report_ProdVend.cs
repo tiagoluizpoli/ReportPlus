@@ -23,6 +23,8 @@ namespace ReportPlus
             this.sigla = sigla;
             InitializeComponent();
             posicaoInicial();
+
+            
         }
 
         #region Declaração de Objetos
@@ -61,7 +63,6 @@ namespace ReportPlus
         #endregion
 
         #region Carregamento de Elementos
-
 
         #region Carregar Vendedores Background Work
 
@@ -144,7 +145,10 @@ namespace ReportPlus
             try
             {
                 lblCarregandoVendedor.Visible = false;
+                SelectionMode selectionMode = lstbxFiltroVendedor.SelectionMode;
+                lstbxFiltroVendedor.SelectionMode = SelectionMode.None;
                 lstbxFiltroVendedor.DataSource = (List<_vendedor>)e.Result;
+                lstbxFiltroVendedor.SelectionMode = selectionMode;
             }
             catch (Exception ex)
             {
@@ -234,7 +238,10 @@ namespace ReportPlus
             try
             {
                 lblCarregandoGrupoProduto.Visible = false;
+                SelectionMode selectionMode = lstbxFiltroGrupoProduto.SelectionMode;
+                lstbxFiltroGrupoProduto.SelectionMode = SelectionMode.None;
                 lstbxFiltroGrupoProduto.DataSource = (List<_grupoProduto>)e.Result;
+                lstbxFiltroGrupoProduto.SelectionMode = selectionMode;
             }
             catch (Exception ex)
             {
@@ -326,7 +333,10 @@ namespace ReportPlus
             try
             {
                 lblCarregandoProduto.Visible = false;
+                SelectionMode selectionMode = lstbxFiltroProduto.SelectionMode;
+                lstbxFiltroProduto.SelectionMode = SelectionMode.None;
                 lstbxFiltroProduto.DataSource = (List<_produto>)e.Result;
+                lstbxFiltroProduto.SelectionMode = selectionMode;
             }
             catch (Exception ex)
             {
@@ -414,18 +424,25 @@ namespace ReportPlus
         {
             try
             {
-                lstbxFiltroVendedor.DataSource = null;
-                lstbxFiltroGrupoProduto.DataSource = null;
-                lstbxFiltroProduto.DataSource = null;
-                lista_vendedores.Clear();
-                lista_GrupoProdutos.Clear();
-                lista_produtos.Clear();
-                lstbxFiltroVendedor.ValueMember = "NomeVendedor";
-                lstbxFiltroVendedor.DisplayMember = "NomeVendedor";
-                lstbxFiltroGrupoProduto.ValueMember = "Grupo";
-                lstbxFiltroGrupoProduto.DisplayMember = "Descricao";
-                lstbxFiltroProduto.ValueMember = "codproduto";
-                lstbxFiltroProduto.DisplayMember = "descriproduto";
+                if (bgwFiltroTudo.IsBusy)
+                {
+
+                }
+                else
+                {
+                    lstbxFiltroVendedor.DataSource = null;
+                    lstbxFiltroGrupoProduto.DataSource = null;
+                    lstbxFiltroProduto.DataSource = null;
+                    lista_vendedores.Clear();
+                    lista_GrupoProdutos.Clear();
+                    lista_produtos.Clear();
+                    lstbxFiltroVendedor.ValueMember = "NomeVendedor";
+                    lstbxFiltroVendedor.DisplayMember = "NomeVendedor";
+                    lstbxFiltroGrupoProduto.ValueMember = "Grupo";
+                    lstbxFiltroGrupoProduto.DisplayMember = "Descricao";
+                    lstbxFiltroProduto.ValueMember = "codproduto";
+                    lstbxFiltroProduto.DisplayMember = "descriproduto";
+                }
 
                 if (chckFiltroVendedor.Checked || chckFiltroGrupoProduto.Checked || chckFiltroProduto.Checked)
                 {
@@ -436,7 +453,16 @@ namespace ReportPlus
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                if (ex.HResult == -2146233079)
+                {
+                    MetroMessageBox.Show(this, "Aguarde todos os filtros serem carregados antes de alterar o período", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, ex.Message + ex.HResult, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
         }
         private void bgwFiltroTudo_DoWork(object sender, DoWorkEventArgs e)
@@ -481,17 +507,23 @@ namespace ReportPlus
                             break;
                         case 2:
                             atualizarLabels(2);
+                        if (chckFiltroVendedor.Checked)
+                        {
                             selectionMode = lstbxFiltroVendedor.SelectionMode;
                             lstbxFiltroVendedor.SelectionMode = SelectionMode.None;
                             lstbxFiltroVendedor.DataSource = lista_vendedores;
                             lstbxFiltroVendedor.SelectionMode = selectionMode;
+                        }
                             break;
                         case 3:
                             atualizarLabels(3);
+                        if (chckFiltroGrupoProduto.Checked)
+                        {
                             selectionMode = lstbxFiltroGrupoProduto.SelectionMode;
                             lstbxFiltroGrupoProduto.SelectionMode = SelectionMode.None;
                             lstbxFiltroGrupoProduto.DataSource = lista_GrupoProdutos;
                             lstbxFiltroGrupoProduto.SelectionMode = selectionMode;
+                        }
                             break;
                     }
                 
@@ -506,10 +538,20 @@ namespace ReportPlus
             try
             {
                 atualizarLabels(4);
-                SelectionMode selectionMode = lstbxFiltroProduto.SelectionMode;
-                lstbxFiltroProduto.SelectionMode = SelectionMode.None;
-                lstbxFiltroProduto.DataSource = lista_produtos;
-                lstbxFiltroProduto.SelectionMode = selectionMode;
+                if (chckFiltroProduto.Checked)
+                {
+                    SelectionMode selectionMode = lstbxFiltroProduto.SelectionMode;
+                    lstbxFiltroProduto.SelectionMode = SelectionMode.None;
+                    if (txtbxSearchProduto.Text == string.Empty)
+                    {
+                        lstbxFiltroProduto.DataSource = lista_produtos;
+                    }
+                    else
+                    {
+                        txtbxSearchProduto_TextChanged(sender, e);
+                    }
+                    lstbxFiltroProduto.SelectionMode = selectionMode;
+                }
 
                 chckFiltroVendedor.Enabled = true;
                 chckFiltroGrupoProduto.Enabled = true;
@@ -520,6 +562,38 @@ namespace ReportPlus
                 throw ex;
             }
         }
+
+        private void txtbxSearchProduto_TextChanged(object sender, EventArgs e)
+        {
+            List<_produto> prodsfiltered = new List<_produto>();
+            foreach (var item in lista_produtos)
+            {
+                if (item.descriproduto.ToLower().Contains(txtbxSearchProduto.Text.ToLower()))
+                {
+                    prodsfiltered.Add(item);
+                }
+            }
+            SelectionMode selectionMode = lstbxFiltroProduto.SelectionMode;
+            lstbxFiltroProduto.SelectionMode = SelectionMode.None;
+            lstbxFiltroProduto.DataSource = prodsfiltered;
+            lstbxFiltroProduto.SelectionMode = selectionMode;
+        }
+
+        private void chckFiltroDiaSemana_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chckFiltroDiaSemana.Checked)
+            {
+                rdbtnOrdenarVendedor.Checked = true;
+                rdbtnOrdenarData.Enabled = false;
+            }
+            else
+            {
+                //rdbtnOrdenarVendedor.Checked = true;
+                rdbtnOrdenarData.Enabled = false;
+            }
+        }
+
+        
     }
     #endregion
 

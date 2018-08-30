@@ -248,7 +248,10 @@ namespace ReportPlus
             try
             {
                 Win_Registry.gravar_pic_path(txtbxPicLogoPath.Text);
-                bgWorker3.RunWorkerAsync();
+                if (!bgWorker3.IsBusy)
+                {
+                    bgWorker3.RunWorkerAsync();
+                }
 
             }
             catch (Exception ex)
@@ -262,11 +265,13 @@ namespace ReportPlus
             //    bgWorker3.ReportProgress(1);
             //    Thread.Sleep(3000);
 
-            for (int i = 1; i < 4; i++)
-            {
-                bgWorker3.ReportProgress(i);
-                Thread.Sleep(1000);
-            }
+            
+                for (int i = 1; i < 4; i++)
+                {
+                    bgWorker3.ReportProgress(i);
+                    Thread.Sleep(1000);
+                }
+            
         }
 
         private void bgWorker3_ProgressChanged(object sender, ProgressChangedEventArgs e)

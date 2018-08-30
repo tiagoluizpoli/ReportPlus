@@ -47,7 +47,7 @@
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.btnSairSelecaoRel = new MetroFramework.Controls.MetroButton();
-            this.btnProdutosVendidos = new MetroFramework.Controls.MetroButton();
+            this.btnVendasdeProdutos = new MetroFramework.Controls.MetroButton();
             this.lblLoguedUsuarioNome = new MetroFramework.Controls.MetroLabel();
             this.lblLoguedLojaNome = new MetroFramework.Controls.MetroLabel();
             this.lblLoguedUsuario = new MetroFramework.Controls.MetroLabel();
@@ -250,7 +250,7 @@
             this.pnLogued.Controls.Add(this.metroButton2);
             this.pnLogued.Controls.Add(this.metroButton1);
             this.pnLogued.Controls.Add(this.btnSairSelecaoRel);
-            this.pnLogued.Controls.Add(this.btnProdutosVendidos);
+            this.pnLogued.Controls.Add(this.btnVendasdeProdutos);
             this.pnLogued.Controls.Add(this.lblLoguedUsuarioNome);
             this.pnLogued.Controls.Add(this.lblLoguedLojaNome);
             this.pnLogued.Controls.Add(this.lblLoguedUsuario);
@@ -327,22 +327,22 @@
             this.btnSairSelecaoRel.UseStyleColors = true;
             this.btnSairSelecaoRel.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // btnProdutosVendidos
+            // btnVendasdeProdutos
             // 
-            this.btnProdutosVendidos.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnProdutosVendidos.ForeColor = System.Drawing.Color.White;
-            this.btnProdutosVendidos.Location = new System.Drawing.Point(8, 81);
-            this.btnProdutosVendidos.Name = "btnProdutosVendidos";
-            this.btnProdutosVendidos.Size = new System.Drawing.Size(239, 23);
-            this.btnProdutosVendidos.Style = MetroFramework.MetroColorStyle.Silver;
-            this.btnProdutosVendidos.TabIndex = 6;
-            this.btnProdutosVendidos.Text = "Produtos Vendidos";
-            this.btnProdutosVendidos.UseCustomBackColor = true;
-            this.btnProdutosVendidos.UseCustomForeColor = true;
-            this.btnProdutosVendidos.UseSelectable = true;
-            this.btnProdutosVendidos.UseStyleColors = true;
-            this.btnProdutosVendidos.Click += new System.EventHandler(this.btnProdutosVendidos_Click);
-            this.btnProdutosVendidos.MouseLeave += new System.EventHandler(this.btnProdutosVendidos_MouseLeave);
+            this.btnVendasdeProdutos.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnVendasdeProdutos.ForeColor = System.Drawing.Color.White;
+            this.btnVendasdeProdutos.Location = new System.Drawing.Point(8, 81);
+            this.btnVendasdeProdutos.Name = "btnVendasdeProdutos";
+            this.btnVendasdeProdutos.Size = new System.Drawing.Size(239, 23);
+            this.btnVendasdeProdutos.Style = MetroFramework.MetroColorStyle.Silver;
+            this.btnVendasdeProdutos.TabIndex = 6;
+            this.btnVendasdeProdutos.Text = "Vendas de Produtos";
+            this.btnVendasdeProdutos.UseCustomBackColor = true;
+            this.btnVendasdeProdutos.UseCustomForeColor = true;
+            this.btnVendasdeProdutos.UseSelectable = true;
+            this.btnVendasdeProdutos.UseStyleColors = true;
+            this.btnVendasdeProdutos.Click += new System.EventHandler(this.btnProdutosVendidos_Click);
+            this.btnVendasdeProdutos.MouseLeave += new System.EventHandler(this.btnProdutosVendidos_MouseLeave);
             // 
             // lblLoguedUsuarioNome
             // 
@@ -428,7 +428,7 @@
         private System.Windows.Forms.PictureBox pbLogo;
         private MetroFramework.Controls.MetroPanel pnLogin;
         private MetroFramework.Controls.MetroPanel pnLogued;
-        private MetroFramework.Controls.MetroButton btnProdutosVendidos;
+        private MetroFramework.Controls.MetroButton btnVendasdeProdutos;
         private MetroFramework.Controls.MetroLabel lblLoguedUsuarioNome;
         private MetroFramework.Controls.MetroLabel lblLoguedLojaNome;
         private MetroFramework.Controls.MetroLabel lblLoguedUsuario;
