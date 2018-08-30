@@ -341,6 +341,9 @@ namespace ReportPlus
 
         private void atualizarLabels(int progress)
         {
+            chckFiltroVendedor.Enabled = false;
+            chckFiltroGrupoProduto.Enabled = false;
+            chckFiltroProduto.Enabled = false;
             switch (progress)
             {
                 case 1:
@@ -403,7 +406,6 @@ namespace ReportPlus
                     lblCarregandoGrupoProduto.Visible = false;
                     lblCarregandoProduto.Visible = false;
                     break;
-
             }
 
         }
@@ -508,6 +510,10 @@ namespace ReportPlus
                 lstbxFiltroProduto.SelectionMode = SelectionMode.None;
                 lstbxFiltroProduto.DataSource = lista_produtos;
                 lstbxFiltroProduto.SelectionMode = selectionMode;
+
+                chckFiltroVendedor.Enabled = true;
+                chckFiltroGrupoProduto.Enabled = true;
+                chckFiltroProduto.Enabled = true;
             }
             catch (Exception ex)
             {
