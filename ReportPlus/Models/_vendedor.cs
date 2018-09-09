@@ -8,7 +8,6 @@ namespace ReportPlus.Models
 {
     public class _vendedor
     {
-        public string CodVendedor { get; set; }
         public string NomeVendedor { get; set; }
     }
 }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using ReportPlus.Models;
 using ReportPlus.DATABASE;
 using System.Data.SqlClient;
+using System.Threading;
+using System.ComponentModel;
+
 
 namespace ReportPlus.DATABASE
 {
@@ -36,6 +39,10 @@ namespace ReportPlus.DATABASE
             }
         }
 
+
+
+        #region Carregar Filtros
+
         public static void CarregarVendedores(string sigla, DateTime periodoInicial, DateTime periodoFinal, List<_vendedor> lista_vendedor)
         {
             try
@@ -43,15 +50,15 @@ namespace ReportPlus.DATABASE
                 db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
                 db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
                 db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
-                db_Connection.com.CommandText = "select CodVendedor, NomeVendedor from Vendedor where NomeVendedor in (select mov.Motoqueiro from mov where data between @periodoInicial and @periodoFinal) and loja = @sigla";
+                db_Connection.com.CommandText = "select Motoqueiro from mov where data between @periodoInicial and @periodoFinal and loja = @sigla group by Motoqueiro";
                 db_Connection.AbrirConexao();
                 SqlDataReader r = db_Connection.com.ExecuteReader();
                 while (r.Read())
                 {
                     lista_vendedor.Add(new _vendedor
                     {
-                        CodVendedor = r["CodVendedor"].ToString(),
-                        NomeVendedor = r["NomeVendedor"].ToString()
+                        
+                        NomeVendedor = r["Motoqueiro"].ToString()
                     });
                 }
                 db_Connection.FecharConexao();
@@ -116,5 +123,96 @@ namespace ReportPlus.DATABASE
                 throw ex;
             }
         }
+
+        public static void CarregarDiaSemana(string sigla, DateTime periodoInicial, DateTime periodoFinal, List<_diaSemana> lista_DiaSemana)
+        {
+            try
+            {
+                db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
+                db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
+                db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
+                db_Connection.com.CommandText = @"SET LANGUAGE 'Portuguese'; SELECT CAST(DATEPART (WEEKDAY, m.data)as int)NUM_DIASEMANA, DATENAME(weekday, m.Data) AS NOME_DIASEMANA from mov m where m.loja = @sigla and m.data between @periodoInicial and @periodoFinal group by  CAST(DATEPART (WEEKDAY, m.data)as int), DATENAME(weekday, m.Data) order by CAST(DATEPART (WEEKDAY, m.data)as int);";
+                db_Connection.AbrirConexao();
+                SqlDataReader r = db_Connection.com.ExecuteReader();
+                while (r.Read())
+                {
+                    lista_DiaSemana.Add(new _diaSemana
+                    {
+                        NUM_DIASEMANA = Convert.ToInt32(r["NUM_DIASEMANA"]),
+                        NOME_DIASEMANA = r["NOME_DIASEMANA"].ToString().ToUpper()
+                    });
+                }
+                db_Connection.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                db_Connection.FecharConexao();
+                throw ex;
+            }
+        }
+
+        #endregion
+
+        #region Carregar Relatório
+        public static void CarregarRelatorio(string sigla, DateTime periodoInicial, DateTime periodoFinal ,List<_reportData> lista_ReportData, ref string complementoWhere, ref string complementoOrderBy, BackgroundWorker bgw)
+        {
+            try
+            {
+                db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
+                db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
+                db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
+                db_Connection.com.CommandText = @"SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, m.data as DATA, DATEPART (WEEKDAY, m.data) AS NUM_DIASEMANA,  DATENAME(weekday, m.Data) AS NOME_DIASEMANA,  m.Horario as HORA, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere + " group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,m.data,l.sigla,l.nome,p.DescriProduto,m.Horario " + complementoOrderBy;
+                db_Connection.AbrirConexao();
+                SqlDataReader r = db_Connection.com.ExecuteReader();
+                while (r.Read())
+                {
+                    lista_ReportData.Add(new _reportData
+                    {
+                        NUM_LOJA = Convert.ToString(r["NUM_LOJA"]),
+                        LOJA = Convert.ToString(r["LOJA"]),
+                        VENDEDOR = Convert.ToString(r["VENDEDOR"]),
+                        COD_GRUPO = Convert.ToInt32(r["COD_GRUPO"]),
+                        GRUPO = Convert.ToString(r["GRUPO"]),
+                        COD_PRODUTO = Convert.ToInt32(r["COD_PRODUTO"]),
+                        PRODUTO = Convert.ToString(r["PRODUTO"]),
+                        QUANTIDADE = Convert.ToDouble(r["QUANTIDADE"]),
+                        VALOR_UNITARIO = Convert.ToDouble(r["VALOR_UNITARIO"]),
+                        VALOR_TOTAL = Convert.ToDouble(r["VALOR_TOTAL"]),
+                        DATA = Convert.ToDateTime(r["DATA"]),
+                        HORA = Convert.ToDateTime(r["HORA"]),
+                        NUM_DIASEMANA = Convert.ToInt32(r["NUM_DIASEMANA"]),
+                        NOME_DIASEMANA = r["NOME_DIASEMANA"].ToString()
+                    });
+                    bgw.ReportProgress(lista_ReportData.Count, false);
+                }
+                db_Connection.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                db_Connection.FecharConexao();
+                throw ex;
+            }
+        }
+
+        public static int carregarRelatorioCount(string sigla, DateTime periodoInicial, DateTime periodoFinal, ref string complementoWhere, ref string complementoOrderBy)
+        {
+            try
+            {
+                db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
+                db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
+                db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
+                db_Connection.com.CommandText = @"SELECT count(m.loja) from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where m.loja = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere;
+                db_Connection.AbrirConexao();
+                int r = Convert.ToInt32(db_Connection.com.ExecuteScalar());
+                db_Connection.FecharConexao();
+                return r;
+            }
+            catch (Exception ex)
+            {
+                db_Connection.FecharConexao();
+                throw ex;
+            }
+        }
+        #endregion
     }
 }

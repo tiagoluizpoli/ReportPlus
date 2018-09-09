@@ -40,3 +40,5 @@ D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\R
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Report_ProdVend.resources
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.Properties.Resources.resources
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.GenerateResource.Cache
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\bin\Release\itextsharp.dll
+D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\bin\Release\itextsharp.xml

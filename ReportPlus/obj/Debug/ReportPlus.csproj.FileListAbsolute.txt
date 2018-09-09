@@ -17,7 +17,6 @@ D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\R
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Debug\ReportPlus.pdb
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\bin\Debug\ReportPlus.exe
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\bin\Debug\ReportPlus.pdb
-D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Debug\ReportPlus.csprojResolveAssemblyReference.cache
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Config.resources
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Main.resources
 D:\10 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Report_ProdVend.resources
