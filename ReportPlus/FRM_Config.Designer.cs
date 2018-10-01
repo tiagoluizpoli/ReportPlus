@@ -56,7 +56,7 @@
             this.txtbxServerIP = new MetroFramework.Controls.MetroTextBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
             this.pbMinimize = new System.Windows.Forms.PictureBox();
-            this.bgWorker = new System.ComponentModel.BackgroundWorker();
+            this.bgWorkerConnectionTest = new System.ComponentModel.BackgroundWorker();
             this.bgWorker2 = new System.ComponentModel.BackgroundWorker();
             this.opfdpic = new System.Windows.Forms.OpenFileDialog();
             this.bgWorker3 = new System.ComponentModel.BackgroundWorker();
@@ -143,7 +143,7 @@
             this.btnClearPicLogoPath.UseCustomBackColor = true;
             this.btnClearPicLogoPath.UseCustomForeColor = true;
             this.btnClearPicLogoPath.UseSelectable = true;
-            this.btnClearPicLogoPath.Click += new System.EventHandler(this.btnClearFocus_Click);
+            this.btnClearPicLogoPath.Click += new System.EventHandler(this.btnClearPicLogoPath_Click);
             this.btnClearPicLogoPath.MouseLeave += new System.EventHandler(this.btnClearFocus_Click);
             // 
             // lblLogoPath
@@ -521,13 +521,13 @@
             this.pbMinimize.TabStop = false;
             this.pbMinimize.Click += new System.EventHandler(this.pbMinimize_Click);
             // 
-            // bgWorker
+            // bgWorkerConnectionTest
             // 
-            this.bgWorker.WorkerReportsProgress = true;
-            this.bgWorker.WorkerSupportsCancellation = true;
-            this.bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
-            this.bgWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorker_ProgressChanged);
-            this.bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
+            this.bgWorkerConnectionTest.WorkerReportsProgress = true;
+            this.bgWorkerConnectionTest.WorkerSupportsCancellation = true;
+            this.bgWorkerConnectionTest.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
+            this.bgWorkerConnectionTest.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorker_ProgressChanged);
+            this.bgWorkerConnectionTest.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
             // 
             // bgWorker2
             // 
@@ -600,7 +600,7 @@
         private System.Windows.Forms.PictureBox pbLogoImg;
         private MetroFramework.Controls.MetroButton btnTestarConexao;
         private MetroFramework.Controls.MetroButton btnSalvar;
-        private System.ComponentModel.BackgroundWorker bgWorker;
+        private System.ComponentModel.BackgroundWorker bgWorkerConnectionTest;
         private MetroFramework.Controls.MetroProgressSpinner pgrspnTesteConexao;
         private MetroFramework.Controls.MetroLabel lblMensagemDatabase;
         private System.ComponentModel.BackgroundWorker bgWorker2;

@@ -1,6 +1,6 @@
 ﻿namespace ReportPlus
 {
-    partial class FRM_Report_ProdVend
+    partial class FRM_Report_ProdVendTotals
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Report_ProdVend));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Report_ProdVendTotals));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.pnFiltros = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.pnAgruparPor = new MetroFramework.Controls.MetroPanel();
+            this.chckAgruparHora = new MetroFramework.Controls.MetroCheckBox();
+            this.chckAgruparData = new MetroFramework.Controls.MetroCheckBox();
             this.txtbxSearchProduto = new MetroFramework.Controls.MetroTextBox();
             this.lblOrdenar = new MetroFramework.Controls.MetroLabel();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.pnOrdenarPor = new MetroFramework.Controls.MetroPanel();
             this.rdbtnOrdenarVendedor = new MetroFramework.Controls.MetroRadioButton();
             this.rdbtnOrdenarData = new MetroFramework.Controls.MetroRadioButton();
             this.lstbxFiltroDiaSemana = new System.Windows.Forms.ListBox();
@@ -54,7 +75,7 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.dtpckrPeriodoInicial = new MetroFramework.Controls.MetroDateTime();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnReport = new System.Windows.Forms.Panel();
             this.dtgvwMainReportScreen = new MetroFramework.Controls.MetroGrid();
             this.NUM_LOJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LOJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,10 +88,13 @@
             this.DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOME_DIASEMANA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExportPdf = new MetroFramework.Controls.MetroButton();
-            this.btnExportExcel = new MetroFramework.Controls.MetroButton();
             this.pnExport = new MetroFramework.Controls.MetroPanel();
-            this.btnExportTexto = new MetroFramework.Controls.MetroButton();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pnExcelExportBtn = new MetroFramework.Controls.MetroPanel();
+            this.lblExcelExportBtn = new MetroFramework.Controls.MetroLabel();
+            this.pctrbxExcelExportBtn = new System.Windows.Forms.PictureBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.bgwFiltroGrupoProduto = new System.ComponentModel.BackgroundWorker();
             this.lblCarregandoProduto = new MetroFramework.Controls.MetroLabel();
@@ -83,12 +107,49 @@
             this.bgwFiltroDiaSemana = new System.ComponentModel.BackgroundWorker();
             this.bgwFiltroRelatorio = new System.ComponentModel.BackgroundWorker();
             this.pbarLoadReport = new MetroFramework.Controls.MetroProgressBar();
-            this.chckbxTESTE = new MetroFramework.Controls.MetroCheckBox();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.txtbxTotalValorProdutosVendidos = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.txtbxTotalQtdProdutosVendidos = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.btnTotaisDetalhamento = new MetroFramework.Controls.MetroButton();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.ExportSpinner = new MetroFramework.Controls.MetroProgressSpinner();
+            this.pnTotais = new System.Windows.Forms.Panel();
+            this.lblTotaisPorDia = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.dtgvwTotaisPorDia = new MetroFramework.Controls.MetroGrid();
+            this.DATA_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOME_DIASEMANA_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE_TOT_DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_TOT_DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgvwTotaisPorGrupoProdutos = new MetroFramework.Controls.MetroGrid();
+            this.GRUPO_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE_TOT_GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_TOT_GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgvwTotaisPorVendedor = new MetroFramework.Controls.MetroGrid();
+            this.VENDEDOR_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE_TOT_VEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_TOT_VEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblExportStatus = new MetroFramework.Controls.MetroLabel();
+            this.sfdExcelExport = new System.Windows.Forms.SaveFileDialog();
+            this.bgwExportExcel = new System.ComponentModel.BackgroundWorker();
             this.pnFiltros.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnAgruparPor.SuspendLayout();
+            this.pnOrdenarPor.SuspendLayout();
+            this.pnReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvwMainReportScreen)).BeginInit();
             this.pnExport.SuspendLayout();
+            this.metroPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnExcelExportBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctrbxExcelExportBtn)).BeginInit();
+            this.metroPanel1.SuspendLayout();
+            this.pnTotais.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorDia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorGrupoProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorVendedor)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -103,9 +164,11 @@
             // pnFiltros
             // 
             this.pnFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnFiltros.Controls.Add(this.metroLabel3);
+            this.pnFiltros.Controls.Add(this.pnAgruparPor);
             this.pnFiltros.Controls.Add(this.txtbxSearchProduto);
             this.pnFiltros.Controls.Add(this.lblOrdenar);
-            this.pnFiltros.Controls.Add(this.metroPanel1);
+            this.pnFiltros.Controls.Add(this.pnOrdenarPor);
             this.pnFiltros.Controls.Add(this.lstbxFiltroDiaSemana);
             this.pnFiltros.Controls.Add(this.lstbxFiltroProduto);
             this.pnFiltros.Controls.Add(this.lstbxFiltroGrupoProduto);
@@ -130,6 +193,59 @@
             this.pnFiltros.VerticalScrollbarBarColor = true;
             this.pnFiltros.VerticalScrollbarHighlightOnWheel = false;
             this.pnFiltros.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel3.Location = new System.Drawing.Point(6, 98);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(74, 15);
+            this.metroLabel3.TabIndex = 45;
+            this.metroLabel3.Text = "Agrupar por:";
+            // 
+            // pnAgruparPor
+            // 
+            this.pnAgruparPor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnAgruparPor.Controls.Add(this.chckAgruparHora);
+            this.pnAgruparPor.Controls.Add(this.chckAgruparData);
+            this.pnAgruparPor.HorizontalScrollbarBarColor = true;
+            this.pnAgruparPor.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnAgruparPor.HorizontalScrollbarSize = 10;
+            this.pnAgruparPor.Location = new System.Drawing.Point(6, 116);
+            this.pnAgruparPor.Name = "pnAgruparPor";
+            this.pnAgruparPor.Size = new System.Drawing.Size(228, 22);
+            this.pnAgruparPor.TabIndex = 40;
+            this.pnAgruparPor.VerticalScrollbarBarColor = true;
+            this.pnAgruparPor.VerticalScrollbarHighlightOnWheel = false;
+            this.pnAgruparPor.VerticalScrollbarSize = 10;
+            // 
+            // chckAgruparHora
+            // 
+            this.chckAgruparHora.AutoSize = true;
+            this.chckAgruparHora.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
+            this.chckAgruparHora.Location = new System.Drawing.Point(119, 3);
+            this.chckAgruparHora.Name = "chckAgruparHora";
+            this.chckAgruparHora.Size = new System.Drawing.Size(48, 15);
+            this.chckAgruparHora.Style = MetroFramework.MetroColorStyle.Black;
+            this.chckAgruparHora.TabIndex = 47;
+            this.chckAgruparHora.Text = "Hora";
+            this.chckAgruparHora.UseSelectable = true;
+            this.chckAgruparHora.UseStyleColors = true;
+            // 
+            // chckAgruparData
+            // 
+            this.chckAgruparData.AutoSize = true;
+            this.chckAgruparData.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
+            this.chckAgruparData.Location = new System.Drawing.Point(8, 3);
+            this.chckAgruparData.Name = "chckAgruparData";
+            this.chckAgruparData.Size = new System.Drawing.Size(47, 15);
+            this.chckAgruparData.Style = MetroFramework.MetroColorStyle.Black;
+            this.chckAgruparData.TabIndex = 46;
+            this.chckAgruparData.Text = "Data";
+            this.chckAgruparData.UseSelectable = true;
+            this.chckAgruparData.UseStyleColors = true;
+            this.chckAgruparData.CheckedChanged += new System.EventHandler(this.chckAgruparData_CheckedChanged);
             // 
             // txtbxSearchProduto
             // 
@@ -166,32 +282,32 @@
             // 
             this.lblOrdenar.AutoSize = true;
             this.lblOrdenar.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblOrdenar.Location = new System.Drawing.Point(6, 76);
+            this.lblOrdenar.Location = new System.Drawing.Point(6, 55);
             this.lblOrdenar.Name = "lblOrdenar";
             this.lblOrdenar.Size = new System.Drawing.Size(74, 15);
             this.lblOrdenar.TabIndex = 43;
             this.lblOrdenar.Text = "Ordenar por:";
             // 
-            // metroPanel1
+            // pnOrdenarPor
             // 
-            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel1.Controls.Add(this.rdbtnOrdenarVendedor);
-            this.metroPanel1.Controls.Add(this.rdbtnOrdenarData);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(6, 94);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(228, 22);
-            this.metroPanel1.TabIndex = 39;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.pnOrdenarPor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnOrdenarPor.Controls.Add(this.rdbtnOrdenarVendedor);
+            this.pnOrdenarPor.Controls.Add(this.rdbtnOrdenarData);
+            this.pnOrdenarPor.HorizontalScrollbarBarColor = true;
+            this.pnOrdenarPor.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnOrdenarPor.HorizontalScrollbarSize = 10;
+            this.pnOrdenarPor.Location = new System.Drawing.Point(6, 73);
+            this.pnOrdenarPor.Name = "pnOrdenarPor";
+            this.pnOrdenarPor.Size = new System.Drawing.Size(228, 22);
+            this.pnOrdenarPor.TabIndex = 39;
+            this.pnOrdenarPor.VerticalScrollbarBarColor = true;
+            this.pnOrdenarPor.VerticalScrollbarHighlightOnWheel = false;
+            this.pnOrdenarPor.VerticalScrollbarSize = 10;
             // 
             // rdbtnOrdenarVendedor
             // 
             this.rdbtnOrdenarVendedor.AutoSize = true;
-            this.rdbtnOrdenarVendedor.Location = new System.Drawing.Point(119, 2);
+            this.rdbtnOrdenarVendedor.Location = new System.Drawing.Point(119, 3);
             this.rdbtnOrdenarVendedor.Name = "rdbtnOrdenarVendedor";
             this.rdbtnOrdenarVendedor.Size = new System.Drawing.Size(73, 15);
             this.rdbtnOrdenarVendedor.Style = MetroFramework.MetroColorStyle.Black;
@@ -203,7 +319,7 @@
             // rdbtnOrdenarData
             // 
             this.rdbtnOrdenarData.AutoSize = true;
-            this.rdbtnOrdenarData.Location = new System.Drawing.Point(8, 2);
+            this.rdbtnOrdenarData.Location = new System.Drawing.Point(8, 3);
             this.rdbtnOrdenarData.Name = "rdbtnOrdenarData";
             this.rdbtnOrdenarData.Size = new System.Drawing.Size(47, 15);
             this.rdbtnOrdenarData.Style = MetroFramework.MetroColorStyle.Black;
@@ -386,35 +502,37 @@
             this.dtpckrPeriodoInicial.UseStyleColors = true;
             this.dtpckrPeriodoInicial.CloseUp += new System.EventHandler(this.datetime_ValueChanged);
             // 
-            // panel1
+            // pnReport
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.dtgvwMainReportScreen);
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel1.Location = new System.Drawing.Point(12, 253);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1316, 441);
-            this.panel1.TabIndex = 28;
+            this.pnReport.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnReport.Controls.Add(this.dtgvwMainReportScreen);
+            this.pnReport.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnReport.Location = new System.Drawing.Point(12, 253);
+            this.pnReport.Name = "pnReport";
+            this.pnReport.Size = new System.Drawing.Size(1316, 441);
+            this.pnReport.TabIndex = 28;
             // 
             // dtgvwMainReportScreen
             // 
             this.dtgvwMainReportScreen.AllowUserToAddRows = false;
+            this.dtgvwMainReportScreen.AllowUserToOrderColumns = true;
+            this.dtgvwMainReportScreen.AllowUserToResizeColumns = false;
             this.dtgvwMainReportScreen.AllowUserToResizeRows = false;
             this.dtgvwMainReportScreen.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtgvwMainReportScreen.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvwMainReportScreen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtgvwMainReportScreen.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvwMainReportScreen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwMainReportScreen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.dtgvwMainReportScreen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvwMainReportScreen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NUM_LOJA,
@@ -428,14 +546,14 @@
             this.DATA,
             this.HORA,
             this.NOME_DIASEMANA});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvwMainReportScreen.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvwMainReportScreen.DefaultCellStyle = dataGridViewCellStyle46;
             this.dtgvwMainReportScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvwMainReportScreen.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgvwMainReportScreen.EnableHeadersVisualStyles = false;
@@ -445,20 +563,18 @@
             this.dtgvwMainReportScreen.Location = new System.Drawing.Point(0, 0);
             this.dtgvwMainReportScreen.Name = "dtgvwMainReportScreen";
             this.dtgvwMainReportScreen.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvwMainReportScreen.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwMainReportScreen.RowHeadersDefaultCellStyle = dataGridViewCellStyle47;
             this.dtgvwMainReportScreen.RowHeadersVisible = false;
             this.dtgvwMainReportScreen.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvwMainReportScreen.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwMainReportScreen.RowsDefaultCellStyle = dataGridViewCellStyle48;
             this.dtgvwMainReportScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1316, 441);
             this.dtgvwMainReportScreen.Style = MetroFramework.MetroColorStyle.Black;
@@ -501,15 +617,20 @@
             // 
             // PRODUTO
             // 
+            this.PRODUTO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.PRODUTO.DataPropertyName = "PRODUTO";
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.PRODUTO.DefaultCellStyle = dataGridViewCellStyle44;
             this.PRODUTO.HeaderText = "Produtos";
             this.PRODUTO.Name = "PRODUTO";
-            this.PRODUTO.ReadOnly = true;
+            this.PRODUTO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.PRODUTO.Width = 300;
             // 
             // QUANTIDADE
             // 
             this.QUANTIDADE.DataPropertyName = "QUANTIDADE";
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.QUANTIDADE.DefaultCellStyle = dataGridViewCellStyle45;
             this.QUANTIDADE.HeaderText = "Quantidade";
             this.QUANTIDADE.Name = "QUANTIDADE";
             this.QUANTIDADE.ReadOnly = true;
@@ -553,66 +674,103 @@
             this.NOME_DIASEMANA.ReadOnly = true;
             this.NOME_DIASEMANA.Width = 125;
             // 
-            // btnExportPdf
-            // 
-            this.btnExportPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnExportPdf.Location = new System.Drawing.Point(9, 76);
-            this.btnExportPdf.Name = "btnExportPdf";
-            this.btnExportPdf.Size = new System.Drawing.Size(111, 40);
-            this.btnExportPdf.Style = MetroFramework.MetroColorStyle.White;
-            this.btnExportPdf.TabIndex = 43;
-            this.btnExportPdf.Text = "Pdf";
-            this.btnExportPdf.UseCustomBackColor = true;
-            this.btnExportPdf.UseSelectable = true;
-            this.btnExportPdf.UseStyleColors = true;
-            // 
-            // btnExportExcel
-            // 
-            this.btnExportExcel.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnExportExcel.Location = new System.Drawing.Point(9, 30);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(111, 40);
-            this.btnExportExcel.Style = MetroFramework.MetroColorStyle.White;
-            this.btnExportExcel.TabIndex = 44;
-            this.btnExportExcel.Text = "Excel";
-            this.btnExportExcel.UseCustomBackColor = true;
-            this.btnExportExcel.UseSelectable = true;
-            this.btnExportExcel.UseStyleColors = true;
-            // 
             // pnExport
             // 
             this.pnExport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnExport.Controls.Add(this.btnExportPdf);
-            this.pnExport.Controls.Add(this.btnExportTexto);
-            this.pnExport.Controls.Add(this.btnExportExcel);
+            this.pnExport.Controls.Add(this.metroPanel3);
+            this.pnExport.Controls.Add(this.pnExcelExportBtn);
             this.pnExport.HorizontalScrollbarBarColor = true;
             this.pnExport.HorizontalScrollbarHighlightOnWheel = false;
             this.pnExport.HorizontalScrollbarSize = 10;
-            this.pnExport.Location = new System.Drawing.Point(812, 23);
+            this.pnExport.Location = new System.Drawing.Point(812, 122);
             this.pnExport.Name = "pnExport";
-            this.pnExport.Size = new System.Drawing.Size(131, 195);
+            this.pnExport.Size = new System.Drawing.Size(131, 96);
             this.pnExport.TabIndex = 45;
             this.pnExport.VerticalScrollbarBarColor = true;
             this.pnExport.VerticalScrollbarHighlightOnWheel = false;
             this.pnExport.VerticalScrollbarSize = 10;
             // 
-            // btnExportTexto
+            // metroPanel3
             // 
-            this.btnExportTexto.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnExportTexto.Location = new System.Drawing.Point(9, 122);
-            this.btnExportTexto.Name = "btnExportTexto";
-            this.btnExportTexto.Size = new System.Drawing.Size(111, 40);
-            this.btnExportTexto.Style = MetroFramework.MetroColorStyle.White;
-            this.btnExportTexto.TabIndex = 45;
-            this.btnExportTexto.Text = "Texto";
-            this.btnExportTexto.UseCustomBackColor = true;
-            this.btnExportTexto.UseSelectable = true;
-            this.btnExportTexto.UseStyleColors = true;
+            this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel3.Controls.Add(this.metroLabel9);
+            this.metroPanel3.Controls.Add(this.pictureBox2);
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(21, 50);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(86, 35);
+            this.metroPanel3.TabIndex = 49;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel9.Location = new System.Drawing.Point(36, 8);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(46, 19);
+            this.metroLabel9.TabIndex = 47;
+            this.metroLabel9.Text = "Texto";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox2.TabIndex = 46;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pnExcelExportBtn
+            // 
+            this.pnExcelExportBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pnExcelExportBtn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnExcelExportBtn.Controls.Add(this.lblExcelExportBtn);
+            this.pnExcelExportBtn.Controls.Add(this.pctrbxExcelExportBtn);
+            this.pnExcelExportBtn.HorizontalScrollbarBarColor = true;
+            this.pnExcelExportBtn.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnExcelExportBtn.HorizontalScrollbarSize = 10;
+            this.pnExcelExportBtn.Location = new System.Drawing.Point(21, 9);
+            this.pnExcelExportBtn.Name = "pnExcelExportBtn";
+            this.pnExcelExportBtn.Size = new System.Drawing.Size(86, 35);
+            this.pnExcelExportBtn.TabIndex = 48;
+            this.pnExcelExportBtn.VerticalScrollbarBarColor = true;
+            this.pnExcelExportBtn.VerticalScrollbarHighlightOnWheel = false;
+            this.pnExcelExportBtn.VerticalScrollbarSize = 10;
+            this.pnExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
+            // 
+            // lblExcelExportBtn
+            // 
+            this.lblExcelExportBtn.AutoSize = true;
+            this.lblExcelExportBtn.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblExcelExportBtn.Location = new System.Drawing.Point(36, 8);
+            this.lblExcelExportBtn.Name = "lblExcelExportBtn";
+            this.lblExcelExportBtn.Size = new System.Drawing.Size(43, 19);
+            this.lblExcelExportBtn.TabIndex = 47;
+            this.lblExcelExportBtn.Text = "Excel";
+            this.lblExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
+            // 
+            // pctrbxExcelExportBtn
+            // 
+            this.pctrbxExcelExportBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctrbxExcelExportBtn.BackgroundImage")));
+            this.pctrbxExcelExportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctrbxExcelExportBtn.Location = new System.Drawing.Point(3, 3);
+            this.pctrbxExcelExportBtn.Name = "pctrbxExcelExportBtn";
+            this.pctrbxExcelExportBtn.Size = new System.Drawing.Size(28, 29);
+            this.pctrbxExcelExportBtn.TabIndex = 46;
+            this.pctrbxExcelExportBtn.TabStop = false;
+            this.pctrbxExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
             // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(812, 1);
+            this.metroLabel5.Location = new System.Drawing.Point(812, 100);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(60, 19);
             this.metroLabel5.TabIndex = 46;
@@ -719,53 +877,503 @@
             this.pbarLoadReport.Location = new System.Drawing.Point(12, 224);
             this.pbarLoadReport.Name = "pbarLoadReport";
             this.pbarLoadReport.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Blocks;
-            this.pbarLoadReport.Size = new System.Drawing.Size(931, 23);
+            this.pbarLoadReport.Size = new System.Drawing.Size(1170, 23);
             this.pbarLoadReport.Style = MetroFramework.MetroColorStyle.Black;
             this.pbarLoadReport.TabIndex = 50;
             // 
-            // chckbxTESTE
+            // metroPanel1
             // 
-            this.chckbxTESTE.AutoSize = true;
-            this.chckbxTESTE.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
-            this.chckbxTESTE.Location = new System.Drawing.Point(1005, 79);
-            this.chckbxTESTE.Name = "chckbxTESTE";
-            this.chckbxTESTE.Size = new System.Drawing.Size(65, 15);
-            this.chckbxTESTE.Style = MetroFramework.MetroColorStyle.Black;
-            this.chckbxTESTE.TabIndex = 45;
-            this.chckbxTESTE.Text = "Produto";
-            this.chckbxTESTE.UseSelectable = true;
-            this.chckbxTESTE.UseStyleColors = true;
-            this.chckbxTESTE.CheckedChanged += new System.EventHandler(this.chckbxTESTE_CheckedChanged);
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.txtbxTotalValorProdutosVendidos);
+            this.metroPanel1.Controls.Add(this.metroLabel10);
+            this.metroPanel1.Controls.Add(this.txtbxTotalQtdProdutosVendidos);
+            this.metroPanel1.Controls.Add(this.metroLabel6);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(812, 23);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(370, 61);
+            this.metroPanel1.TabIndex = 46;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // FRM_Report_ProdVend
+            // txtbxTotalValorProdutosVendidos
+            // 
+            this.txtbxTotalValorProdutosVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxTotalValorProdutosVendidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbxTotalValorProdutosVendidos.Location = new System.Drawing.Point(226, 32);
+            this.txtbxTotalValorProdutosVendidos.Name = "txtbxTotalValorProdutosVendidos";
+            this.txtbxTotalValorProdutosVendidos.Size = new System.Drawing.Size(139, 19);
+            this.txtbxTotalValorProdutosVendidos.TabIndex = 55;
+            this.txtbxTotalValorProdutosVendidos.Text = "0";
+            this.txtbxTotalValorProdutosVendidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(3, 31);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(152, 19);
+            this.metroLabel10.TabIndex = 54;
+            this.metroLabel10.Text = "Valor Produtos Vendidos";
+            // 
+            // txtbxTotalQtdProdutosVendidos
+            // 
+            this.txtbxTotalQtdProdutosVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxTotalQtdProdutosVendidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbxTotalQtdProdutosVendidos.Location = new System.Drawing.Point(226, 7);
+            this.txtbxTotalQtdProdutosVendidos.Name = "txtbxTotalQtdProdutosVendidos";
+            this.txtbxTotalQtdProdutosVendidos.Size = new System.Drawing.Size(139, 19);
+            this.txtbxTotalQtdProdutosVendidos.TabIndex = 53;
+            this.txtbxTotalQtdProdutosVendidos.Text = "0";
+            this.txtbxTotalQtdProdutosVendidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(3, 7);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(192, 19);
+            this.metroLabel6.TabIndex = 52;
+            this.metroLabel6.Text = "Quantidade Produtos Vendidos";
+            // 
+            // btnTotaisDetalhamento
+            // 
+            this.btnTotaisDetalhamento.BackColor = System.Drawing.Color.Black;
+            this.btnTotaisDetalhamento.Location = new System.Drawing.Point(1039, 90);
+            this.btnTotaisDetalhamento.Name = "btnTotaisDetalhamento";
+            this.btnTotaisDetalhamento.Size = new System.Drawing.Size(143, 29);
+            this.btnTotaisDetalhamento.Style = MetroFramework.MetroColorStyle.White;
+            this.btnTotaisDetalhamento.TabIndex = 46;
+            this.btnTotaisDetalhamento.Text = "Mais Totais";
+            this.btnTotaisDetalhamento.UseCustomBackColor = true;
+            this.btnTotaisDetalhamento.UseSelectable = true;
+            this.btnTotaisDetalhamento.UseStyleColors = true;
+            this.btnTotaisDetalhamento.Click += new System.EventHandler(this.btnTotaisDetalhamento_Click);
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(812, 1);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel4.TabIndex = 51;
+            this.metroLabel4.Text = "Totais";
+            // 
+            // ExportSpinner
+            // 
+            this.ExportSpinner.Location = new System.Drawing.Point(967, 128);
+            this.ExportSpinner.Maximum = 100;
+            this.ExportSpinner.Name = "ExportSpinner";
+            this.ExportSpinner.Size = new System.Drawing.Size(68, 68);
+            this.ExportSpinner.Style = MetroFramework.MetroColorStyle.Green;
+            this.ExportSpinner.TabIndex = 52;
+            this.ExportSpinner.UseSelectable = true;
+            this.ExportSpinner.Value = 50;
+            this.ExportSpinner.Visible = false;
+            // 
+            // pnTotais
+            // 
+            this.pnTotais.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnTotais.BackColor = System.Drawing.Color.Transparent;
+            this.pnTotais.Controls.Add(this.lblTotaisPorDia);
+            this.pnTotais.Controls.Add(this.metroLabel12);
+            this.pnTotais.Controls.Add(this.metroLabel11);
+            this.pnTotais.Controls.Add(this.dtgvwTotaisPorDia);
+            this.pnTotais.Controls.Add(this.dtgvwTotaisPorGrupoProdutos);
+            this.pnTotais.Controls.Add(this.dtgvwTotaisPorVendedor);
+            this.pnTotais.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnTotais.Location = new System.Drawing.Point(12, 253);
+            this.pnTotais.Name = "pnTotais";
+            this.pnTotais.Size = new System.Drawing.Size(1316, 441);
+            this.pnTotais.TabIndex = 29;
+            this.pnTotais.Visible = false;
+            // 
+            // lblTotaisPorDia
+            // 
+            this.lblTotaisPorDia.AutoSize = true;
+            this.lblTotaisPorDia.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblTotaisPorDia.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblTotaisPorDia.Location = new System.Drawing.Point(756, 1);
+            this.lblTotaisPorDia.Name = "lblTotaisPorDia";
+            this.lblTotaisPorDia.Size = new System.Drawing.Size(75, 15);
+            this.lblTotaisPorDia.TabIndex = 46;
+            this.lblTotaisPorDia.Text = "Totais por Dia";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel12.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.metroLabel12.Location = new System.Drawing.Point(378, 1);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(156, 15);
+            this.metroLabel12.TabIndex = 45;
+            this.metroLabel12.Text = "Totais Por Grupos de Produto";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel11.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.metroLabel11.Location = new System.Drawing.Point(0, 1);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(107, 15);
+            this.metroLabel11.TabIndex = 44;
+            this.metroLabel11.Text = "Totais Por Vendedor";
+            // 
+            // dtgvwTotaisPorDia
+            // 
+            this.dtgvwTotaisPorDia.AllowUserToAddRows = false;
+            this.dtgvwTotaisPorDia.AllowUserToOrderColumns = true;
+            this.dtgvwTotaisPorDia.AllowUserToResizeColumns = false;
+            this.dtgvwTotaisPorDia.AllowUserToResizeRows = false;
+            this.dtgvwTotaisPorDia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtgvwTotaisPorDia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgvwTotaisPorDia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgvwTotaisPorDia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgvwTotaisPorDia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorDia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
+            this.dtgvwTotaisPorDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvwTotaisPorDia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DATA_TOT,
+            this.NOME_DIASEMANA_TOT,
+            this.QUANTIDADE_TOT_DATA,
+            this.VALOR_TOT_DATA});
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvwTotaisPorDia.DefaultCellStyle = dataGridViewCellStyle51;
+            this.dtgvwTotaisPorDia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgvwTotaisPorDia.EnableHeadersVisualStyles = false;
+            this.dtgvwTotaisPorDia.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dtgvwTotaisPorDia.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgvwTotaisPorDia.HighLightPercentage = 0.3F;
+            this.dtgvwTotaisPorDia.Location = new System.Drawing.Point(760, 19);
+            this.dtgvwTotaisPorDia.Name = "dtgvwTotaisPorDia";
+            this.dtgvwTotaisPorDia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorDia.RowHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            this.dtgvwTotaisPorDia.RowHeadersVisible = false;
+            this.dtgvwTotaisPorDia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorDia.RowsDefaultCellStyle = dataGridViewCellStyle53;
+            this.dtgvwTotaisPorDia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dtgvwTotaisPorDia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvwTotaisPorDia.Size = new System.Drawing.Size(410, 422);
+            this.dtgvwTotaisPorDia.Style = MetroFramework.MetroColorStyle.Black;
+            this.dtgvwTotaisPorDia.TabIndex = 2;
+            this.dtgvwTotaisPorDia.UseCustomBackColor = true;
+            this.dtgvwTotaisPorDia.UseCustomForeColor = true;
+            this.dtgvwTotaisPorDia.UseStyleColors = true;
+            this.dtgvwTotaisPorDia.Visible = false;
+            // 
+            // DATA_TOT
+            // 
+            this.DATA_TOT.DataPropertyName = "DATA_TOT";
+            this.DATA_TOT.HeaderText = "Dia";
+            this.DATA_TOT.Name = "DATA_TOT";
+            this.DATA_TOT.ReadOnly = true;
+            this.DATA_TOT.Width = 90;
+            // 
+            // NOME_DIASEMANA_TOT
+            // 
+            this.NOME_DIASEMANA_TOT.DataPropertyName = "NOME_DIASEMANA_TOT";
+            this.NOME_DIASEMANA_TOT.HeaderText = "Dia da Semana";
+            this.NOME_DIASEMANA_TOT.Name = "NOME_DIASEMANA_TOT";
+            this.NOME_DIASEMANA_TOT.ReadOnly = true;
+            this.NOME_DIASEMANA_TOT.Width = 132;
+            // 
+            // QUANTIDADE_TOT_DATA
+            // 
+            this.QUANTIDADE_TOT_DATA.DataPropertyName = "QUANTIDADE_TOT_DATA";
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.QUANTIDADE_TOT_DATA.DefaultCellStyle = dataGridViewCellStyle50;
+            this.QUANTIDADE_TOT_DATA.HeaderText = "Quantidade";
+            this.QUANTIDADE_TOT_DATA.Name = "QUANTIDADE_TOT_DATA";
+            this.QUANTIDADE_TOT_DATA.ReadOnly = true;
+            this.QUANTIDADE_TOT_DATA.Width = 65;
+            // 
+            // VALOR_TOT_DATA
+            // 
+            this.VALOR_TOT_DATA.DataPropertyName = "VALOR_TOT_DATA";
+            this.VALOR_TOT_DATA.HeaderText = "Valor Total";
+            this.VALOR_TOT_DATA.Name = "VALOR_TOT_DATA";
+            this.VALOR_TOT_DATA.ReadOnly = true;
+            this.VALOR_TOT_DATA.Width = 120;
+            // 
+            // dtgvwTotaisPorGrupoProdutos
+            // 
+            this.dtgvwTotaisPorGrupoProdutos.AllowUserToAddRows = false;
+            this.dtgvwTotaisPorGrupoProdutos.AllowUserToOrderColumns = true;
+            this.dtgvwTotaisPorGrupoProdutos.AllowUserToResizeColumns = false;
+            this.dtgvwTotaisPorGrupoProdutos.AllowUserToResizeRows = false;
+            this.dtgvwTotaisPorGrupoProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtgvwTotaisPorGrupoProdutos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgvwTotaisPorGrupoProdutos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgvwTotaisPorGrupoProdutos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgvwTotaisPorGrupoProdutos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorGrupoProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle54;
+            this.dtgvwTotaisPorGrupoProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvwTotaisPorGrupoProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GRUPO_TOT,
+            this.QUANTIDADE_TOT_GRUPO,
+            this.VALOR_TOT_GRUPO});
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvwTotaisPorGrupoProdutos.DefaultCellStyle = dataGridViewCellStyle56;
+            this.dtgvwTotaisPorGrupoProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgvwTotaisPorGrupoProdutos.EnableHeadersVisualStyles = false;
+            this.dtgvwTotaisPorGrupoProdutos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dtgvwTotaisPorGrupoProdutos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgvwTotaisPorGrupoProdutos.HighLightPercentage = 0.3F;
+            this.dtgvwTotaisPorGrupoProdutos.Location = new System.Drawing.Point(378, 19);
+            this.dtgvwTotaisPorGrupoProdutos.Name = "dtgvwTotaisPorGrupoProdutos";
+            this.dtgvwTotaisPorGrupoProdutos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorGrupoProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            this.dtgvwTotaisPorGrupoProdutos.RowHeadersVisible = false;
+            this.dtgvwTotaisPorGrupoProdutos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorGrupoProdutos.RowsDefaultCellStyle = dataGridViewCellStyle58;
+            this.dtgvwTotaisPorGrupoProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dtgvwTotaisPorGrupoProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvwTotaisPorGrupoProdutos.Size = new System.Drawing.Size(376, 422);
+            this.dtgvwTotaisPorGrupoProdutos.Style = MetroFramework.MetroColorStyle.Black;
+            this.dtgvwTotaisPorGrupoProdutos.TabIndex = 1;
+            this.dtgvwTotaisPorGrupoProdutos.UseCustomBackColor = true;
+            this.dtgvwTotaisPorGrupoProdutos.UseCustomForeColor = true;
+            this.dtgvwTotaisPorGrupoProdutos.UseStyleColors = true;
+            // 
+            // GRUPO_TOT
+            // 
+            this.GRUPO_TOT.DataPropertyName = "GRUPO_TOT";
+            this.GRUPO_TOT.HeaderText = "Grupos de Produto";
+            this.GRUPO_TOT.Name = "GRUPO_TOT";
+            this.GRUPO_TOT.ReadOnly = true;
+            this.GRUPO_TOT.Width = 190;
+            // 
+            // QUANTIDADE_TOT_GRUPO
+            // 
+            this.QUANTIDADE_TOT_GRUPO.DataPropertyName = "QUANTIDADE_TOT_GRUPO";
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.QUANTIDADE_TOT_GRUPO.DefaultCellStyle = dataGridViewCellStyle55;
+            this.QUANTIDADE_TOT_GRUPO.HeaderText = "Quantidade";
+            this.QUANTIDADE_TOT_GRUPO.Name = "QUANTIDADE_TOT_GRUPO";
+            this.QUANTIDADE_TOT_GRUPO.ReadOnly = true;
+            this.QUANTIDADE_TOT_GRUPO.Width = 65;
+            // 
+            // VALOR_TOT_GRUPO
+            // 
+            this.VALOR_TOT_GRUPO.DataPropertyName = "VALOR_TOT_GRUPO";
+            this.VALOR_TOT_GRUPO.HeaderText = "Valor Total";
+            this.VALOR_TOT_GRUPO.Name = "VALOR_TOT_GRUPO";
+            this.VALOR_TOT_GRUPO.ReadOnly = true;
+            this.VALOR_TOT_GRUPO.Width = 120;
+            // 
+            // dtgvwTotaisPorVendedor
+            // 
+            this.dtgvwTotaisPorVendedor.AllowUserToAddRows = false;
+            this.dtgvwTotaisPorVendedor.AllowUserToOrderColumns = true;
+            this.dtgvwTotaisPorVendedor.AllowUserToResizeColumns = false;
+            this.dtgvwTotaisPorVendedor.AllowUserToResizeRows = false;
+            this.dtgvwTotaisPorVendedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtgvwTotaisPorVendedor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgvwTotaisPorVendedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgvwTotaisPorVendedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgvwTotaisPorVendedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorVendedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
+            this.dtgvwTotaisPorVendedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvwTotaisPorVendedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.VENDEDOR_TOT,
+            this.QUANTIDADE_TOT_VEND,
+            this.VALOR_TOT_VEND});
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvwTotaisPorVendedor.DefaultCellStyle = dataGridViewCellStyle61;
+            this.dtgvwTotaisPorVendedor.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgvwTotaisPorVendedor.EnableHeadersVisualStyles = false;
+            this.dtgvwTotaisPorVendedor.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dtgvwTotaisPorVendedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgvwTotaisPorVendedor.HighLightPercentage = 0.3F;
+            this.dtgvwTotaisPorVendedor.Location = new System.Drawing.Point(0, 19);
+            this.dtgvwTotaisPorVendedor.Name = "dtgvwTotaisPorVendedor";
+            this.dtgvwTotaisPorVendedor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorVendedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle62;
+            this.dtgvwTotaisPorVendedor.RowHeadersVisible = false;
+            this.dtgvwTotaisPorVendedor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvwTotaisPorVendedor.RowsDefaultCellStyle = dataGridViewCellStyle63;
+            this.dtgvwTotaisPorVendedor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dtgvwTotaisPorVendedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvwTotaisPorVendedor.Size = new System.Drawing.Size(372, 422);
+            this.dtgvwTotaisPorVendedor.Style = MetroFramework.MetroColorStyle.Black;
+            this.dtgvwTotaisPorVendedor.TabIndex = 0;
+            this.dtgvwTotaisPorVendedor.UseCustomBackColor = true;
+            this.dtgvwTotaisPorVendedor.UseCustomForeColor = true;
+            this.dtgvwTotaisPorVendedor.UseStyleColors = true;
+            // 
+            // VENDEDOR_TOT
+            // 
+            this.VENDEDOR_TOT.DataPropertyName = "VENDEDOR_TOT";
+            this.VENDEDOR_TOT.HeaderText = "Vendedor";
+            this.VENDEDOR_TOT.Name = "VENDEDOR_TOT";
+            this.VENDEDOR_TOT.ReadOnly = true;
+            this.VENDEDOR_TOT.Width = 185;
+            // 
+            // QUANTIDADE_TOT_VEND
+            // 
+            this.QUANTIDADE_TOT_VEND.DataPropertyName = "QUANTIDADE_TOT_VEND";
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.QUANTIDADE_TOT_VEND.DefaultCellStyle = dataGridViewCellStyle60;
+            this.QUANTIDADE_TOT_VEND.HeaderText = "Quantidade";
+            this.QUANTIDADE_TOT_VEND.Name = "QUANTIDADE_TOT_VEND";
+            this.QUANTIDADE_TOT_VEND.ReadOnly = true;
+            this.QUANTIDADE_TOT_VEND.Width = 65;
+            // 
+            // VALOR_TOT_VEND
+            // 
+            this.VALOR_TOT_VEND.DataPropertyName = "VALOR_TOT_VEND";
+            this.VALOR_TOT_VEND.HeaderText = "Valor Total";
+            this.VALOR_TOT_VEND.Name = "VALOR_TOT_VEND";
+            this.VALOR_TOT_VEND.ReadOnly = true;
+            this.VALOR_TOT_VEND.Width = 120;
+            // 
+            // lblExportStatus
+            // 
+            this.lblExportStatus.AutoSize = true;
+            this.lblExportStatus.Location = new System.Drawing.Point(949, 199);
+            this.lblExportStatus.Name = "lblExportStatus";
+            this.lblExportStatus.Size = new System.Drawing.Size(111, 19);
+            this.lblExportStatus.TabIndex = 53;
+            this.lblExportStatus.Text = "Exportando Excel";
+            this.lblExportStatus.Visible = false;
+            // 
+            // sfdExcelExport
+            // 
+            this.sfdExcelExport.DefaultExt = "xlsx";
+            this.sfdExcelExport.Filter = "Excel File (*.xlsx*) | *.xlsx*";
+            this.sfdExcelExport.InitialDirectory = "C:\\";
+            this.sfdExcelExport.RestoreDirectory = true;
+            // 
+            // bgwExportExcel
+            // 
+            this.bgwExportExcel.WorkerReportsProgress = true;
+            this.bgwExportExcel.WorkerSupportsCancellation = true;
+            this.bgwExportExcel.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwExportExcel_DoWork);
+            this.bgwExportExcel.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwExportExcel_ProgressChanged);
+            this.bgwExportExcel.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwExportExcel_RunWorkerCompleted);
+            // 
+            // FRM_Report_ProdVendTotals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1340, 706);
-            this.Controls.Add(this.chckbxTESTE);
+            this.Controls.Add(this.lblExportStatus);
+            this.Controls.Add(this.pnTotais);
+            this.Controls.Add(this.ExportSpinner);
+            this.Controls.Add(this.btnTotaisDetalhamento);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.pbarLoadReport);
+            this.Controls.Add(this.pnReport);
             this.Controls.Add(this.lblCarregandoDiaSemana);
             this.Controls.Add(this.lblCarregandoVendedor);
             this.Controls.Add(this.lblCarregandoGrupoProduto);
             this.Controls.Add(this.lblCarregandoProduto);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.pnExport);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnFiltros);
             this.Controls.Add(this.metroLabel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1116, 720);
-            this.Name = "FRM_Report_ProdVend";
+            this.Name = "FRM_Report_ProdVendTotals";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório: Vendas de Produtos.";
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.pnAgruparPor.ResumeLayout(false);
+            this.pnAgruparPor.PerformLayout();
+            this.pnOrdenarPor.ResumeLayout(false);
+            this.pnOrdenarPor.PerformLayout();
+            this.pnReport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvwMainReportScreen)).EndInit();
             this.pnExport.ResumeLayout(false);
+            this.metroPanel3.ResumeLayout(false);
+            this.metroPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnExcelExportBtn.ResumeLayout(false);
+            this.pnExcelExportBtn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctrbxExcelExportBtn)).EndInit();
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
+            this.pnTotais.ResumeLayout(false);
+            this.pnTotais.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorDia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorGrupoProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorVendedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -789,14 +1397,11 @@
         private System.Windows.Forms.ListBox lstbxFiltroDiaSemana;
         private System.Windows.Forms.ListBox lstbxFiltroProduto;
         private System.Windows.Forms.ListBox lstbxFiltroGrupoProduto;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel pnOrdenarPor;
         private MetroFramework.Controls.MetroRadioButton rdbtnOrdenarVendedor;
         private MetroFramework.Controls.MetroRadioButton rdbtnOrdenarData;
-        private System.Windows.Forms.Panel panel1;
-        private MetroFramework.Controls.MetroButton btnExportPdf;
-        private MetroFramework.Controls.MetroButton btnExportExcel;
+        private System.Windows.Forms.Panel pnReport;
         private MetroFramework.Controls.MetroPanel pnExport;
-        private MetroFramework.Controls.MetroButton btnExportTexto;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private System.ComponentModel.BackgroundWorker bgwFiltroGrupoProduto;
         private MetroFramework.Controls.MetroLabel lblCarregandoProduto;
@@ -809,9 +1414,13 @@
         private MetroFramework.Controls.MetroLabel lblOrdenar;
         private MetroFramework.Controls.MetroLabel lblCarregandoDiaSemana;
         private System.ComponentModel.BackgroundWorker bgwFiltroDiaSemana;
-        private MetroFramework.Controls.MetroGrid dtgvwMainReportScreen;
         private System.ComponentModel.BackgroundWorker bgwFiltroRelatorio;
         private MetroFramework.Controls.MetroProgressBar pbarLoadReport;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroPanel pnAgruparPor;
+        private MetroFramework.Controls.MetroCheckBox chckAgruparHora;
+        private MetroFramework.Controls.MetroCheckBox chckAgruparData;
+        private MetroFramework.Controls.MetroGrid dtgvwMainReportScreen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUM_LOJA;
         private System.Windows.Forms.DataGridViewTextBoxColumn LOJA;
         private System.Windows.Forms.DataGridViewTextBoxColumn VENDEDOR;
@@ -823,6 +1432,39 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DATA;
         private System.Windows.Forms.DataGridViewTextBoxColumn HORA;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOME_DIASEMANA;
-        private MetroFramework.Controls.MetroCheckBox chckbxTESTE;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroLabel txtbxTotalValorProdutosVendidos;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroLabel txtbxTotalQtdProdutosVendidos;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroButton btnTotaisDetalhamento;
+        private MetroFramework.Controls.MetroPanel metroPanel3;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private MetroFramework.Controls.MetroPanel pnExcelExportBtn;
+        private MetroFramework.Controls.MetroLabel lblExcelExportBtn;
+        private System.Windows.Forms.PictureBox pctrbxExcelExportBtn;
+        private MetroFramework.Controls.MetroProgressSpinner ExportSpinner;
+        private System.Windows.Forms.Panel pnTotais;
+        private MetroFramework.Controls.MetroGrid dtgvwTotaisPorVendedor;
+        private MetroFramework.Controls.MetroGrid dtgvwTotaisPorDia;
+        private MetroFramework.Controls.MetroGrid dtgvwTotaisPorGrupoProdutos;
+        private MetroFramework.Controls.MetroLabel lblTotaisPorDia;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GRUPO_TOT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTIDADE_TOT_GRUPO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR_TOT_GRUPO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VENDEDOR_TOT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTIDADE_TOT_VEND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR_TOT_VEND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DATA_TOT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOME_DIASEMANA_TOT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTIDADE_TOT_DATA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR_TOT_DATA;
+        private MetroFramework.Controls.MetroLabel lblExportStatus;
+        private System.Windows.Forms.SaveFileDialog sfdExcelExport;
+        private System.ComponentModel.BackgroundWorker bgwExportExcel;
     }
 }

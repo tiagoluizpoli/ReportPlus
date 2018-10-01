@@ -15,14 +15,15 @@ namespace ReportPlus.DATABASE
             try
             {
                 db_Connection.AbrirConexao();
-                db_Connection.com.CommandText = "select Sigla, Nome from Loja where Ativo = 1";
+                db_Connection.com.CommandText = "select Sigla, Nome, Cnpj from Loja where Ativo = 1";
                 SqlDataReader r = db_Connection.com.ExecuteReader();
                 while (r.Read())
                 {
                     lista_lojas.Add(new _loja
                     {
                         Sigla = r["Sigla"].ToString(),
-                        Nome = r["Nome"].ToString()
+                        Nome = r["Nome"].ToString(),
+                        Cnpj = r["Cnpj"].ToString()                        
                     });
                 }
                 db_Connection.FecharConexao();

@@ -52,6 +52,7 @@
             this.lblLoguedLojaNome = new MetroFramework.Controls.MetroLabel();
             this.lblLoguedUsuario = new MetroFramework.Controls.MetroLabel();
             this.lblLoguedLoja = new MetroFramework.Controls.MetroLabel();
+            this.lblTrial = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
@@ -380,6 +381,19 @@
             this.lblLoguedLoja.TabIndex = 2;
             this.lblLoguedLoja.Text = "Loja:";
             // 
+            // lblTrial
+            // 
+            this.lblTrial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTrial.AutoSize = true;
+            this.lblTrial.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblTrial.Location = new System.Drawing.Point(314, 35);
+            this.lblTrial.Name = "lblTrial";
+            this.lblTrial.Size = new System.Drawing.Size(127, 19);
+            this.lblTrial.TabIndex = 16;
+            this.lblTrial.Text = "Versão de Avaliação";
+            this.lblTrial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTrial.Visible = false;
+            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,6 +401,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(453, 351);
             this.ControlBox = false;
+            this.Controls.Add(this.lblTrial);
             this.Controls.Add(this.pnLogued);
             this.Controls.Add(this.pnLogin);
             this.Controls.Add(this.pbLogo);
@@ -437,6 +452,7 @@
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroLabel lblTrial;
     }
 }
 

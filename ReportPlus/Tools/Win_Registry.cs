@@ -101,7 +101,7 @@ namespace ReportPlus.Tools
             regPathComplemento = @"Data\";
             reg = Registry.LocalMachine.CreateSubKey(regPath + regPathComplemento);
             reg = Registry.LocalMachine.OpenSubKey(regPath + regPathComplemento, true);
-                        
+
             string database = string.Empty;
             if (reg.GetValue(@"database") != null)
             {
@@ -121,7 +121,9 @@ namespace ReportPlus.Tools
             return database;
         }
 
-        // ### User & PassWord
+
+
+        #region User & PassWord
         //User
         public static void gravar_bd_user(string user)
         {
@@ -176,8 +178,7 @@ namespace ReportPlus.Tools
             else
             {
                 reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
-                reg.SetValue(@"password", "n/a");
-
+                reg.SetValue(@"password", "bi9h");
                 reg = Registry.LocalMachine.OpenSubKey(regPathCredentials);
                 password = Convert.ToString(reg.GetValue(@"password"));
                 reg.Close();
@@ -185,6 +186,119 @@ namespace ReportPlus.Tools
             return password;
         }
 
+        public static void gravar_Trial(byte trial)
+        {
+
+            RegistryKey reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+            reg.SetValue("trial", trial);
+            reg.Close();
+        }
+        public static byte gravar_ler_Trial()
+        {
+            reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+            reg = Registry.LocalMachine.OpenSubKey(regPathCredentials, true);
+
+            byte password = 0;
+            if (reg.GetValue(@"trial") != null)
+            {
+
+                password = Convert.ToByte(reg.GetValue(@"trial"));
+                reg.Close();
+            }
+            else
+            {
+                reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+                reg.SetValue(@"trial", 1);
+                reg = Registry.LocalMachine.OpenSubKey(regPathCredentials);
+                password = Convert.ToByte(reg.GetValue(@"trial"));
+                reg.Close();
+            }
+            return password;
+        }
+
+        public static void gravar_date_Reg(string date)
+        {
+
+            RegistryKey reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+            reg.SetValue("date", date);
+            reg.Close();
+        }
+        public static string gravar_ler_Date_Reg()
+        {
+            try
+            {
+                reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+                reg = Registry.LocalMachine.OpenSubKey(regPathCredentials, true);
+
+                string password = string.Empty;
+                if (reg.GetValue(@"date") != null)
+                {
+
+                    password = Convert.ToString(reg.GetValue(@"date"));
+                    reg.Close();
+                }
+                else
+                {
+                    reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+                    //string date = TimeRelated.GetDateTime().ToShortDateString();
+                    string date = DateTime.Now.ToShortDateString();
+                    reg.SetValue(@"date", PasswordEncryption.Encrypt(ref date));
+
+                    reg = Registry.LocalMachine.OpenSubKey(regPathCredentials);
+                    password = Convert.ToString(reg.GetValue(@"date"));
+                    reg.Close();
+                }
+                return password;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static void gravar_FristInteraction_Reg(byte fi)
+        {
+
+            RegistryKey reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+            reg.SetValue("fi", fi);
+            reg.Close();
+        }
+        public static byte gravar_ler_FirstInteraction_Reg()
+        {
+            try
+            {
+                reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+                reg = Registry.LocalMachine.OpenSubKey(regPathCredentials, true);
+
+                byte password = 0;
+                if (reg.GetValue(@"fi") != null)
+                {
+
+                    password = Convert.ToByte(reg.GetValue(@"fi"));
+                    reg.Close();
+                }
+                else
+                {
+                    reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
+                    
+                    reg.SetValue(@"fi", (byte)0);
+
+                    reg = Registry.LocalMachine.OpenSubKey(regPathCredentials);
+                    password = Convert.ToByte(reg.GetValue(@"fi"));
+                    reg.Close();
+                }
+                return password;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        #endregion
 
         //PicPath
         public static void gravar_pic_path(string pic_path)
@@ -231,6 +345,8 @@ namespace ReportPlus.Tools
                 gravar_ler_bd_user();
                 gravar_ler_bd_password();
                 gravar_ler_pic_path();
+                gravar_ler_Date_Reg();
+                gravar_ler_FirstInteraction_Reg();
             }
             catch (Exception ex)
             {

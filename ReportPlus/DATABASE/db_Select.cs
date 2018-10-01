@@ -154,35 +154,107 @@ namespace ReportPlus.DATABASE
         #endregion
 
         #region Carregar Relatório
-        public static void CarregarRelatorio(string sigla, DateTime periodoInicial, DateTime periodoFinal ,List<_reportData> lista_ReportData, ref string complementoWhere, ref string complementoOrderBy, BackgroundWorker bgw)
+        public static void CarregarRelatorio(string sigla, DateTime periodoInicial, DateTime periodoFinal ,List<_reportData> lista_ReportData,_reportDataTotais totais, ref string complementoWhere, ref string complementoOrderBy, BackgroundWorker bgw, bool ordData, bool ordHora)
         {
             try
             {
+                string query = string.Empty;
+
+                #region Seleciona Query
+
+                
+                if (ordData)
+                {
+                    if (ordHora)
+                    {
+                        query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, m.data as DATA, DATEPART (WEEKDAY, m.data) AS NUM_DIASEMANA,  DATENAME(weekday, m.Data) AS NOME_DIASEMANA,  m.Horario as HORA, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere + " group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,m.data,l.sigla,l.nome,p.DescriProduto,m.Horario " + complementoOrderBy;
+                    }
+                    else
+                    {
+                        query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, m.data as DATA, DATEPART (WEEKDAY, m.data) AS NUM_DIASEMANA,  DATENAME(weekday, m.Data) AS NOME_DIASEMANA, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere + " group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,m.data,l.sigla,l.nome,p.DescriProduto " + complementoOrderBy;
+                    }
+                }
+                else
+                {
+                    query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere + " group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,l.sigla,l.nome,p.DescriProduto " + complementoOrderBy;
+                }
+                #endregion
+
+
+
                 db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
                 db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
                 db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
-                db_Connection.com.CommandText = @"SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, m.data as DATA, DATEPART (WEEKDAY, m.data) AS NUM_DIASEMANA,  DATENAME(weekday, m.Data) AS NOME_DIASEMANA,  m.Horario as HORA, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere + " group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,m.data,l.sigla,l.nome,p.DescriProduto,m.Horario " + complementoOrderBy;
+                db_Connection.com.CommandText = query;
                 db_Connection.AbrirConexao();
                 SqlDataReader r = db_Connection.com.ExecuteReader();
                 while (r.Read())
                 {
-                    lista_ReportData.Add(new _reportData
+                    if (ordData)
                     {
-                        NUM_LOJA = Convert.ToString(r["NUM_LOJA"]),
-                        LOJA = Convert.ToString(r["LOJA"]),
-                        VENDEDOR = Convert.ToString(r["VENDEDOR"]),
-                        COD_GRUPO = Convert.ToInt32(r["COD_GRUPO"]),
-                        GRUPO = Convert.ToString(r["GRUPO"]),
-                        COD_PRODUTO = Convert.ToInt32(r["COD_PRODUTO"]),
-                        PRODUTO = Convert.ToString(r["PRODUTO"]),
-                        QUANTIDADE = Convert.ToDouble(r["QUANTIDADE"]),
-                        VALOR_UNITARIO = Convert.ToDouble(r["VALOR_UNITARIO"]),
-                        VALOR_TOTAL = Convert.ToDouble(r["VALOR_TOTAL"]),
-                        DATA = Convert.ToDateTime(r["DATA"]),
-                        HORA = Convert.ToDateTime(r["HORA"]),
-                        NUM_DIASEMANA = Convert.ToInt32(r["NUM_DIASEMANA"]),
-                        NOME_DIASEMANA = r["NOME_DIASEMANA"].ToString()
-                    });
+                        if (ordHora)
+                        {
+                            lista_ReportData.Add(new _reportData
+                            {
+                                NUM_LOJA = Convert.ToString(r["NUM_LOJA"]),
+                                LOJA = Convert.ToString(r["LOJA"]),
+                                VENDEDOR = Convert.ToString(r["VENDEDOR"]),
+                                COD_GRUPO = Convert.ToInt32(r["COD_GRUPO"]),
+                                GRUPO = Convert.ToString(r["GRUPO"]),
+                                COD_PRODUTO = Convert.ToInt32(r["COD_PRODUTO"]),
+                                PRODUTO = Convert.ToString(r["PRODUTO"]),
+                                QUANTIDADE = Convert.ToDouble(r["QUANTIDADE"]),
+                                VALOR_UNITARIO = Convert.ToDouble(r["VALOR_UNITARIO"]),
+                                VALOR_TOTAL = Convert.ToDouble(r["VALOR_TOTAL"]),
+                                DATA = Convert.ToDateTime(r["DATA"]),
+                                HORA = Convert.ToDateTime(r["HORA"]),
+                                NUM_DIASEMANA = Convert.ToInt32(r["NUM_DIASEMANA"]),
+                                NOME_DIASEMANA = r["NOME_DIASEMANA"].ToString().ToUpper(),
+                            });
+                            totais.TOTAL_QTD_PRODUTOS_VENDIDOS += Convert.ToDouble(r["QUANTIDADE"]);
+                            totais.TOTAL_VALOR_PRODUTOS_VENDIDOS += Convert.ToDouble(r["VALOR_TOTAL"]);
+                        }
+                        else
+                        {
+                            lista_ReportData.Add(new _reportData
+                            {
+                                NUM_LOJA = Convert.ToString(r["NUM_LOJA"]),
+                                LOJA = Convert.ToString(r["LOJA"]),
+                                VENDEDOR = Convert.ToString(r["VENDEDOR"]),
+                                COD_GRUPO = Convert.ToInt32(r["COD_GRUPO"]),
+                                GRUPO = Convert.ToString(r["GRUPO"]),
+                                COD_PRODUTO = Convert.ToInt32(r["COD_PRODUTO"]),
+                                PRODUTO = Convert.ToString(r["PRODUTO"]),
+                                QUANTIDADE = Convert.ToDouble(r["QUANTIDADE"]),
+                                VALOR_UNITARIO = Convert.ToDouble(r["VALOR_UNITARIO"]),
+                                VALOR_TOTAL = Convert.ToDouble(r["VALOR_TOTAL"]),
+                                DATA = Convert.ToDateTime(r["DATA"]),
+                                NUM_DIASEMANA = Convert.ToInt32(r["NUM_DIASEMANA"]),
+                                NOME_DIASEMANA = r["NOME_DIASEMANA"].ToString().ToUpper()
+                            });
+                            totais.TOTAL_QTD_PRODUTOS_VENDIDOS += Convert.ToDouble(r["QUANTIDADE"]);
+                            totais.TOTAL_VALOR_PRODUTOS_VENDIDOS += Convert.ToDouble(r["VALOR_TOTAL"]);
+                        }
+                    }
+                    else
+                    {
+                        lista_ReportData.Add(new _reportData
+                        {
+                            NUM_LOJA = Convert.ToString(r["NUM_LOJA"]),
+                            LOJA = Convert.ToString(r["LOJA"]),
+                            VENDEDOR = Convert.ToString(r["VENDEDOR"]),
+                            COD_GRUPO = Convert.ToInt32(r["COD_GRUPO"]),
+                            GRUPO = Convert.ToString(r["GRUPO"]),
+                            COD_PRODUTO = Convert.ToInt32(r["COD_PRODUTO"]),
+                            PRODUTO = Convert.ToString(r["PRODUTO"]),
+                            QUANTIDADE = Convert.ToDouble(r["QUANTIDADE"]),
+                            VALOR_UNITARIO = Convert.ToDouble(r["VALOR_UNITARIO"]),
+                            VALOR_TOTAL = Convert.ToDouble(r["VALOR_TOTAL"]),
+                        });
+                        totais.TOTAL_QTD_PRODUTOS_VENDIDOS += Convert.ToDouble(r["QUANTIDADE"]);
+                        totais.TOTAL_VALOR_PRODUTOS_VENDIDOS += Convert.ToDouble(r["VALOR_TOTAL"]);
+                       
+                    }
                     bgw.ReportProgress(lista_ReportData.Count, false);
                 }
                 db_Connection.FecharConexao();

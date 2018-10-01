@@ -11,6 +11,7 @@ using ReportPlus.Models;
 using ReportPlus.DATABASE;
 using ReportPlus.Tools;
 using System.IO;
+using MetroFramework;
 
 namespace ReportPlus
 {
@@ -18,12 +19,32 @@ namespace ReportPlus
     {
         public FRM_Main()
         {
-            InitializeComponent();
+
             Win_Registry.ValidarGradeDeRegistros();
-            CarregarLojas();
-            PosicaoInicial();
-            carregarLogo();
+
+            InitializeComponent();
+            if (Win_Registry.gravar_ler_FirstInteraction_Reg() == 0)
+            {
+                PosicaoFirstTime();
+                MessageBox.Show("Banco de Dados Não Localizado. Vá em \"Configurações\" e certifique-se de inserir dados válidos.");
+            }
+            else
+            {
+                if (Win_Registry.gravar_ler_Trial() == 1)
+                {
+                    lblTrial.Visible = true;
+                }
+                CarregarLojas();
+                PosicaoInicial();
+                carregarLogo();
+            }
+            
         }
+        
+
+
+        
+
 
         //##Métodos Privados
 
@@ -31,6 +52,7 @@ namespace ReportPlus
         private void PosicaoInicial()
         {
             pnLogin.Visible = true;
+            pnLogin.Enabled = true;
             pnLogued.Visible = false;
             if (cmbxLoja.SelectedIndex > -1)
             {
@@ -39,8 +61,14 @@ namespace ReportPlus
             txtbxSenha.Text = string.Empty;
             pbConfig.Visible = true;
         }
-        
 
+        private void PosicaoFirstTime()
+        {
+            pnLogin.Enabled = false;
+            pnLogued.Visible = false;
+            txtbxSenha.Text = string.Empty;
+            pbConfig.Visible = true;
+        }
 
         //Carregar Lojas
         public void CarregarLojas()
@@ -76,7 +104,7 @@ namespace ReportPlus
             }
         }
 
-        
+
 
 
 
@@ -106,17 +134,33 @@ namespace ReportPlus
         //Abrir Configurações (Simula Botão)
         private void pbConfig_Click(object sender, EventArgs e)
         {
-            FRM_Config f = new FRM_Config();
-            f.ShowDialog();
-            carregarLogo();
-            CarregarLojas();
+            try
+            {
+                FRM_Config f = new FRM_Config();
+                f.ShowDialog();
+                
+                if (Win_Registry.gravar_ler_FirstInteraction_Reg() == 1)
+                {
+                    PosicaoInicial();
+                    carregarLogo();
+                    CarregarLojas();
+                }
+                else
+                {
+                    PosicaoFirstTime();
+                }
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-       
 
 
 
 
-        
+
+
 
         //minimizar e fechar (Simula Botão)
         private void pbMinimize_Click(object sender, EventArgs e)
@@ -128,7 +172,7 @@ namespace ReportPlus
         {
             this.Dispose();
         }
-        
+
 
         //Botões
 
@@ -140,9 +184,9 @@ namespace ReportPlus
 
         private void btnProdutosVendidos_Click(object sender, EventArgs e)
         {
-            FRM_Report_ProdVend f = new FRM_Report_ProdVend((cmbxLoja.SelectedItem as _loja).Sigla);
+            FRM_Report_ProdVendTotals f = new FRM_Report_ProdVendTotals((cmbxLoja.SelectedItem as _loja), (cmbxUsuarios.SelectedItem as _usuario));
             f.ShowDialog();
-            
+
         }
 
 
@@ -191,5 +235,7 @@ namespace ReportPlus
                 lblLoguedLoja.Focus();
             }
         }
+
+        
     }
 }

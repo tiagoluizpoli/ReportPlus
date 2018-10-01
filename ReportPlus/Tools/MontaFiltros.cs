@@ -9,20 +9,54 @@ namespace ReportPlus.Tools
 {
     public class MontaFiltros
     {
-        public static void MontaFiltroProdVend( bool data_vendedor, bool porVendedor, List<_vendedor> lista_vendedores, bool porGruposProduto, List<_grupoProduto> lista_grupoProduto, bool porProduto, List<_produto> lista_Produtos, bool porDiaSemana, List<_diaSemana> lista_DiasSemana, ref string complementoWhere, ref string complementoOrderBy)
+        public static void MontaFiltroProdVend( bool data_vendedor, bool porVendedor, List<_vendedor> lista_vendedores, bool porGruposProduto, List<_grupoProduto> lista_grupoProduto, bool porProduto, List<_produto> lista_Produtos, bool porDiaSemana, List<_diaSemana> lista_DiasSemana, bool ordData, bool ordHora, ref string complementoWhere, ref string complementoOrderBy)
         {
             try
             {
+                string orderByData = string.Empty, orderByHora = string.Empty;
                 StringBuilder sb = new StringBuilder();
                 if (data_vendedor)
                 {
                     //verdadeiro == ordenar por Data
-                    complementoOrderBy = "order by M.data, m.motoqueiro,g.Descricao,p.DescriProduto, CAST(DATEPART (WEEKDAY, m.data)as int)";
+                    if (ordData)
+                    {
+                        orderByData = "M.data,";
+                        if (ordHora)
+                        {
+                            orderByHora = ", CAST(DATEPART (WEEKDAY, m.data)as int)";
+                        }
+                        else
+                        {
+                            orderByHora = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        orderByData = string.Empty;
+                    }
+                    complementoOrderBy = "order by " + orderByData + " m.motoqueiro,g.Descricao,p.DescriProduto" + orderByHora;
                 }
                 else
                 {
+                    
                     //falso == ordenar por vendedor
-                    complementoOrderBy = "order by m.motoqueiro, M.data,g.Descricao,p.DescriProduto, CAST(DATEPART (WEEKDAY, m.data)as int)";
+                    if (ordData)
+                    {
+                        orderByData = "M.data,";
+                        if (ordHora)
+                        {
+                            orderByHora = ", CAST(DATEPART (WEEKDAY, m.data)as int)";
+                        }
+                        else
+                        {
+                            orderByHora = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        orderByData = string.Empty;
+                    }
+                    complementoOrderBy = "order by m.motoqueiro,"+orderByData+" g.Descricao,p.DescriProduto"+orderByHora;
                 }
 
 

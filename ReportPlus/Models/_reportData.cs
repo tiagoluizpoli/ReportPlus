@@ -20,12 +20,9 @@ namespace ReportPlus.Models
         public double QUANTIDADE { get; set; }
         public DateTime DATA { get; set; }
         public DateTime HORA { get; set; }
-
         public int NUM_DIASEMANA { get; set; }
         public string NOME_DIASEMANA { get; set; }
-
         
-
         
     }
 }

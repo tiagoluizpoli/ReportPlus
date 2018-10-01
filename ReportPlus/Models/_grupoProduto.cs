@@ -10,7 +10,8 @@ namespace ReportPlus.Models
     {
         public string Descricao { get; set; }
         public string Grupo { get; set; }
-
+        public double TOTAL_QTD_RODUTOS_VENDIDOS { get; set; }
+        public double TOTAL_VALOR_PRODUTOS_VENDIDOS { get; set; }
         
     }
 }
