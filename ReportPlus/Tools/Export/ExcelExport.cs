@@ -42,9 +42,9 @@ namespace ReportPlus.Tools.Export
                 Planilha.Cell("C1").Value = "VENDEDOR";
                 Planilha.Cell("D1").Value = "GRUPO";
                 Planilha.Cell("E1").Value = "PRODUTO";
-                Planilha.Cell("F1").Value = "VALOR UNITARIO";
-                Planilha.Cell("G1").Value = "VALOR TOTAL";
-                Planilha.Cell("H1").Value = "QUANTIDADE";
+                Planilha.Cell("F1").Value = "QUANTIDADE";
+                Planilha.Cell("G1").Value = "VALOR UNITÁRIO";
+                Planilha.Cell("H1").Value = "VALOR TOTAL";
 
                 Planilha.Row(1).Height = 25;
                 Planilha.SheetView.FreezeRows(1);

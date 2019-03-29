@@ -15,8 +15,7 @@ namespace ReportPlus.Tools
         static RegistryKey reg = Registry.LocalMachine.OpenSubKey(regPath);
 
 
-        //static string pathdb = @"SOFTWARE\Report Plus\Data\";
-        //static string pathCredentials = @"SOFTWARE\\Microsoft\Data\";
+        
         static string picpath = string.Empty;
         
 
