@@ -28,6 +28,7 @@ namespace ReportPlus.DATABASE
                 con.ConnectionString = StringBuilding.MontarConnectionString(Win_Registry.gravar_ler_server_adress(), Win_Registry.gravar_ler_server_port(), Win_Registry.gravar_ler_database(), user, password); 
                 com.Connection = con;
                 con.Open();
+                com.CommandTimeout = 600;
             }
             catch (Exception ex)
             {

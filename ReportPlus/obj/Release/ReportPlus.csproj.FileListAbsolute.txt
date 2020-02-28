@@ -81,3 +81,30 @@ D:\06 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\R
 D:\06 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.Properties.Resources.resources
 D:\06 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.CoreCompileInputs.cache
 D:\06 - Desenvolvimento\01 - Projetos de Aplicações\Visual Studio\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.CopyComplete
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\ReportPlus.exe.config
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\ReportPlus.exe
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\ReportPlus.pdb
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\ClosedXML.dll
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\DocumentFormat.OpenXml.dll
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\ExcelNumberFormat.dll
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\FastMember.Signed.dll
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\itextsharp.dll
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\MoreLinq.dll
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\System.ValueTuple.dll
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\ClosedXML.pdb
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\ClosedXML.xml
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\DocumentFormat.OpenXml.xml
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\ExcelNumberFormat.xml
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\itextsharp.xml
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\MoreLinq.xml
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\bin\Release\System.ValueTuple.xml
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.csprojAssemblyReference.cache
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Config.resources
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Main.resources
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.FRM_Report_ProdVendTotals.resources
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.Properties.Resources.resources
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.GenerateResource.cache
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.CoreCompileInputs.cache
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.csproj.CopyComplete
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.exe
+C:\Users\tyhh\Source\Repos\PoliFamily\ReportPlus\obj\Release\ReportPlus.pdb

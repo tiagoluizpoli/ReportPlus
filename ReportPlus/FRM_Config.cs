@@ -147,12 +147,12 @@ namespace ReportPlus
             if ((bool)e.Result)
             {
                 MetroFramework.MetroMessageBox.Show(this, "Conexão realizada com sucesso.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information, 130);
-                Win_Registry.gravar_FristInteraction_Reg(1);
+                Win_Registry.gravar_FirstInteraction_Reg(1);
             }
             else
             {
                 MetroFramework.MetroMessageBox.Show(this, "Falha na conexão. Verifique os dados informados e tente novamente.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Warning, 130);
-                Win_Registry.gravar_FristInteraction_Reg(0);
+                Win_Registry.gravar_FirstInteraction_Reg(0);
             }
             pgrspnTesteConexao.Visible = false;
             pgrspnTesteConexao.Spinning = false;

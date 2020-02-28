@@ -32,9 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Report_ProdVendTotals));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,6 +47,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Report_ProdVendTotals));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.pnFiltros = new MetroFramework.Controls.MetroPanel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -77,17 +77,23 @@
             this.dtpckrPeriodoInicial = new MetroFramework.Controls.MetroDateTime();
             this.pnReport = new System.Windows.Forms.Panel();
             this.dtgvwMainReportScreen = new MetroFramework.Controls.MetroGrid();
-            this.NUM_LOJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VENDEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QUANTIDADE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALOR_UNITARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALOR_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOME_DIASEMANA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnTotais = new System.Windows.Forms.Panel();
+            this.lblTotaisPorDia = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.dtgvwTotaisPorDia = new MetroFramework.Controls.MetroGrid();
+            this.DATA_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOME_DIASEMANA_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE_TOT_DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_TOT_DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgvwTotaisPorGrupoProdutos = new MetroFramework.Controls.MetroGrid();
+            this.GRUPO_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE_TOT_GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_TOT_GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgvwTotaisPorVendedor = new MetroFramework.Controls.MetroGrid();
+            this.VENDEDOR_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE_TOT_VEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_TOT_VEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnExport = new MetroFramework.Controls.MetroPanel();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
@@ -115,41 +121,35 @@
             this.btnTotaisDetalhamento = new MetroFramework.Controls.MetroButton();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.ExportSpinner = new MetroFramework.Controls.MetroProgressSpinner();
-            this.pnTotais = new System.Windows.Forms.Panel();
-            this.lblTotaisPorDia = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.dtgvwTotaisPorDia = new MetroFramework.Controls.MetroGrid();
-            this.DATA_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOME_DIASEMANA_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QUANTIDADE_TOT_DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALOR_TOT_DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgvwTotaisPorGrupoProdutos = new MetroFramework.Controls.MetroGrid();
-            this.GRUPO_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QUANTIDADE_TOT_GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALOR_TOT_GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgvwTotaisPorVendedor = new MetroFramework.Controls.MetroGrid();
-            this.VENDEDOR_TOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QUANTIDADE_TOT_VEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALOR_TOT_VEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblExportStatus = new MetroFramework.Controls.MetroLabel();
             this.sfdExcelExport = new System.Windows.Forms.SaveFileDialog();
             this.bgwExportExcel = new System.ComponentModel.BackgroundWorker();
+            this.NUM_LOJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lojaNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VENDEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_UNITARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOME_DIASEMANA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnFiltros.SuspendLayout();
             this.pnAgruparPor.SuspendLayout();
             this.pnOrdenarPor.SuspendLayout();
             this.pnReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvwMainReportScreen)).BeginInit();
+            this.pnTotais.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorDia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorGrupoProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorVendedor)).BeginInit();
             this.pnExport.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnExcelExportBtn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrbxExcelExportBtn)).BeginInit();
             this.metroPanel1.SuspendLayout();
-            this.pnTotais.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorDia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorGrupoProdutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorVendedor)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -536,7 +536,7 @@
             this.dtgvwMainReportScreen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvwMainReportScreen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NUM_LOJA,
-            this.LOJA,
+            this.lojaNome,
             this.VENDEDOR,
             this.GRUPO,
             this.PRODUTO,
@@ -582,397 +582,6 @@
             this.dtgvwMainReportScreen.UseCustomBackColor = true;
             this.dtgvwMainReportScreen.UseCustomForeColor = true;
             this.dtgvwMainReportScreen.UseStyleColors = true;
-            // 
-            // NUM_LOJA
-            // 
-            this.NUM_LOJA.DataPropertyName = "NUM_LOJA";
-            this.NUM_LOJA.HeaderText = "Num. Loja";
-            this.NUM_LOJA.Name = "NUM_LOJA";
-            this.NUM_LOJA.ReadOnly = true;
-            this.NUM_LOJA.Width = 90;
-            // 
-            // LOJA
-            // 
-            this.LOJA.DataPropertyName = "LOJA";
-            this.LOJA.HeaderText = "Loja";
-            this.LOJA.Name = "LOJA";
-            this.LOJA.ReadOnly = true;
-            this.LOJA.Width = 150;
-            // 
-            // VENDEDOR
-            // 
-            this.VENDEDOR.DataPropertyName = "VENDEDOR";
-            this.VENDEDOR.HeaderText = "Vendedor";
-            this.VENDEDOR.Name = "VENDEDOR";
-            this.VENDEDOR.ReadOnly = true;
-            this.VENDEDOR.Width = 180;
-            // 
-            // GRUPO
-            // 
-            this.GRUPO.DataPropertyName = "GRUPO";
-            this.GRUPO.HeaderText = "Grupo de Produtos";
-            this.GRUPO.Name = "GRUPO";
-            this.GRUPO.ReadOnly = true;
-            this.GRUPO.Width = 180;
-            // 
-            // PRODUTO
-            // 
-            this.PRODUTO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.PRODUTO.DataPropertyName = "PRODUTO";
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.PRODUTO.DefaultCellStyle = dataGridViewCellStyle44;
-            this.PRODUTO.HeaderText = "Produtos";
-            this.PRODUTO.Name = "PRODUTO";
-            this.PRODUTO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.PRODUTO.Width = 300;
-            // 
-            // QUANTIDADE
-            // 
-            this.QUANTIDADE.DataPropertyName = "QUANTIDADE";
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.QUANTIDADE.DefaultCellStyle = dataGridViewCellStyle45;
-            this.QUANTIDADE.HeaderText = "Quantidade";
-            this.QUANTIDADE.Name = "QUANTIDADE";
-            this.QUANTIDADE.ReadOnly = true;
-            this.QUANTIDADE.Width = 75;
-            // 
-            // VALOR_UNITARIO
-            // 
-            this.VALOR_UNITARIO.DataPropertyName = "VALOR_UNITARIO";
-            this.VALOR_UNITARIO.HeaderText = "Valor Unitario";
-            this.VALOR_UNITARIO.Name = "VALOR_UNITARIO";
-            this.VALOR_UNITARIO.ReadOnly = true;
-            // 
-            // VALOR_TOTAL
-            // 
-            this.VALOR_TOTAL.DataPropertyName = "VALOR_TOTAL";
-            this.VALOR_TOTAL.HeaderText = "Valor Total";
-            this.VALOR_TOTAL.Name = "VALOR_TOTAL";
-            this.VALOR_TOTAL.ReadOnly = true;
-            // 
-            // DATA
-            // 
-            this.DATA.DataPropertyName = "DATA";
-            this.DATA.HeaderText = "Data";
-            this.DATA.Name = "DATA";
-            this.DATA.ReadOnly = true;
-            this.DATA.Width = 80;
-            // 
-            // HORA
-            // 
-            this.HORA.DataPropertyName = "HORA";
-            this.HORA.HeaderText = "Hora";
-            this.HORA.MinimumWidth = 60;
-            this.HORA.Name = "HORA";
-            this.HORA.Width = 80;
-            // 
-            // NOME_DIASEMANA
-            // 
-            this.NOME_DIASEMANA.DataPropertyName = "NOME_DIASEMANA";
-            this.NOME_DIASEMANA.HeaderText = "Dia da Semana";
-            this.NOME_DIASEMANA.Name = "NOME_DIASEMANA";
-            this.NOME_DIASEMANA.ReadOnly = true;
-            this.NOME_DIASEMANA.Width = 125;
-            // 
-            // pnExport
-            // 
-            this.pnExport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnExport.Controls.Add(this.metroPanel3);
-            this.pnExport.Controls.Add(this.pnExcelExportBtn);
-            this.pnExport.HorizontalScrollbarBarColor = true;
-            this.pnExport.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnExport.HorizontalScrollbarSize = 10;
-            this.pnExport.Location = new System.Drawing.Point(812, 122);
-            this.pnExport.Name = "pnExport";
-            this.pnExport.Size = new System.Drawing.Size(131, 96);
-            this.pnExport.TabIndex = 45;
-            this.pnExport.VerticalScrollbarBarColor = true;
-            this.pnExport.VerticalScrollbarHighlightOnWheel = false;
-            this.pnExport.VerticalScrollbarSize = 10;
-            // 
-            // metroPanel3
-            // 
-            this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel3.Controls.Add(this.metroLabel9);
-            this.metroPanel3.Controls.Add(this.pictureBox2);
-            this.metroPanel3.HorizontalScrollbarBarColor = true;
-            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(21, 50);
-            this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(86, 35);
-            this.metroPanel3.TabIndex = 49;
-            this.metroPanel3.VerticalScrollbarBarColor = true;
-            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel9.Location = new System.Drawing.Point(36, 8);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(46, 19);
-            this.metroLabel9.TabIndex = 47;
-            this.metroLabel9.Text = "Texto";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox2.TabIndex = 46;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pnExcelExportBtn
-            // 
-            this.pnExcelExportBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pnExcelExportBtn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnExcelExportBtn.Controls.Add(this.lblExcelExportBtn);
-            this.pnExcelExportBtn.Controls.Add(this.pctrbxExcelExportBtn);
-            this.pnExcelExportBtn.HorizontalScrollbarBarColor = true;
-            this.pnExcelExportBtn.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnExcelExportBtn.HorizontalScrollbarSize = 10;
-            this.pnExcelExportBtn.Location = new System.Drawing.Point(21, 9);
-            this.pnExcelExportBtn.Name = "pnExcelExportBtn";
-            this.pnExcelExportBtn.Size = new System.Drawing.Size(86, 35);
-            this.pnExcelExportBtn.TabIndex = 48;
-            this.pnExcelExportBtn.VerticalScrollbarBarColor = true;
-            this.pnExcelExportBtn.VerticalScrollbarHighlightOnWheel = false;
-            this.pnExcelExportBtn.VerticalScrollbarSize = 10;
-            this.pnExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
-            // 
-            // lblExcelExportBtn
-            // 
-            this.lblExcelExportBtn.AutoSize = true;
-            this.lblExcelExportBtn.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblExcelExportBtn.Location = new System.Drawing.Point(36, 8);
-            this.lblExcelExportBtn.Name = "lblExcelExportBtn";
-            this.lblExcelExportBtn.Size = new System.Drawing.Size(43, 19);
-            this.lblExcelExportBtn.TabIndex = 47;
-            this.lblExcelExportBtn.Text = "Excel";
-            this.lblExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
-            // 
-            // pctrbxExcelExportBtn
-            // 
-            this.pctrbxExcelExportBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctrbxExcelExportBtn.BackgroundImage")));
-            this.pctrbxExcelExportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctrbxExcelExportBtn.Location = new System.Drawing.Point(3, 3);
-            this.pctrbxExcelExportBtn.Name = "pctrbxExcelExportBtn";
-            this.pctrbxExcelExportBtn.Size = new System.Drawing.Size(28, 29);
-            this.pctrbxExcelExportBtn.TabIndex = 46;
-            this.pctrbxExcelExportBtn.TabStop = false;
-            this.pctrbxExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(812, 100);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(60, 19);
-            this.metroLabel5.TabIndex = 46;
-            this.metroLabel5.Text = "Exportar";
-            // 
-            // bgwFiltroGrupoProduto
-            // 
-            this.bgwFiltroGrupoProduto.WorkerReportsProgress = true;
-            this.bgwFiltroGrupoProduto.WorkerSupportsCancellation = true;
-            this.bgwFiltroGrupoProduto.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroGrupoProduto_DoWork);
-            this.bgwFiltroGrupoProduto.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroGrupoProduto_ProgressChanged);
-            this.bgwFiltroGrupoProduto.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroGrupoProduto_RunWorkerCompleted);
-            // 
-            // lblCarregandoProduto
-            // 
-            this.lblCarregandoProduto.AutoSize = true;
-            this.lblCarregandoProduto.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblCarregandoProduto.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblCarregandoProduto.Location = new System.Drawing.Point(527, 5);
-            this.lblCarregandoProduto.Name = "lblCarregandoProduto";
-            this.lblCarregandoProduto.Size = new System.Drawing.Size(67, 15);
-            this.lblCarregandoProduto.TabIndex = 43;
-            this.lblCarregandoProduto.Text = "Carregando";
-            this.lblCarregandoProduto.Visible = false;
-            // 
-            // bgwFiltroProduto
-            // 
-            this.bgwFiltroProduto.WorkerReportsProgress = true;
-            this.bgwFiltroProduto.WorkerSupportsCancellation = true;
-            this.bgwFiltroProduto.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroProduto_DoWork);
-            this.bgwFiltroProduto.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroProduto_ProgressChanged);
-            this.bgwFiltroProduto.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroProduto_RunWorkerCompleted);
-            // 
-            // lblCarregandoGrupoProduto
-            // 
-            this.lblCarregandoGrupoProduto.AutoSize = true;
-            this.lblCarregandoGrupoProduto.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblCarregandoGrupoProduto.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblCarregandoGrupoProduto.Location = new System.Drawing.Point(390, 5);
-            this.lblCarregandoGrupoProduto.Name = "lblCarregandoGrupoProduto";
-            this.lblCarregandoGrupoProduto.Size = new System.Drawing.Size(67, 15);
-            this.lblCarregandoGrupoProduto.TabIndex = 47;
-            this.lblCarregandoGrupoProduto.Text = "Carregando";
-            this.lblCarregandoGrupoProduto.Visible = false;
-            // 
-            // bgwFiltroVendedor
-            // 
-            this.bgwFiltroVendedor.WorkerReportsProgress = true;
-            this.bgwFiltroVendedor.WorkerSupportsCancellation = true;
-            this.bgwFiltroVendedor.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroVendedor_DoWork);
-            this.bgwFiltroVendedor.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroVendedor_ProgressChanged);
-            this.bgwFiltroVendedor.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroVendedor_RunWorkerCompleted);
-            // 
-            // lblCarregandoVendedor
-            // 
-            this.lblCarregandoVendedor.AutoSize = true;
-            this.lblCarregandoVendedor.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblCarregandoVendedor.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblCarregandoVendedor.Location = new System.Drawing.Point(253, 5);
-            this.lblCarregandoVendedor.Name = "lblCarregandoVendedor";
-            this.lblCarregandoVendedor.Size = new System.Drawing.Size(67, 15);
-            this.lblCarregandoVendedor.TabIndex = 48;
-            this.lblCarregandoVendedor.Text = "Carregando";
-            this.lblCarregandoVendedor.Visible = false;
-            // 
-            // bgwFiltroTudo
-            // 
-            this.bgwFiltroTudo.WorkerReportsProgress = true;
-            this.bgwFiltroTudo.WorkerSupportsCancellation = true;
-            this.bgwFiltroTudo.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroTudo_DoWork);
-            this.bgwFiltroTudo.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroTudo_ProgressChanged);
-            this.bgwFiltroTudo.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroTudo_RunWorkerCompleted);
-            // 
-            // lblCarregandoDiaSemana
-            // 
-            this.lblCarregandoDiaSemana.AutoSize = true;
-            this.lblCarregandoDiaSemana.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblCarregandoDiaSemana.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblCarregandoDiaSemana.Location = new System.Drawing.Point(664, 5);
-            this.lblCarregandoDiaSemana.Name = "lblCarregandoDiaSemana";
-            this.lblCarregandoDiaSemana.Size = new System.Drawing.Size(67, 15);
-            this.lblCarregandoDiaSemana.TabIndex = 49;
-            this.lblCarregandoDiaSemana.Text = "Carregando";
-            this.lblCarregandoDiaSemana.Visible = false;
-            // 
-            // bgwFiltroDiaSemana
-            // 
-            this.bgwFiltroDiaSemana.WorkerReportsProgress = true;
-            this.bgwFiltroDiaSemana.WorkerSupportsCancellation = true;
-            this.bgwFiltroDiaSemana.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroDiaSemana_DoWork);
-            this.bgwFiltroDiaSemana.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroDiaSemana_ProgressChanged);
-            this.bgwFiltroDiaSemana.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroDiaSemana_RunWorkerCompleted);
-            // 
-            // bgwFiltroRelatorio
-            // 
-            this.bgwFiltroRelatorio.WorkerReportsProgress = true;
-            this.bgwFiltroRelatorio.WorkerSupportsCancellation = true;
-            this.bgwFiltroRelatorio.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroRelatorio_DoWork);
-            this.bgwFiltroRelatorio.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroRelatorio_ProgressChanged);
-            this.bgwFiltroRelatorio.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroRelatorio_RunWorkerCompleted);
-            // 
-            // pbarLoadReport
-            // 
-            this.pbarLoadReport.Location = new System.Drawing.Point(12, 224);
-            this.pbarLoadReport.Name = "pbarLoadReport";
-            this.pbarLoadReport.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Blocks;
-            this.pbarLoadReport.Size = new System.Drawing.Size(1170, 23);
-            this.pbarLoadReport.Style = MetroFramework.MetroColorStyle.Black;
-            this.pbarLoadReport.TabIndex = 50;
-            // 
-            // metroPanel1
-            // 
-            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel1.Controls.Add(this.txtbxTotalValorProdutosVendidos);
-            this.metroPanel1.Controls.Add(this.metroLabel10);
-            this.metroPanel1.Controls.Add(this.txtbxTotalQtdProdutosVendidos);
-            this.metroPanel1.Controls.Add(this.metroLabel6);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(812, 23);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(370, 61);
-            this.metroPanel1.TabIndex = 46;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
-            // 
-            // txtbxTotalValorProdutosVendidos
-            // 
-            this.txtbxTotalValorProdutosVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbxTotalValorProdutosVendidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbxTotalValorProdutosVendidos.Location = new System.Drawing.Point(226, 32);
-            this.txtbxTotalValorProdutosVendidos.Name = "txtbxTotalValorProdutosVendidos";
-            this.txtbxTotalValorProdutosVendidos.Size = new System.Drawing.Size(139, 19);
-            this.txtbxTotalValorProdutosVendidos.TabIndex = 55;
-            this.txtbxTotalValorProdutosVendidos.Text = "0";
-            this.txtbxTotalValorProdutosVendidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(3, 31);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(152, 19);
-            this.metroLabel10.TabIndex = 54;
-            this.metroLabel10.Text = "Valor Produtos Vendidos";
-            // 
-            // txtbxTotalQtdProdutosVendidos
-            // 
-            this.txtbxTotalQtdProdutosVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbxTotalQtdProdutosVendidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbxTotalQtdProdutosVendidos.Location = new System.Drawing.Point(226, 7);
-            this.txtbxTotalQtdProdutosVendidos.Name = "txtbxTotalQtdProdutosVendidos";
-            this.txtbxTotalQtdProdutosVendidos.Size = new System.Drawing.Size(139, 19);
-            this.txtbxTotalQtdProdutosVendidos.TabIndex = 53;
-            this.txtbxTotalQtdProdutosVendidos.Text = "0";
-            this.txtbxTotalQtdProdutosVendidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(3, 7);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(192, 19);
-            this.metroLabel6.TabIndex = 52;
-            this.metroLabel6.Text = "Quantidade Produtos Vendidos";
-            // 
-            // btnTotaisDetalhamento
-            // 
-            this.btnTotaisDetalhamento.BackColor = System.Drawing.Color.Black;
-            this.btnTotaisDetalhamento.Location = new System.Drawing.Point(1039, 90);
-            this.btnTotaisDetalhamento.Name = "btnTotaisDetalhamento";
-            this.btnTotaisDetalhamento.Size = new System.Drawing.Size(143, 29);
-            this.btnTotaisDetalhamento.Style = MetroFramework.MetroColorStyle.White;
-            this.btnTotaisDetalhamento.TabIndex = 46;
-            this.btnTotaisDetalhamento.Text = "Mais Totais";
-            this.btnTotaisDetalhamento.UseCustomBackColor = true;
-            this.btnTotaisDetalhamento.UseSelectable = true;
-            this.btnTotaisDetalhamento.UseStyleColors = true;
-            this.btnTotaisDetalhamento.Click += new System.EventHandler(this.btnTotaisDetalhamento_Click);
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(812, 1);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(41, 19);
-            this.metroLabel4.TabIndex = 51;
-            this.metroLabel4.Text = "Totais";
-            // 
-            // ExportSpinner
-            // 
-            this.ExportSpinner.Location = new System.Drawing.Point(967, 128);
-            this.ExportSpinner.Maximum = 100;
-            this.ExportSpinner.Name = "ExportSpinner";
-            this.ExportSpinner.Size = new System.Drawing.Size(68, 68);
-            this.ExportSpinner.Style = MetroFramework.MetroColorStyle.Green;
-            this.ExportSpinner.TabIndex = 52;
-            this.ExportSpinner.UseSelectable = true;
-            this.ExportSpinner.Value = 50;
-            this.ExportSpinner.Visible = false;
             // 
             // pnTotais
             // 
@@ -1300,6 +909,306 @@
             this.VALOR_TOT_VEND.ReadOnly = true;
             this.VALOR_TOT_VEND.Width = 120;
             // 
+            // pnExport
+            // 
+            this.pnExport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnExport.Controls.Add(this.metroPanel3);
+            this.pnExport.Controls.Add(this.pnExcelExportBtn);
+            this.pnExport.HorizontalScrollbarBarColor = true;
+            this.pnExport.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnExport.HorizontalScrollbarSize = 10;
+            this.pnExport.Location = new System.Drawing.Point(812, 122);
+            this.pnExport.Name = "pnExport";
+            this.pnExport.Size = new System.Drawing.Size(131, 96);
+            this.pnExport.TabIndex = 45;
+            this.pnExport.VerticalScrollbarBarColor = true;
+            this.pnExport.VerticalScrollbarHighlightOnWheel = false;
+            this.pnExport.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel3
+            // 
+            this.metroPanel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel3.Controls.Add(this.metroLabel9);
+            this.metroPanel3.Controls.Add(this.pictureBox2);
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(21, 50);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(86, 35);
+            this.metroPanel3.TabIndex = 49;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel9.Location = new System.Drawing.Point(36, 8);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(46, 19);
+            this.metroLabel9.TabIndex = 47;
+            this.metroLabel9.Text = "Texto";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox2.TabIndex = 46;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pnExcelExportBtn
+            // 
+            this.pnExcelExportBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pnExcelExportBtn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnExcelExportBtn.Controls.Add(this.lblExcelExportBtn);
+            this.pnExcelExportBtn.Controls.Add(this.pctrbxExcelExportBtn);
+            this.pnExcelExportBtn.HorizontalScrollbarBarColor = true;
+            this.pnExcelExportBtn.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnExcelExportBtn.HorizontalScrollbarSize = 10;
+            this.pnExcelExportBtn.Location = new System.Drawing.Point(21, 9);
+            this.pnExcelExportBtn.Name = "pnExcelExportBtn";
+            this.pnExcelExportBtn.Size = new System.Drawing.Size(86, 35);
+            this.pnExcelExportBtn.TabIndex = 48;
+            this.pnExcelExportBtn.VerticalScrollbarBarColor = true;
+            this.pnExcelExportBtn.VerticalScrollbarHighlightOnWheel = false;
+            this.pnExcelExportBtn.VerticalScrollbarSize = 10;
+            this.pnExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
+            // 
+            // lblExcelExportBtn
+            // 
+            this.lblExcelExportBtn.AutoSize = true;
+            this.lblExcelExportBtn.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblExcelExportBtn.Location = new System.Drawing.Point(36, 8);
+            this.lblExcelExportBtn.Name = "lblExcelExportBtn";
+            this.lblExcelExportBtn.Size = new System.Drawing.Size(43, 19);
+            this.lblExcelExportBtn.TabIndex = 47;
+            this.lblExcelExportBtn.Text = "Excel";
+            this.lblExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
+            // 
+            // pctrbxExcelExportBtn
+            // 
+            this.pctrbxExcelExportBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctrbxExcelExportBtn.BackgroundImage")));
+            this.pctrbxExcelExportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctrbxExcelExportBtn.Location = new System.Drawing.Point(3, 3);
+            this.pctrbxExcelExportBtn.Name = "pctrbxExcelExportBtn";
+            this.pctrbxExcelExportBtn.Size = new System.Drawing.Size(28, 29);
+            this.pctrbxExcelExportBtn.TabIndex = 46;
+            this.pctrbxExcelExportBtn.TabStop = false;
+            this.pctrbxExcelExportBtn.Click += new System.EventHandler(this.ExcelExport_Click);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(812, 100);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(60, 19);
+            this.metroLabel5.TabIndex = 46;
+            this.metroLabel5.Text = "Exportar";
+            // 
+            // bgwFiltroGrupoProduto
+            // 
+            this.bgwFiltroGrupoProduto.WorkerReportsProgress = true;
+            this.bgwFiltroGrupoProduto.WorkerSupportsCancellation = true;
+            this.bgwFiltroGrupoProduto.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroGrupoProduto_DoWork);
+            this.bgwFiltroGrupoProduto.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroGrupoProduto_ProgressChanged);
+            this.bgwFiltroGrupoProduto.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroGrupoProduto_RunWorkerCompleted);
+            // 
+            // lblCarregandoProduto
+            // 
+            this.lblCarregandoProduto.AutoSize = true;
+            this.lblCarregandoProduto.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblCarregandoProduto.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblCarregandoProduto.Location = new System.Drawing.Point(527, 5);
+            this.lblCarregandoProduto.Name = "lblCarregandoProduto";
+            this.lblCarregandoProduto.Size = new System.Drawing.Size(67, 15);
+            this.lblCarregandoProduto.TabIndex = 43;
+            this.lblCarregandoProduto.Text = "Carregando";
+            this.lblCarregandoProduto.Visible = false;
+            // 
+            // bgwFiltroProduto
+            // 
+            this.bgwFiltroProduto.WorkerReportsProgress = true;
+            this.bgwFiltroProduto.WorkerSupportsCancellation = true;
+            this.bgwFiltroProduto.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroProduto_DoWork);
+            this.bgwFiltroProduto.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroProduto_ProgressChanged);
+            this.bgwFiltroProduto.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroProduto_RunWorkerCompleted);
+            // 
+            // lblCarregandoGrupoProduto
+            // 
+            this.lblCarregandoGrupoProduto.AutoSize = true;
+            this.lblCarregandoGrupoProduto.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblCarregandoGrupoProduto.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblCarregandoGrupoProduto.Location = new System.Drawing.Point(390, 5);
+            this.lblCarregandoGrupoProduto.Name = "lblCarregandoGrupoProduto";
+            this.lblCarregandoGrupoProduto.Size = new System.Drawing.Size(67, 15);
+            this.lblCarregandoGrupoProduto.TabIndex = 47;
+            this.lblCarregandoGrupoProduto.Text = "Carregando";
+            this.lblCarregandoGrupoProduto.Visible = false;
+            // 
+            // bgwFiltroVendedor
+            // 
+            this.bgwFiltroVendedor.WorkerReportsProgress = true;
+            this.bgwFiltroVendedor.WorkerSupportsCancellation = true;
+            this.bgwFiltroVendedor.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroVendedor_DoWork);
+            this.bgwFiltroVendedor.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroVendedor_ProgressChanged);
+            this.bgwFiltroVendedor.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroVendedor_RunWorkerCompleted);
+            // 
+            // lblCarregandoVendedor
+            // 
+            this.lblCarregandoVendedor.AutoSize = true;
+            this.lblCarregandoVendedor.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblCarregandoVendedor.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblCarregandoVendedor.Location = new System.Drawing.Point(253, 5);
+            this.lblCarregandoVendedor.Name = "lblCarregandoVendedor";
+            this.lblCarregandoVendedor.Size = new System.Drawing.Size(67, 15);
+            this.lblCarregandoVendedor.TabIndex = 48;
+            this.lblCarregandoVendedor.Text = "Carregando";
+            this.lblCarregandoVendedor.Visible = false;
+            // 
+            // bgwFiltroTudo
+            // 
+            this.bgwFiltroTudo.WorkerReportsProgress = true;
+            this.bgwFiltroTudo.WorkerSupportsCancellation = true;
+            this.bgwFiltroTudo.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroTudo_DoWork);
+            this.bgwFiltroTudo.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroTudo_ProgressChanged);
+            this.bgwFiltroTudo.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroTudo_RunWorkerCompleted);
+            // 
+            // lblCarregandoDiaSemana
+            // 
+            this.lblCarregandoDiaSemana.AutoSize = true;
+            this.lblCarregandoDiaSemana.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblCarregandoDiaSemana.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblCarregandoDiaSemana.Location = new System.Drawing.Point(664, 5);
+            this.lblCarregandoDiaSemana.Name = "lblCarregandoDiaSemana";
+            this.lblCarregandoDiaSemana.Size = new System.Drawing.Size(67, 15);
+            this.lblCarregandoDiaSemana.TabIndex = 49;
+            this.lblCarregandoDiaSemana.Text = "Carregando";
+            this.lblCarregandoDiaSemana.Visible = false;
+            // 
+            // bgwFiltroDiaSemana
+            // 
+            this.bgwFiltroDiaSemana.WorkerReportsProgress = true;
+            this.bgwFiltroDiaSemana.WorkerSupportsCancellation = true;
+            this.bgwFiltroDiaSemana.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroDiaSemana_DoWork);
+            this.bgwFiltroDiaSemana.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroDiaSemana_ProgressChanged);
+            this.bgwFiltroDiaSemana.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroDiaSemana_RunWorkerCompleted);
+            // 
+            // bgwFiltroRelatorio
+            // 
+            this.bgwFiltroRelatorio.WorkerReportsProgress = true;
+            this.bgwFiltroRelatorio.WorkerSupportsCancellation = true;
+            this.bgwFiltroRelatorio.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFiltroRelatorio_DoWork);
+            this.bgwFiltroRelatorio.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwFiltroRelatorio_ProgressChanged);
+            this.bgwFiltroRelatorio.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwFiltroRelatorio_RunWorkerCompleted);
+            // 
+            // pbarLoadReport
+            // 
+            this.pbarLoadReport.Location = new System.Drawing.Point(12, 224);
+            this.pbarLoadReport.Name = "pbarLoadReport";
+            this.pbarLoadReport.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Blocks;
+            this.pbarLoadReport.Size = new System.Drawing.Size(1170, 23);
+            this.pbarLoadReport.Style = MetroFramework.MetroColorStyle.Black;
+            this.pbarLoadReport.TabIndex = 50;
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.txtbxTotalValorProdutosVendidos);
+            this.metroPanel1.Controls.Add(this.metroLabel10);
+            this.metroPanel1.Controls.Add(this.txtbxTotalQtdProdutosVendidos);
+            this.metroPanel1.Controls.Add(this.metroLabel6);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(812, 23);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(370, 61);
+            this.metroPanel1.TabIndex = 46;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // txtbxTotalValorProdutosVendidos
+            // 
+            this.txtbxTotalValorProdutosVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxTotalValorProdutosVendidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbxTotalValorProdutosVendidos.Location = new System.Drawing.Point(226, 32);
+            this.txtbxTotalValorProdutosVendidos.Name = "txtbxTotalValorProdutosVendidos";
+            this.txtbxTotalValorProdutosVendidos.Size = new System.Drawing.Size(139, 19);
+            this.txtbxTotalValorProdutosVendidos.TabIndex = 55;
+            this.txtbxTotalValorProdutosVendidos.Text = "0";
+            this.txtbxTotalValorProdutosVendidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(3, 31);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(152, 19);
+            this.metroLabel10.TabIndex = 54;
+            this.metroLabel10.Text = "Valor Produtos Vendidos";
+            // 
+            // txtbxTotalQtdProdutosVendidos
+            // 
+            this.txtbxTotalQtdProdutosVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxTotalQtdProdutosVendidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbxTotalQtdProdutosVendidos.Location = new System.Drawing.Point(226, 7);
+            this.txtbxTotalQtdProdutosVendidos.Name = "txtbxTotalQtdProdutosVendidos";
+            this.txtbxTotalQtdProdutosVendidos.Size = new System.Drawing.Size(139, 19);
+            this.txtbxTotalQtdProdutosVendidos.TabIndex = 53;
+            this.txtbxTotalQtdProdutosVendidos.Text = "0";
+            this.txtbxTotalQtdProdutosVendidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(3, 7);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(192, 19);
+            this.metroLabel6.TabIndex = 52;
+            this.metroLabel6.Text = "Quantidade Produtos Vendidos";
+            // 
+            // btnTotaisDetalhamento
+            // 
+            this.btnTotaisDetalhamento.BackColor = System.Drawing.Color.Black;
+            this.btnTotaisDetalhamento.Location = new System.Drawing.Point(1039, 90);
+            this.btnTotaisDetalhamento.Name = "btnTotaisDetalhamento";
+            this.btnTotaisDetalhamento.Size = new System.Drawing.Size(143, 29);
+            this.btnTotaisDetalhamento.Style = MetroFramework.MetroColorStyle.White;
+            this.btnTotaisDetalhamento.TabIndex = 46;
+            this.btnTotaisDetalhamento.Text = "Mais Totais";
+            this.btnTotaisDetalhamento.UseCustomBackColor = true;
+            this.btnTotaisDetalhamento.UseSelectable = true;
+            this.btnTotaisDetalhamento.UseStyleColors = true;
+            this.btnTotaisDetalhamento.Click += new System.EventHandler(this.btnTotaisDetalhamento_Click);
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(812, 1);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel4.TabIndex = 51;
+            this.metroLabel4.Text = "Totais";
+            // 
+            // ExportSpinner
+            // 
+            this.ExportSpinner.Location = new System.Drawing.Point(967, 128);
+            this.ExportSpinner.Maximum = 100;
+            this.ExportSpinner.Name = "ExportSpinner";
+            this.ExportSpinner.Size = new System.Drawing.Size(68, 68);
+            this.ExportSpinner.Style = MetroFramework.MetroColorStyle.Green;
+            this.ExportSpinner.TabIndex = 52;
+            this.ExportSpinner.UseSelectable = true;
+            this.ExportSpinner.Value = 50;
+            this.ExportSpinner.Visible = false;
+            // 
             // lblExportStatus
             // 
             this.lblExportStatus.AutoSize = true;
@@ -1324,6 +1233,96 @@
             this.bgwExportExcel.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwExportExcel_DoWork);
             this.bgwExportExcel.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwExportExcel_ProgressChanged);
             this.bgwExportExcel.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwExportExcel_RunWorkerCompleted);
+            // 
+            // NUM_LOJA
+            // 
+            this.NUM_LOJA.DataPropertyName = "NUM_LOJA";
+            this.NUM_LOJA.HeaderText = "Num. Loja";
+            this.NUM_LOJA.Name = "NUM_LOJA";
+            this.NUM_LOJA.ReadOnly = true;
+            this.NUM_LOJA.Width = 90;
+            // 
+            // lojaNome
+            // 
+            this.lojaNome.DataPropertyName = "LOJA";
+            this.lojaNome.HeaderText = "Loja";
+            this.lojaNome.Name = "lojaNome";
+            this.lojaNome.Width = 300;
+            // 
+            // VENDEDOR
+            // 
+            this.VENDEDOR.DataPropertyName = "VENDEDOR";
+            this.VENDEDOR.HeaderText = "Vendedor";
+            this.VENDEDOR.Name = "VENDEDOR";
+            this.VENDEDOR.ReadOnly = true;
+            this.VENDEDOR.Width = 180;
+            // 
+            // GRUPO
+            // 
+            this.GRUPO.DataPropertyName = "GRUPO";
+            this.GRUPO.HeaderText = "Grupo de Produtos";
+            this.GRUPO.Name = "GRUPO";
+            this.GRUPO.ReadOnly = true;
+            this.GRUPO.Width = 180;
+            // 
+            // PRODUTO
+            // 
+            this.PRODUTO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PRODUTO.DataPropertyName = "PRODUTO";
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.PRODUTO.DefaultCellStyle = dataGridViewCellStyle44;
+            this.PRODUTO.HeaderText = "Produtos";
+            this.PRODUTO.Name = "PRODUTO";
+            this.PRODUTO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PRODUTO.Width = 300;
+            // 
+            // QUANTIDADE
+            // 
+            this.QUANTIDADE.DataPropertyName = "QUANTIDADE";
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.QUANTIDADE.DefaultCellStyle = dataGridViewCellStyle45;
+            this.QUANTIDADE.HeaderText = "Quantidade";
+            this.QUANTIDADE.Name = "QUANTIDADE";
+            this.QUANTIDADE.ReadOnly = true;
+            this.QUANTIDADE.Width = 75;
+            // 
+            // VALOR_UNITARIO
+            // 
+            this.VALOR_UNITARIO.DataPropertyName = "VALOR_UNITARIO";
+            this.VALOR_UNITARIO.HeaderText = "Valor Unitario";
+            this.VALOR_UNITARIO.Name = "VALOR_UNITARIO";
+            this.VALOR_UNITARIO.ReadOnly = true;
+            // 
+            // VALOR_TOTAL
+            // 
+            this.VALOR_TOTAL.DataPropertyName = "VALOR_TOTAL";
+            this.VALOR_TOTAL.HeaderText = "Valor Total";
+            this.VALOR_TOTAL.Name = "VALOR_TOTAL";
+            this.VALOR_TOTAL.ReadOnly = true;
+            // 
+            // DATA
+            // 
+            this.DATA.DataPropertyName = "DATA";
+            this.DATA.HeaderText = "Data";
+            this.DATA.Name = "DATA";
+            this.DATA.ReadOnly = true;
+            this.DATA.Width = 80;
+            // 
+            // HORA
+            // 
+            this.HORA.DataPropertyName = "HORA";
+            this.HORA.HeaderText = "Hora";
+            this.HORA.MinimumWidth = 60;
+            this.HORA.Name = "HORA";
+            this.HORA.Width = 80;
+            // 
+            // NOME_DIASEMANA
+            // 
+            this.NOME_DIASEMANA.DataPropertyName = "NOME_DIASEMANA";
+            this.NOME_DIASEMANA.HeaderText = "Dia da Semana";
+            this.NOME_DIASEMANA.Name = "NOME_DIASEMANA";
+            this.NOME_DIASEMANA.ReadOnly = true;
+            this.NOME_DIASEMANA.Width = 125;
             // 
             // FRM_Report_ProdVendTotals
             // 
@@ -1350,7 +1349,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1116, 720);
             this.Name = "FRM_Report_ProdVendTotals";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Relatório: Vendas de Produtos.";
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
@@ -1360,6 +1359,11 @@
             this.pnOrdenarPor.PerformLayout();
             this.pnReport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvwMainReportScreen)).EndInit();
+            this.pnTotais.ResumeLayout(false);
+            this.pnTotais.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorDia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorGrupoProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorVendedor)).EndInit();
             this.pnExport.ResumeLayout(false);
             this.metroPanel3.ResumeLayout(false);
             this.metroPanel3.PerformLayout();
@@ -1369,11 +1373,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctrbxExcelExportBtn)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
-            this.pnTotais.ResumeLayout(false);
-            this.pnTotais.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorDia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorGrupoProdutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvwTotaisPorVendedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1421,17 +1420,6 @@
         private MetroFramework.Controls.MetroCheckBox chckAgruparHora;
         private MetroFramework.Controls.MetroCheckBox chckAgruparData;
         private MetroFramework.Controls.MetroGrid dtgvwMainReportScreen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NUM_LOJA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LOJA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VENDEDOR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GRUPO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTIDADE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR_UNITARIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR_TOTAL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DATA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HORA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOME_DIASEMANA;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroLabel txtbxTotalValorProdutosVendidos;
         private MetroFramework.Controls.MetroLabel metroLabel10;
@@ -1466,5 +1454,16 @@
         private MetroFramework.Controls.MetroLabel lblExportStatus;
         private System.Windows.Forms.SaveFileDialog sfdExcelExport;
         private System.ComponentModel.BackgroundWorker bgwExportExcel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUM_LOJA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lojaNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VENDEDOR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GRUPO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTIDADE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR_UNITARIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR_TOTAL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DATA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HORA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOME_DIASEMANA;
     }
 }

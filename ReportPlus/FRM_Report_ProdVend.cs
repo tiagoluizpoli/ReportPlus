@@ -241,6 +241,7 @@ namespace ReportPlus
                 throw ex;
             }
         }
+
         private void CarregarVendedores()
         {
             try
@@ -277,7 +278,7 @@ namespace ReportPlus
                 }
                 
                 bgwFiltroVendedor.ReportProgress(1);
-                db_Select.CarregarVendedores(loja.Sigla, dtpckrPeriodoInicial.Value, dtpckrPeriodoFinal.Value, (List<_vendedor>)e.Argument);
+                db_Select.CarregarVendedores(loja.Sigla, dtpckrPeriodoInicial.Value, dtpckrPeriodoFinal.Value + new TimeSpan(23, 59, 59), (List<_vendedor>)e.Argument);
                 e.Result = e.Argument;
             }
             catch (Exception ex)
@@ -285,6 +286,7 @@ namespace ReportPlus
                 throw ex;
             }
         }
+
         private void bgwFiltroVendedor_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             try
@@ -1301,7 +1303,6 @@ namespace ReportPlus
                 dtgvwTotaisPorGrupoProdutos.DataSource = null;
                 dtgvwTotaisPorDia.DataSource = null;
 
-
                 var Cultura = new System.Globalization.CultureInfo("pt-Br");
                 var TotPorVend = lista_ReportData.GroupBy(item => item.VENDEDOR).Select(VENDEDOR => new { VENDEDOR_TOT = VENDEDOR.Key, QUANTIDADE_TOT_VEND = VENDEDOR.Sum(x => x.QUANTIDADE), VALOR_TOT_VEND = VENDEDOR.Sum(x => x.VALOR_TOTAL) }).ToList();
 
@@ -1353,6 +1354,7 @@ namespace ReportPlus
                 }
                 dtgvwTotaisPorVendedor.DataSource = TotPorVend;
                 dtgvwTotaisPorGrupoProdutos.DataSource = TotPorGrupo;
+                
                 
 
 
@@ -1431,6 +1433,8 @@ namespace ReportPlus
 
             lblExportStatus.Visible = false;
         }
+
+        
 
         private void PreencherFiltros()
         {

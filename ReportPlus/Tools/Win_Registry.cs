@@ -256,7 +256,7 @@ namespace ReportPlus.Tools
             }
         }
 
-        public static void gravar_FristInteraction_Reg(byte fi)
+        public static void gravar_FirstInteraction_Reg(byte fi)
         {
 
             RegistryKey reg = Registry.LocalMachine.CreateSubKey(regPathCredentials);
