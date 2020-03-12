@@ -41,10 +41,11 @@ namespace ReportPlus.Tools.Export
                 Planilha.Cell("B1").Value = "LOJA";
                 Planilha.Cell("C1").Value = "VENDEDOR";
                 Planilha.Cell("D1").Value = "GRUPO";
-                Planilha.Cell("E1").Value = "PRODUTO";
-                Planilha.Cell("F1").Value = "QUANTIDADE";
-                Planilha.Cell("G1").Value = "VALOR UNITÁRIO";
-                Planilha.Cell("H1").Value = "VALOR TOTAL";
+                Planilha.Cell("E1").Value = "CODIGO";
+                Planilha.Cell("F1").Value = "PRODUTO";
+                Planilha.Cell("G1").Value = "QUANTIDADE";
+                Planilha.Cell("H1").Value = "VALOR UNITÁRIO";
+                Planilha.Cell("I1").Value = "VALOR TOTAL";
 
                 Planilha.Row(1).Height = 25;
                 Planilha.SheetView.FreezeRows(1);
@@ -53,21 +54,21 @@ namespace ReportPlus.Tools.Export
                 string dinamicRange = string.Empty;
                 if (data)
                 {
-                    Planilha.Cell("I1").Value = "DATA";
-                    Planilha.Cell("J1").Value = "NOME DIASEMANA";
+                    Planilha.Cell("J1").Value = "DATA";
+                    Planilha.Cell("K1").Value = "NOME DIASEMANA";
                     if (hora)
                     {
-                        Planilha.Cell("K1").Value = "HORA";
-                        dinamicRange = "A1:K1";
+                        Planilha.Cell("L1").Value = "HORA";
+                        dinamicRange = "A1:L1";
                     }
                     else
                     {
-                        dinamicRange = "A1:J1";
+                        dinamicRange = "A1:K1";
                     }
                 }
                 else
                 {
-                    dinamicRange = dinamicRange = "A1:H1";
+                    dinamicRange  = "A1:I1";
                 }
 
                 var range = Planilha.Range(dinamicRange);
@@ -90,34 +91,36 @@ namespace ReportPlus.Tools.Export
                     Planilha.Cell("B" + linha.ToString()).Value = ListaReportData[i].LOJA;
                     Planilha.Cell("C" + linha.ToString()).Value = ListaReportData[i].VENDEDOR;
                     Planilha.Cell("D" + linha.ToString()).Value = ListaReportData[i].GRUPO;
-                    Planilha.Cell("E" + linha.ToString()).Value = ListaReportData[i].PRODUTO;
-                    Planilha.Cell("F" + linha.ToString()).Value = ListaReportData[i].QUANTIDADE;
-                    Planilha.Cell("G" + linha.ToString()).Value = ListaReportData[i].VALOR_UNITARIO;
-                    Planilha.Cell("H" + linha.ToString()).Value = ListaReportData[i].VALOR_TOTAL;
+                    Planilha.Cell("E" + linha.ToString()).Value = ListaReportData[i].COD_PRODUTO;
+                    Planilha.Cell("F" + linha.ToString()).Value = ListaReportData[i].PRODUTO;
+                    Planilha.Cell("G" + linha.ToString()).Value = ListaReportData[i].QUANTIDADE;
+                    Planilha.Cell("H" + linha.ToString()).Value = ListaReportData[i].VALOR_UNITARIO;
+                    Planilha.Cell("I" + linha.ToString()).Value = ListaReportData[i].VALOR_TOTAL;
                     
                     
 
                     Planilha.Cell("A" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
                     Planilha.Cell("B" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
                     Planilha.Cell("C" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
-                    Planilha.Cell("D" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
-                    Planilha.Cell("E" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
-                    Planilha.Cell("F" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                    Planilha.Cell("D" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Left);
+                    Planilha.Cell("E" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                    Planilha.Cell("F" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
                     Planilha.Cell("G" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
                     Planilha.Cell("H" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                    Planilha.Cell("I" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
 
                     if (data)
                     {
-                        Planilha.Cell("I" + linha.ToString()).Value = ListaReportData[i].DATA;
-                        Planilha.Cell("J" + linha.ToString()).Value = ListaReportData[i].NOME_DIASEMANA;
+                        Planilha.Cell("J" + linha.ToString()).Value = ListaReportData[i].DATA;
+                        Planilha.Cell("K" + linha.ToString()).Value = ListaReportData[i].NOME_DIASEMANA;
 
-                        Planilha.Cell("I" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
-                        Planilha.Cell("J" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
+                        Planilha.Cell("J" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                        Planilha.Cell("K" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
 
                         if (hora)
                         {
-                            Planilha.Cell("K" + linha.ToString()).Value = ListaReportData[i].HORA.ToShortTimeString();
-                            Planilha.Cell("K" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                            Planilha.Cell("L" + linha.ToString()).Value = ListaReportData[i].HORA.ToShortTimeString();
+                            Planilha.Cell("L" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
                         }
                     }
 
@@ -136,17 +139,18 @@ namespace ReportPlus.Tools.Export
                 Planilha.Column("B").Width = 30;
                 Planilha.Column("C").Width = 30;
                 Planilha.Column("D").Width = 30;
-                Planilha.Column("E").Width = 40;
-                Planilha.Column("F").Width = 12;
+                Planilha.Column("E").Width = 10;
+                Planilha.Column("F").Width = 40;
                 Planilha.Column("G").Width = 12;
                 Planilha.Column("H").Width = 12;
+                Planilha.Column("I").Width = 12;
                 if (data)
                 {
-                    Planilha.Column("I").Width = 12;
-                    Planilha.Column("J").Width = 20;
+                    Planilha.Column("J").Width = 12;
+                    Planilha.Column("K").Width = 20;
                     if (hora)
                     {
-                        Planilha.Column("K").Width = 12;
+                        Planilha.Column("L").Width = 12;
                     }
                 }
                 Planilha.Dispose();
@@ -269,7 +273,7 @@ namespace ReportPlus.Tools.Export
                     Planilha.Cell("F" + linha.ToString()).Value = ListaReportTotaisPorGrupo[i].QUANTIDADE_TOT_GRUPO;
                     Planilha.Cell("G" + linha.ToString()).Value = ListaReportTotaisPorGrupo[i].VALOR_TOT_GRUPO;
 
-                    Planilha.Cell("E" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
+                    Planilha.Cell("E" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Left);
                     Planilha.Cell("F" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
                     Planilha.Cell("G" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
                     linha++;

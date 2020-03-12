@@ -356,7 +356,7 @@ namespace ReportPlus
         {
             try
             {
-                
+                lista_GrupoProdutos.Clear();
                 lstbxFiltroGrupoProduto.ValueMember = "Grupo";
                 lstbxFiltroGrupoProduto.DisplayMember = "Descricao";
                 bgwFiltroGrupoProduto.RunWorkerAsync(lista_GrupoProdutos);
@@ -1176,7 +1176,7 @@ namespace ReportPlus
 
             btnConsultar.Enabled = true;
             dtgvwMainReportScreen.DataSource = e.Result;
-            txtbxTotalQtdProdutosVendidos.Text = reportDataTotais.TOTAL_QTD_PRODUTOS_VENDIDOS.ToString();
+            txtbxTotalQtdProdutosVendidos.Text = reportDataTotais.TOTAL_QTD_PRODUTOS_VENDIDOS.ToString(string.Format("n3"));
             txtbxTotalValorProdutosVendidos.Text = reportDataTotais.TOTAL_VALOR_PRODUTOS_VENDIDOS.ToString("C2", CultureInfo.CurrentCulture);
             HabilitaTotaisDetalhamento();
         }
