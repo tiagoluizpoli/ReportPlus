@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -48,8 +50,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Report_ProdVendTotals));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.pnFiltros = new MetroFramework.Controls.MetroPanel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -77,6 +77,18 @@
             this.dtpckrPeriodoInicial = new MetroFramework.Controls.MetroDateTime();
             this.pnReport = new System.Windows.Forms.Panel();
             this.dtgvwMainReportScreen = new MetroFramework.Controls.MetroGrid();
+            this.NUM_LOJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lojaNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VENDEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_UNITARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOME_DIASEMANA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnTotais = new System.Windows.Forms.Panel();
             this.lblTotaisPorDia = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
@@ -124,18 +136,6 @@
             this.lblExportStatus = new MetroFramework.Controls.MetroLabel();
             this.sfdExcelExport = new System.Windows.Forms.SaveFileDialog();
             this.bgwExportExcel = new System.ComponentModel.BackgroundWorker();
-            this.NUM_LOJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lojaNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VENDEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GRUPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QUANTIDADE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALOR_UNITARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALOR_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOME_DIASEMANA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnFiltros.SuspendLayout();
             this.pnAgruparPor.SuspendLayout();
             this.pnOrdenarPor.SuspendLayout();
@@ -513,7 +513,7 @@
             this.pnReport.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnReport.Location = new System.Drawing.Point(12, 253);
             this.pnReport.Name = "pnReport";
-            this.pnReport.Size = new System.Drawing.Size(1316, 441);
+            this.pnReport.Size = new System.Drawing.Size(1172, 416);
             this.pnReport.TabIndex = 28;
             // 
             // dtgvwMainReportScreen
@@ -578,12 +578,108 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgvwMainReportScreen.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvwMainReportScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1316, 441);
+            this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1172, 416);
             this.dtgvwMainReportScreen.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwMainReportScreen.TabIndex = 0;
             this.dtgvwMainReportScreen.UseCustomBackColor = true;
             this.dtgvwMainReportScreen.UseCustomForeColor = true;
             this.dtgvwMainReportScreen.UseStyleColors = true;
+            // 
+            // NUM_LOJA
+            // 
+            this.NUM_LOJA.DataPropertyName = "NUM_LOJA";
+            this.NUM_LOJA.HeaderText = "Num. Loja";
+            this.NUM_LOJA.Name = "NUM_LOJA";
+            this.NUM_LOJA.ReadOnly = true;
+            this.NUM_LOJA.Width = 90;
+            // 
+            // lojaNome
+            // 
+            this.lojaNome.DataPropertyName = "LOJA";
+            this.lojaNome.HeaderText = "Loja";
+            this.lojaNome.Name = "lojaNome";
+            this.lojaNome.Width = 300;
+            // 
+            // VENDEDOR
+            // 
+            this.VENDEDOR.DataPropertyName = "VENDEDOR";
+            this.VENDEDOR.HeaderText = "Vendedor";
+            this.VENDEDOR.Name = "VENDEDOR";
+            this.VENDEDOR.ReadOnly = true;
+            this.VENDEDOR.Width = 180;
+            // 
+            // GRUPO
+            // 
+            this.GRUPO.DataPropertyName = "GRUPO";
+            this.GRUPO.HeaderText = "Grupo de Produtos";
+            this.GRUPO.Name = "GRUPO";
+            this.GRUPO.ReadOnly = true;
+            this.GRUPO.Width = 180;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "COD_PRODUTO";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            // 
+            // PRODUTO
+            // 
+            this.PRODUTO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PRODUTO.DataPropertyName = "PRODUTO";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.PRODUTO.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PRODUTO.HeaderText = "Produtos";
+            this.PRODUTO.Name = "PRODUTO";
+            this.PRODUTO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PRODUTO.Width = 300;
+            // 
+            // QUANTIDADE
+            // 
+            this.QUANTIDADE.DataPropertyName = "QUANTIDADE";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.QUANTIDADE.DefaultCellStyle = dataGridViewCellStyle3;
+            this.QUANTIDADE.HeaderText = "Quantidade";
+            this.QUANTIDADE.Name = "QUANTIDADE";
+            this.QUANTIDADE.ReadOnly = true;
+            this.QUANTIDADE.Width = 75;
+            // 
+            // VALOR_UNITARIO
+            // 
+            this.VALOR_UNITARIO.DataPropertyName = "VALOR_UNITARIO";
+            this.VALOR_UNITARIO.HeaderText = "Valor Unitario";
+            this.VALOR_UNITARIO.Name = "VALOR_UNITARIO";
+            this.VALOR_UNITARIO.ReadOnly = true;
+            // 
+            // VALOR_TOTAL
+            // 
+            this.VALOR_TOTAL.DataPropertyName = "VALOR_TOTAL";
+            this.VALOR_TOTAL.HeaderText = "Valor Total";
+            this.VALOR_TOTAL.Name = "VALOR_TOTAL";
+            this.VALOR_TOTAL.ReadOnly = true;
+            // 
+            // DATA
+            // 
+            this.DATA.DataPropertyName = "DATA";
+            this.DATA.HeaderText = "Data";
+            this.DATA.Name = "DATA";
+            this.DATA.ReadOnly = true;
+            this.DATA.Width = 80;
+            // 
+            // HORA
+            // 
+            this.HORA.DataPropertyName = "HORA";
+            this.HORA.HeaderText = "Hora";
+            this.HORA.MinimumWidth = 60;
+            this.HORA.Name = "HORA";
+            this.HORA.Width = 80;
+            // 
+            // NOME_DIASEMANA
+            // 
+            this.NOME_DIASEMANA.DataPropertyName = "NOME_DIASEMANA";
+            this.NOME_DIASEMANA.HeaderText = "Dia da Semana";
+            this.NOME_DIASEMANA.Name = "NOME_DIASEMANA";
+            this.NOME_DIASEMANA.ReadOnly = true;
+            this.NOME_DIASEMANA.Width = 125;
             // 
             // pnTotais
             // 
@@ -600,7 +696,7 @@
             this.pnTotais.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnTotais.Location = new System.Drawing.Point(12, 253);
             this.pnTotais.Name = "pnTotais";
-            this.pnTotais.Size = new System.Drawing.Size(1316, 441);
+            this.pnTotais.Size = new System.Drawing.Size(1172, 416);
             this.pnTotais.TabIndex = 29;
             this.pnTotais.Visible = false;
             // 
@@ -693,7 +789,7 @@
             this.dtgvwTotaisPorDia.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dtgvwTotaisPorDia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorDia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorDia.Size = new System.Drawing.Size(410, 422);
+            this.dtgvwTotaisPorDia.Size = new System.Drawing.Size(410, 397);
             this.dtgvwTotaisPorDia.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorDia.TabIndex = 2;
             this.dtgvwTotaisPorDia.UseCustomBackColor = true;
@@ -790,7 +886,7 @@
             this.dtgvwTotaisPorGrupoProdutos.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dtgvwTotaisPorGrupoProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorGrupoProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorGrupoProdutos.Size = new System.Drawing.Size(376, 422);
+            this.dtgvwTotaisPorGrupoProdutos.Size = new System.Drawing.Size(376, 397);
             this.dtgvwTotaisPorGrupoProdutos.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorGrupoProdutos.TabIndex = 1;
             this.dtgvwTotaisPorGrupoProdutos.UseCustomBackColor = true;
@@ -878,7 +974,7 @@
             this.dtgvwTotaisPorVendedor.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dtgvwTotaisPorVendedor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorVendedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorVendedor.Size = new System.Drawing.Size(372, 422);
+            this.dtgvwTotaisPorVendedor.Size = new System.Drawing.Size(372, 397);
             this.dtgvwTotaisPorVendedor.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorVendedor.TabIndex = 0;
             this.dtgvwTotaisPorVendedor.UseCustomBackColor = true;
@@ -1111,6 +1207,8 @@
             // 
             // pbarLoadReport
             // 
+            this.pbarLoadReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbarLoadReport.Location = new System.Drawing.Point(12, 224);
             this.pbarLoadReport.Name = "pbarLoadReport";
             this.pbarLoadReport.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Blocks;
@@ -1236,108 +1334,12 @@
             this.bgwExportExcel.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwExportExcel_ProgressChanged);
             this.bgwExportExcel.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwExportExcel_RunWorkerCompleted);
             // 
-            // NUM_LOJA
-            // 
-            this.NUM_LOJA.DataPropertyName = "NUM_LOJA";
-            this.NUM_LOJA.HeaderText = "Num. Loja";
-            this.NUM_LOJA.Name = "NUM_LOJA";
-            this.NUM_LOJA.ReadOnly = true;
-            this.NUM_LOJA.Width = 90;
-            // 
-            // lojaNome
-            // 
-            this.lojaNome.DataPropertyName = "LOJA";
-            this.lojaNome.HeaderText = "Loja";
-            this.lojaNome.Name = "lojaNome";
-            this.lojaNome.Width = 300;
-            // 
-            // VENDEDOR
-            // 
-            this.VENDEDOR.DataPropertyName = "VENDEDOR";
-            this.VENDEDOR.HeaderText = "Vendedor";
-            this.VENDEDOR.Name = "VENDEDOR";
-            this.VENDEDOR.ReadOnly = true;
-            this.VENDEDOR.Width = 180;
-            // 
-            // GRUPO
-            // 
-            this.GRUPO.DataPropertyName = "GRUPO";
-            this.GRUPO.HeaderText = "Grupo de Produtos";
-            this.GRUPO.Name = "GRUPO";
-            this.GRUPO.ReadOnly = true;
-            this.GRUPO.Width = 180;
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "COD_PRODUTO";
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            // 
-            // PRODUTO
-            // 
-            this.PRODUTO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.PRODUTO.DataPropertyName = "PRODUTO";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.PRODUTO.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PRODUTO.HeaderText = "Produtos";
-            this.PRODUTO.Name = "PRODUTO";
-            this.PRODUTO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.PRODUTO.Width = 300;
-            // 
-            // QUANTIDADE
-            // 
-            this.QUANTIDADE.DataPropertyName = "QUANTIDADE";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.QUANTIDADE.DefaultCellStyle = dataGridViewCellStyle3;
-            this.QUANTIDADE.HeaderText = "Quantidade";
-            this.QUANTIDADE.Name = "QUANTIDADE";
-            this.QUANTIDADE.ReadOnly = true;
-            this.QUANTIDADE.Width = 75;
-            // 
-            // VALOR_UNITARIO
-            // 
-            this.VALOR_UNITARIO.DataPropertyName = "VALOR_UNITARIO";
-            this.VALOR_UNITARIO.HeaderText = "Valor Unitario";
-            this.VALOR_UNITARIO.Name = "VALOR_UNITARIO";
-            this.VALOR_UNITARIO.ReadOnly = true;
-            // 
-            // VALOR_TOTAL
-            // 
-            this.VALOR_TOTAL.DataPropertyName = "VALOR_TOTAL";
-            this.VALOR_TOTAL.HeaderText = "Valor Total";
-            this.VALOR_TOTAL.Name = "VALOR_TOTAL";
-            this.VALOR_TOTAL.ReadOnly = true;
-            // 
-            // DATA
-            // 
-            this.DATA.DataPropertyName = "DATA";
-            this.DATA.HeaderText = "Data";
-            this.DATA.Name = "DATA";
-            this.DATA.ReadOnly = true;
-            this.DATA.Width = 80;
-            // 
-            // HORA
-            // 
-            this.HORA.DataPropertyName = "HORA";
-            this.HORA.HeaderText = "Hora";
-            this.HORA.MinimumWidth = 60;
-            this.HORA.Name = "HORA";
-            this.HORA.Width = 80;
-            // 
-            // NOME_DIASEMANA
-            // 
-            this.NOME_DIASEMANA.DataPropertyName = "NOME_DIASEMANA";
-            this.NOME_DIASEMANA.HeaderText = "Dia da Semana";
-            this.NOME_DIASEMANA.Name = "NOME_DIASEMANA";
-            this.NOME_DIASEMANA.ReadOnly = true;
-            this.NOME_DIASEMANA.Width = 125;
-            // 
             // FRM_Report_ProdVendTotals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1340, 706);
+            this.ClientSize = new System.Drawing.Size(1196, 681);
             this.Controls.Add(this.lblExportStatus);
             this.Controls.Add(this.pnTotais);
             this.Controls.Add(this.ExportSpinner);
@@ -1355,9 +1357,9 @@
             this.Controls.Add(this.pnFiltros);
             this.Controls.Add(this.metroLabel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1116, 720);
+            this.MinimumSize = new System.Drawing.Size(1212, 720);
             this.Name = "FRM_Report_ProdVendTotals";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório: Vendas de Produtos.";
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();

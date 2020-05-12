@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportPlus", "ReportPlus\ReportPlus.csproj", "{29D8BAE6-2A3D-4B1E-888C-CD17608F4338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportPlusActivator", "ReportPlusActivator\ReportPlusActivator.csproj", "{910D9302-2AEE-404B-AD0F-0E7F0AFA5C90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{29D8BAE6-2A3D-4B1E-888C-CD17608F4338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D8BAE6-2A3D-4B1E-888C-CD17608F4338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29D8BAE6-2A3D-4B1E-888C-CD17608F4338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{910D9302-2AEE-404B-AD0F-0E7F0AFA5C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910D9302-2AEE-404B-AD0F-0E7F0AFA5C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910D9302-2AEE-404B-AD0F-0E7F0AFA5C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910D9302-2AEE-404B-AD0F-0E7F0AFA5C90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BA7B669-DE65-42A9-BF9D-624919C80F7A}
 	EndGlobalSection
 EndGlobal

@@ -1386,13 +1386,21 @@ namespace ReportPlus
 
         private void bgwExportExcel_DoWork(object sender, DoWorkEventArgs e)
         {
-            bgwExportExcel.ReportProgress(1);
-            
-            
-            ExcelExport.ExportarRelatorioExcel(lista_ReportData, reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
-            bgwExportExcel.ReportProgress(2);
-            Thread.Sleep(4000);
-            bgwExportExcel.ReportProgress(3);
+            try
+            {
+                bgwExportExcel.ReportProgress(1);
+
+
+                ExcelExport.ExportarRelatorioExcel(lista_ReportData, reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
+                bgwExportExcel.ReportProgress(2);
+                Thread.Sleep(4000);
+                bgwExportExcel.ReportProgress(3);
+            }
+            catch (Exception ex)
+            {
+
+                MetroMessageBox.Show(this, ex.Message + Environment.NewLine + ex.Data + Environment.NewLine + ex.InnerException + Environment.NewLine + ex.HResult, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error, 250);
+            }
         }
 
         private void bgwExportExcel_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1419,7 +1427,9 @@ namespace ReportPlus
                 ExportSpinner.Visible = false;
                 ExportSpinner.Spinning = false;
 
-                lblExportStatus.Text = "O arquivo \"" + Path.GetFileName(sfdExcelExport.FileName) + "\" foi salvo no diretório: \"" + Path.GetDirectoryName(sfdExcelExport.FileName) + "\" com sucesso.";
+                //lblExportStatus.Text = "O arquivo \"" + Path.GetFileName(sfdExcelExport.FileName) + "\" foi salvo no diretório: \"" + Path.GetDirectoryName(sfdExcelExport.FileName) + "\" com sucesso.";
+
+                MetroMessageBox.Show(this, "O arquivo \"" + Path.GetFileName(sfdExcelExport.FileName) + "\" foi salvo no diretório: \"" + Path.GetDirectoryName(sfdExcelExport.FileName) + "\" com sucesso.", "Excel Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else if (e.ProgressPercentage == 3)

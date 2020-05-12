@@ -50,7 +50,7 @@ namespace ReportPlus.DATABASE
                 db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
                 db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
                 db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
-                db_Connection.com.CommandText = "select Motoqueiro from mov where horario between @periodoInicial and @periodoFinal and loja = @sigla group by Motoqueiro";
+                db_Connection.com.CommandText = "select Motoqueiro from mov where data between @periodoInicial and @periodoFinal and loja = @sigla group by Motoqueiro";
                 db_Connection.AbrirConexao();
                 SqlDataReader r = db_Connection.com.ExecuteReader();
                 while (r.Read())
@@ -104,7 +104,7 @@ namespace ReportPlus.DATABASE
                 db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
                 db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
                 db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
-                db_Connection.com.CommandText = "select p.codproduto, p.descriproduto from produto p inner join mov m on p.codproduto = m.produto where p.codproduto in (select mov.produto from mov where data between @periodoInicial and @periodoFinal) and p.loja = @sigla group by p.DescriProduto,p.codproduto order by p.DescriProduto";
+                db_Connection.com.CommandText = "select p.codproduto, p.descriproduto from produto p where p.codproduto in (select mov.produto from mov where data between @periodoInicial and @periodoFinal and loja = @sigla) and p.loja = @sigla group by p.DescriProduto,p.codproduto order by p.DescriProduto";
                 db_Connection.AbrirConexao();
                 SqlDataReader r = db_Connection.com.ExecuteReader();
                 while (r.Read())
