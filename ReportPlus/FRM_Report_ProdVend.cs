@@ -17,6 +17,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using MoreLinq;
 using ReportPlus.Tools.Export;
+using System.Linq.Dynamic;
 
 namespace ReportPlus
 {
@@ -45,8 +46,10 @@ namespace ReportPlus
         string complementoWhere = string.Empty;
         string complementoOrderBy = string.Empty;
         DateTime dtini, dtfin;
-        bool visualizaTotaisDetalhe = false;
-        
+        bool visualizaTotaisDetalhe = false, sortingAscending = true;
+        int columnIndex_Sorting = -1;
+
+
         #endregion
 
         #region Organização dos Controles e Padronização 
@@ -69,11 +72,17 @@ namespace ReportPlus
         {
             dtpckrPeriodoInicial.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             dtpckrPeriodoFinal.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
+            tmpckrHoraInicial.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+            tmpckrHoraFinal.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+
         }
 
         // Posição inicial
         private void posicaoInicial()
-        {               
+        {
+            chckbxPorHora.Checked = false;
+            tmpckrHoraInicial.Enabled = false;
+            tmpckrHoraFinal.Enabled = false;
             chckFiltroVendedor.Checked = false;
             chckFiltroGrupoProduto.Checked = false;
             chckFiltroProduto.Checked = false;
@@ -211,6 +220,60 @@ namespace ReportPlus
             limpaFiltro();
             visualizaTotaisDetalhe = false;
             TrocaVisualização();
+        }
+
+        private void chckbxPorHora_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chckbxPorHora.Checked)
+            {
+                tmpckrHoraInicial.Enabled = true;
+                tmpckrHoraFinal.Enabled = true;
+            }
+            else
+            {
+                tmpckrHoraInicial.Enabled = false;
+                tmpckrHoraFinal.Enabled = false;
+
+            }
+        }
+
+        private void dtgvwMainReportScreen_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex > -1)
+                {
+                    if (e.ColumnIndex == columnIndex_Sorting)
+                    {
+                        if (sortingAscending)
+                        {
+                            sortingAscending = false;
+                        }
+                        else
+                        {
+                            sortingAscending = true;
+                        }
+                    }
+                    else
+                    {
+                        sortingAscending = false;
+                        columnIndex_Sorting = e.ColumnIndex;
+                    }
+                    if (sortingAscending)
+                    {
+                        dtgvwMainReportScreen.DataSource = lista_ReportData.OrderBy(dtgvwMainReportScreen.Columns[e.ColumnIndex].DataPropertyName).ToList();
+                    }
+                    else
+                    {
+                        dtgvwMainReportScreen.DataSource = lista_ReportData.OrderBy(dtgvwMainReportScreen.Columns[e.ColumnIndex].DataPropertyName).Reverse().ToList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         #endregion
 
@@ -1130,6 +1193,10 @@ namespace ReportPlus
                 reportDataTotais.TOTAL_VALOR_PRODUTOS_VENDIDOS = 0;
                 PreencherFiltros();
                 bgwFiltroRelatorio.RunWorkerAsync(lista_ReportData);
+                foreach (DataGridViewColumn column in dtgvwMainReportScreen.Columns)
+                {
+                    column.SortMode = DataGridViewColumnSortMode.Automatic;
+                }
 
             }
             catch (Exception ex)
@@ -1142,8 +1209,19 @@ namespace ReportPlus
         {
             
             bgwFiltroRelatorio.ReportProgress(db_Select.carregarRelatorioCount(loja.Sigla, dtpckrPeriodoInicial.Value, dtpckrPeriodoFinal.Value, ref complementoWhere, ref complementoOrderBy), true);
-            
-            db_Select.CarregarRelatorio(loja.Sigla, dtpckrPeriodoInicial.Value, dtpckrPeriodoFinal.Value, lista_ReportData, reportDataTotais, ref complementoWhere, ref complementoOrderBy, bgwFiltroRelatorio, chckAgruparData.Checked, chckAgruparHora.Checked);
+            DateTime periodoInicialCompleto = new DateTime(), periodoFinalCompleto = new DateTime();
+            if (chckbxPorHora.Checked)
+            {
+                periodoInicialCompleto = new DateTime(dtpckrPeriodoInicial.Value.Year, dtpckrPeriodoInicial.Value.Month, dtpckrPeriodoInicial.Value.Day, tmpckrHoraInicial.Value.Value.Hour, tmpckrHoraInicial.Value.Value.Minute, tmpckrHoraInicial.Value.Value.Second);
+                periodoFinalCompleto = new DateTime(dtpckrPeriodoFinal.Value.Year, dtpckrPeriodoFinal.Value.Month, dtpckrPeriodoFinal.Value.Day, tmpckrHoraFinal.Value.Value.Hour, tmpckrHoraFinal.Value.Value.Minute, tmpckrHoraFinal.Value.Value.Second);
+            }
+            else
+            {
+                periodoInicialCompleto = dtpckrPeriodoInicial.Value;
+                periodoFinalCompleto = dtpckrPeriodoFinal.Value;
+            }
+
+            db_Select.CarregarRelatorio(loja.Sigla, periodoInicialCompleto, periodoFinalCompleto, lista_ReportData, reportDataTotais, ref complementoWhere, ref complementoOrderBy, bgwFiltroRelatorio, chckAgruparData.Checked, chckAgruparHora.Checked, chckbxPorHora.Checked);
             e.Result = lista_ReportData;
         }
 
@@ -1201,7 +1279,7 @@ namespace ReportPlus
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -1285,7 +1363,12 @@ namespace ReportPlus
                 {
                     dtgvwMainReportScreen.Columns["HORA"].Visible = false;
                 }
-                
+
+
+                foreach (DataGridViewColumn column in dtgvwMainReportScreen.Columns)
+                {
+                    column.SortMode = DataGridViewColumnSortMode.Automatic;
+                }
             }
             catch (Exception ex)
             {
@@ -1390,6 +1473,19 @@ namespace ReportPlus
             {
                 bgwExportExcel.ReportProgress(1);
 
+
+                //ExcelExport.ExportarRelatorioExcel(lista_ReportData, reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
+                if (columnIndex_Sorting > -1)
+                {
+                    if (sortingAscending)
+                    {
+                        ExcelExport.ExportarRelatorioExcel(lista_ReportData.OrderBy(dtgvwMainReportScreen.Columns[columnIndex_Sorting].DataPropertyName).ToList(), reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
+                    }
+                    else
+                    {
+                        ExcelExport.ExportarRelatorioExcel(lista_ReportData.OrderBy(dtgvwMainReportScreen.Columns[columnIndex_Sorting].DataPropertyName).Reverse().ToList(), reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
+                    }
+                }
 
                 ExcelExport.ExportarRelatorioExcel(lista_ReportData, reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
                 bgwExportExcel.ReportProgress(2);

@@ -129,8 +129,8 @@ namespace ReportPlus.Tools.Export
                 linha--;
 
                 Planilha.Column("A").Cells().Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).NumberFormat.SetFormat("00000");
-                Planilha.Column("G").Cells().Style.NumberFormat.Format = "R$0.00";
                 Planilha.Column("H").Cells().Style.NumberFormat.Format = "R$0.00";
+                Planilha.Column("I").Cells().Style.NumberFormat.Format = "R$0.00";
 
 
                 

@@ -52,6 +52,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Report_ProdVendTotals));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.pnFiltros = new MetroFramework.Controls.MetroPanel();
+            this.chckbxPorHora = new MetroFramework.Controls.MetroCheckBox();
+            this.dtpckrPeriodoFinal = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.tmpckrHoraInicial = new Telerik.WinControls.UI.RadTimePicker();
+            this.dtpckrPeriodoInicial = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.tmpckrHoraFinal = new Telerik.WinControls.UI.RadTimePicker();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.pnAgruparPor = new MetroFramework.Controls.MetroPanel();
             this.chckAgruparHora = new MetroFramework.Controls.MetroCheckBox();
@@ -70,11 +75,9 @@
             this.chckFiltroDiaSemana = new MetroFramework.Controls.MetroCheckBox();
             this.chckFiltroProduto = new MetroFramework.Controls.MetroCheckBox();
             this.chckFiltroGrupoProduto = new MetroFramework.Controls.MetroCheckBox();
-            this.dtpckrPeriodoFinal = new MetroFramework.Controls.MetroDateTime();
             this.chckFiltroVendedor = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.dtpckrPeriodoInicial = new MetroFramework.Controls.MetroDateTime();
             this.pnReport = new System.Windows.Forms.Panel();
             this.dtgvwMainReportScreen = new MetroFramework.Controls.MetroGrid();
             this.NUM_LOJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -136,7 +139,14 @@
             this.lblExportStatus = new MetroFramework.Controls.MetroLabel();
             this.sfdExcelExport = new System.Windows.Forms.SaveFileDialog();
             this.bgwExportExcel = new System.ComponentModel.BackgroundWorker();
+            this.crystalTheme1 = new Telerik.WinControls.Themes.CrystalTheme();
+            this.crystalDarkTheme1 = new Telerik.WinControls.Themes.CrystalDarkTheme();
+            this.fluentTheme1 = new Telerik.WinControls.Themes.FluentTheme();
             this.pnFiltros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpckrPeriodoFinal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpckrHoraInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpckrPeriodoInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpckrHoraFinal)).BeginInit();
             this.pnAgruparPor.SuspendLayout();
             this.pnOrdenarPor.SuspendLayout();
             this.pnReport.SuspendLayout();
@@ -165,6 +175,11 @@
             // pnFiltros
             // 
             this.pnFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnFiltros.Controls.Add(this.chckbxPorHora);
+            this.pnFiltros.Controls.Add(this.dtpckrPeriodoFinal);
+            this.pnFiltros.Controls.Add(this.tmpckrHoraInicial);
+            this.pnFiltros.Controls.Add(this.dtpckrPeriodoInicial);
+            this.pnFiltros.Controls.Add(this.tmpckrHoraFinal);
             this.pnFiltros.Controls.Add(this.metroLabel3);
             this.pnFiltros.Controls.Add(this.pnAgruparPor);
             this.pnFiltros.Controls.Add(this.txtbxSearchProduto);
@@ -179,27 +194,91 @@
             this.pnFiltros.Controls.Add(this.chckFiltroDiaSemana);
             this.pnFiltros.Controls.Add(this.chckFiltroProduto);
             this.pnFiltros.Controls.Add(this.chckFiltroGrupoProduto);
-            this.pnFiltros.Controls.Add(this.dtpckrPeriodoFinal);
             this.pnFiltros.Controls.Add(this.chckFiltroVendedor);
             this.pnFiltros.Controls.Add(this.metroLabel2);
             this.pnFiltros.Controls.Add(this.metroLabel7);
-            this.pnFiltros.Controls.Add(this.dtpckrPeriodoInicial);
             this.pnFiltros.HorizontalScrollbarBarColor = true;
             this.pnFiltros.HorizontalScrollbarHighlightOnWheel = false;
             this.pnFiltros.HorizontalScrollbarSize = 10;
             this.pnFiltros.Location = new System.Drawing.Point(12, 23);
             this.pnFiltros.Name = "pnFiltros";
-            this.pnFiltros.Size = new System.Drawing.Size(794, 195);
+            this.pnFiltros.Size = new System.Drawing.Size(794, 219);
             this.pnFiltros.TabIndex = 27;
             this.pnFiltros.VerticalScrollbarBarColor = true;
             this.pnFiltros.VerticalScrollbarHighlightOnWheel = false;
             this.pnFiltros.VerticalScrollbarSize = 10;
             // 
+            // chckbxPorHora
+            // 
+            this.chckbxPorHora.AutoSize = true;
+            this.chckbxPorHora.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
+            this.chckbxPorHora.Location = new System.Drawing.Point(5, 55);
+            this.chckbxPorHora.Name = "chckbxPorHora";
+            this.chckbxPorHora.Size = new System.Drawing.Size(48, 15);
+            this.chckbxPorHora.Style = MetroFramework.MetroColorStyle.Black;
+            this.chckbxPorHora.TabIndex = 48;
+            this.chckbxPorHora.Text = "Hora";
+            this.chckbxPorHora.UseSelectable = true;
+            this.chckbxPorHora.UseStyleColors = true;
+            this.chckbxPorHora.CheckedChanged += new System.EventHandler(this.chckbxPorHora_CheckedChanged);
+            // 
+            // dtpckrPeriodoFinal
+            // 
+            this.dtpckrPeriodoFinal.CalendarSize = new System.Drawing.Size(290, 320);
+            this.dtpckrPeriodoFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpckrPeriodoFinal.Location = new System.Drawing.Point(121, 21);
+            this.dtpckrPeriodoFinal.Name = "dtpckrPeriodoFinal";
+            this.dtpckrPeriodoFinal.Size = new System.Drawing.Size(111, 24);
+            this.dtpckrPeriodoFinal.TabIndex = 48;
+            this.dtpckrPeriodoFinal.TabStop = false;
+            this.dtpckrPeriodoFinal.Text = "12/05/2020";
+            this.dtpckrPeriodoFinal.ThemeName = "Fluent";
+            this.dtpckrPeriodoFinal.Value = new System.DateTime(2020, 5, 12, 19, 11, 32, 921);
+            this.dtpckrPeriodoFinal.ValueChanged += new System.EventHandler(this.datetime_ValueChanged);
+            // 
+            // tmpckrHoraInicial
+            // 
+            this.tmpckrHoraInicial.Location = new System.Drawing.Point(58, 51);
+            this.tmpckrHoraInicial.MaxValue = new System.DateTime(9999, 12, 31, 23, 59, 59, 0);
+            this.tmpckrHoraInicial.MinValue = new System.DateTime(((long)(0)));
+            this.tmpckrHoraInicial.Name = "tmpckrHoraInicial";
+            this.tmpckrHoraInicial.Size = new System.Drawing.Size(85, 24);
+            this.tmpckrHoraInicial.TabIndex = 47;
+            this.tmpckrHoraInicial.TabStop = false;
+            this.tmpckrHoraInicial.ThemeName = "Fluent";
+            this.tmpckrHoraInicial.Value = new System.DateTime(2020, 5, 12, 19, 8, 7, 858);
+            // 
+            // dtpckrPeriodoInicial
+            // 
+            this.dtpckrPeriodoInicial.CalendarSize = new System.Drawing.Size(290, 320);
+            this.dtpckrPeriodoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpckrPeriodoInicial.Location = new System.Drawing.Point(3, 21);
+            this.dtpckrPeriodoInicial.Name = "dtpckrPeriodoInicial";
+            this.dtpckrPeriodoInicial.Size = new System.Drawing.Size(111, 24);
+            this.dtpckrPeriodoInicial.TabIndex = 47;
+            this.dtpckrPeriodoInicial.TabStop = false;
+            this.dtpckrPeriodoInicial.Text = "12/05/2020";
+            this.dtpckrPeriodoInicial.ThemeName = "Fluent";
+            this.dtpckrPeriodoInicial.Value = new System.DateTime(2020, 5, 12, 19, 11, 32, 921);
+            this.dtpckrPeriodoInicial.ValueChanged += new System.EventHandler(this.datetime_ValueChanged);
+            // 
+            // tmpckrHoraFinal
+            // 
+            this.tmpckrHoraFinal.Location = new System.Drawing.Point(147, 51);
+            this.tmpckrHoraFinal.MaxValue = new System.DateTime(9999, 12, 31, 23, 59, 59, 0);
+            this.tmpckrHoraFinal.MinValue = new System.DateTime(((long)(0)));
+            this.tmpckrHoraFinal.Name = "tmpckrHoraFinal";
+            this.tmpckrHoraFinal.Size = new System.Drawing.Size(85, 24);
+            this.tmpckrHoraFinal.TabIndex = 46;
+            this.tmpckrHoraFinal.TabStop = false;
+            this.tmpckrHoraFinal.ThemeName = "Fluent";
+            this.tmpckrHoraFinal.Value = new System.DateTime(2020, 5, 12, 19, 8, 7, 858);
+            // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel3.Location = new System.Drawing.Point(6, 98);
+            this.metroLabel3.Location = new System.Drawing.Point(4, 121);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(74, 15);
             this.metroLabel3.TabIndex = 45;
@@ -213,7 +292,7 @@
             this.pnAgruparPor.HorizontalScrollbarBarColor = true;
             this.pnAgruparPor.HorizontalScrollbarHighlightOnWheel = false;
             this.pnAgruparPor.HorizontalScrollbarSize = 10;
-            this.pnAgruparPor.Location = new System.Drawing.Point(6, 116);
+            this.pnAgruparPor.Location = new System.Drawing.Point(4, 139);
             this.pnAgruparPor.Name = "pnAgruparPor";
             this.pnAgruparPor.Size = new System.Drawing.Size(228, 22);
             this.pnAgruparPor.TabIndex = 40;
@@ -283,7 +362,7 @@
             // 
             this.lblOrdenar.AutoSize = true;
             this.lblOrdenar.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblOrdenar.Location = new System.Drawing.Point(6, 55);
+            this.lblOrdenar.Location = new System.Drawing.Point(4, 78);
             this.lblOrdenar.Name = "lblOrdenar";
             this.lblOrdenar.Size = new System.Drawing.Size(74, 15);
             this.lblOrdenar.TabIndex = 43;
@@ -297,7 +376,7 @@
             this.pnOrdenarPor.HorizontalScrollbarBarColor = true;
             this.pnOrdenarPor.HorizontalScrollbarHighlightOnWheel = false;
             this.pnOrdenarPor.HorizontalScrollbarSize = 10;
-            this.pnOrdenarPor.Location = new System.Drawing.Point(6, 73);
+            this.pnOrdenarPor.Location = new System.Drawing.Point(4, 96);
             this.pnOrdenarPor.Name = "pnOrdenarPor";
             this.pnOrdenarPor.Size = new System.Drawing.Size(228, 22);
             this.pnOrdenarPor.TabIndex = 39;
@@ -335,7 +414,7 @@
             this.lstbxFiltroDiaSemana.Location = new System.Drawing.Point(651, 22);
             this.lstbxFiltroDiaSemana.Name = "lstbxFiltroDiaSemana";
             this.lstbxFiltroDiaSemana.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbxFiltroDiaSemana.Size = new System.Drawing.Size(131, 160);
+            this.lstbxFiltroDiaSemana.Size = new System.Drawing.Size(131, 186);
             this.lstbxFiltroDiaSemana.TabIndex = 37;
             this.lstbxFiltroDiaSemana.SelectedIndexChanged += new System.EventHandler(this.lstbxFiltroDiaSemana_SelectedIndexChanged);
             // 
@@ -345,7 +424,7 @@
             this.lstbxFiltroProduto.Location = new System.Drawing.Point(514, 48);
             this.lstbxFiltroProduto.Name = "lstbxFiltroProduto";
             this.lstbxFiltroProduto.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbxFiltroProduto.Size = new System.Drawing.Size(131, 134);
+            this.lstbxFiltroProduto.Size = new System.Drawing.Size(131, 160);
             this.lstbxFiltroProduto.TabIndex = 36;
             this.lstbxFiltroProduto.SelectedIndexChanged += new System.EventHandler(this.lstbxFiltroProduto_SelectedIndexChanged);
             // 
@@ -355,7 +434,7 @@
             this.lstbxFiltroGrupoProduto.Location = new System.Drawing.Point(377, 22);
             this.lstbxFiltroGrupoProduto.Name = "lstbxFiltroGrupoProduto";
             this.lstbxFiltroGrupoProduto.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstbxFiltroGrupoProduto.Size = new System.Drawing.Size(131, 160);
+            this.lstbxFiltroGrupoProduto.Size = new System.Drawing.Size(131, 186);
             this.lstbxFiltroGrupoProduto.TabIndex = 35;
             this.lstbxFiltroGrupoProduto.SelectedIndexChanged += new System.EventHandler(this.lstbxFiltroGrupoProduto_SelectedIndexChanged);
             // 
@@ -365,16 +444,16 @@
             this.lstbxFiltroVendedor.Location = new System.Drawing.Point(240, 22);
             this.lstbxFiltroVendedor.Name = "lstbxFiltroVendedor";
             this.lstbxFiltroVendedor.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstbxFiltroVendedor.Size = new System.Drawing.Size(131, 160);
+            this.lstbxFiltroVendedor.Size = new System.Drawing.Size(131, 186);
             this.lstbxFiltroVendedor.TabIndex = 29;
             this.lstbxFiltroVendedor.SelectedIndexChanged += new System.EventHandler(this.lstbxFiltroVendedor_SelectedIndexChanged);
             // 
             // btnRedefinirFiltros
             // 
             this.btnRedefinirFiltros.BackColor = System.Drawing.Color.Black;
-            this.btnRedefinirFiltros.Location = new System.Drawing.Point(6, 147);
+            this.btnRedefinirFiltros.Location = new System.Drawing.Point(4, 170);
             this.btnRedefinirFiltros.Name = "btnRedefinirFiltros";
-            this.btnRedefinirFiltros.Size = new System.Drawing.Size(111, 35);
+            this.btnRedefinirFiltros.Size = new System.Drawing.Size(111, 38);
             this.btnRedefinirFiltros.Style = MetroFramework.MetroColorStyle.White;
             this.btnRedefinirFiltros.TabIndex = 29;
             this.btnRedefinirFiltros.Text = "Redefinir Filtros";
@@ -387,9 +466,9 @@
             // btnConsultar
             // 
             this.btnConsultar.BackColor = System.Drawing.Color.Black;
-            this.btnConsultar.Location = new System.Drawing.Point(123, 147);
+            this.btnConsultar.Location = new System.Drawing.Point(121, 170);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(111, 35);
+            this.btnConsultar.Size = new System.Drawing.Size(111, 38);
             this.btnConsultar.Style = MetroFramework.MetroColorStyle.White;
             this.btnConsultar.TabIndex = 28;
             this.btnConsultar.Text = "Consultar";
@@ -441,20 +520,6 @@
             this.chckFiltroGrupoProduto.UseStyleColors = true;
             this.chckFiltroGrupoProduto.CheckedChanged += new System.EventHandler(this.chckFiltroGrupoProduto_CheckedChanged);
             // 
-            // dtpckrPeriodoFinal
-            // 
-            this.dtpckrPeriodoFinal.AllowDrop = true;
-            this.dtpckrPeriodoFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpckrPeriodoFinal.Location = new System.Drawing.Point(123, 21);
-            this.dtpckrPeriodoFinal.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpckrPeriodoFinal.Name = "dtpckrPeriodoFinal";
-            this.dtpckrPeriodoFinal.Size = new System.Drawing.Size(111, 29);
-            this.dtpckrPeriodoFinal.Style = MetroFramework.MetroColorStyle.Black;
-            this.dtpckrPeriodoFinal.TabIndex = 27;
-            this.dtpckrPeriodoFinal.UseStyleColors = true;
-            this.dtpckrPeriodoFinal.CloseUp += new System.EventHandler(this.datetime_ValueChanged);
-            this.dtpckrPeriodoFinal.DropDown += new System.EventHandler(this.dtpckrPeriodoFinal_DropDown);
-            // 
             // chckFiltroVendedor
             // 
             this.chckFiltroVendedor.AutoSize = true;
@@ -490,19 +555,6 @@
             this.metroLabel7.TabIndex = 24;
             this.metroLabel7.Text = "Período Inicial:";
             // 
-            // dtpckrPeriodoInicial
-            // 
-            this.dtpckrPeriodoInicial.AllowDrop = true;
-            this.dtpckrPeriodoInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpckrPeriodoInicial.Location = new System.Drawing.Point(6, 21);
-            this.dtpckrPeriodoInicial.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpckrPeriodoInicial.Name = "dtpckrPeriodoInicial";
-            this.dtpckrPeriodoInicial.Size = new System.Drawing.Size(111, 29);
-            this.dtpckrPeriodoInicial.Style = MetroFramework.MetroColorStyle.Black;
-            this.dtpckrPeriodoInicial.TabIndex = 22;
-            this.dtpckrPeriodoInicial.UseStyleColors = true;
-            this.dtpckrPeriodoInicial.CloseUp += new System.EventHandler(this.datetime_ValueChanged);
-            // 
             // pnReport
             // 
             this.pnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -511,9 +563,9 @@
             this.pnReport.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnReport.Controls.Add(this.dtgvwMainReportScreen);
             this.pnReport.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnReport.Location = new System.Drawing.Point(12, 253);
+            this.pnReport.Location = new System.Drawing.Point(12, 277);
             this.pnReport.Name = "pnReport";
-            this.pnReport.Size = new System.Drawing.Size(1172, 416);
+            this.pnReport.Size = new System.Drawing.Size(1172, 392);
             this.pnReport.TabIndex = 28;
             // 
             // dtgvwMainReportScreen
@@ -578,12 +630,13 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgvwMainReportScreen.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvwMainReportScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1172, 416);
+            this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1172, 392);
             this.dtgvwMainReportScreen.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwMainReportScreen.TabIndex = 0;
             this.dtgvwMainReportScreen.UseCustomBackColor = true;
             this.dtgvwMainReportScreen.UseCustomForeColor = true;
             this.dtgvwMainReportScreen.UseStyleColors = true;
+            this.dtgvwMainReportScreen.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgvwMainReportScreen_ColumnHeaderMouseDoubleClick);
             // 
             // NUM_LOJA
             // 
@@ -694,9 +747,9 @@
             this.pnTotais.Controls.Add(this.dtgvwTotaisPorGrupoProdutos);
             this.pnTotais.Controls.Add(this.dtgvwTotaisPorVendedor);
             this.pnTotais.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnTotais.Location = new System.Drawing.Point(12, 253);
+            this.pnTotais.Location = new System.Drawing.Point(12, 277);
             this.pnTotais.Name = "pnTotais";
-            this.pnTotais.Size = new System.Drawing.Size(1172, 416);
+            this.pnTotais.Size = new System.Drawing.Size(1172, 392);
             this.pnTotais.TabIndex = 29;
             this.pnTotais.Visible = false;
             // 
@@ -789,7 +842,7 @@
             this.dtgvwTotaisPorDia.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dtgvwTotaisPorDia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorDia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorDia.Size = new System.Drawing.Size(410, 397);
+            this.dtgvwTotaisPorDia.Size = new System.Drawing.Size(410, 373);
             this.dtgvwTotaisPorDia.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorDia.TabIndex = 2;
             this.dtgvwTotaisPorDia.UseCustomBackColor = true;
@@ -886,7 +939,7 @@
             this.dtgvwTotaisPorGrupoProdutos.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dtgvwTotaisPorGrupoProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorGrupoProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorGrupoProdutos.Size = new System.Drawing.Size(376, 397);
+            this.dtgvwTotaisPorGrupoProdutos.Size = new System.Drawing.Size(376, 373);
             this.dtgvwTotaisPorGrupoProdutos.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorGrupoProdutos.TabIndex = 1;
             this.dtgvwTotaisPorGrupoProdutos.UseCustomBackColor = true;
@@ -974,7 +1027,7 @@
             this.dtgvwTotaisPorVendedor.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dtgvwTotaisPorVendedor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorVendedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorVendedor.Size = new System.Drawing.Size(372, 397);
+            this.dtgvwTotaisPorVendedor.Size = new System.Drawing.Size(372, 373);
             this.dtgvwTotaisPorVendedor.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorVendedor.TabIndex = 0;
             this.dtgvwTotaisPorVendedor.UseCustomBackColor = true;
@@ -1015,7 +1068,7 @@
             this.pnExport.HorizontalScrollbarBarColor = true;
             this.pnExport.HorizontalScrollbarHighlightOnWheel = false;
             this.pnExport.HorizontalScrollbarSize = 10;
-            this.pnExport.Location = new System.Drawing.Point(812, 122);
+            this.pnExport.Location = new System.Drawing.Point(812, 146);
             this.pnExport.Name = "pnExport";
             this.pnExport.Size = new System.Drawing.Size(131, 96);
             this.pnExport.TabIndex = 45;
@@ -1103,7 +1156,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(812, 100);
+            this.metroLabel5.Location = new System.Drawing.Point(812, 124);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(60, 19);
             this.metroLabel5.TabIndex = 46;
@@ -1209,7 +1262,7 @@
             // 
             this.pbarLoadReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbarLoadReport.Location = new System.Drawing.Point(12, 224);
+            this.pbarLoadReport.Location = new System.Drawing.Point(12, 248);
             this.pbarLoadReport.Name = "pbarLoadReport";
             this.pbarLoadReport.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Blocks;
             this.pbarLoadReport.Size = new System.Drawing.Size(1170, 23);
@@ -1299,7 +1352,7 @@
             // 
             // ExportSpinner
             // 
-            this.ExportSpinner.Location = new System.Drawing.Point(967, 128);
+            this.ExportSpinner.Location = new System.Drawing.Point(967, 152);
             this.ExportSpinner.Maximum = 100;
             this.ExportSpinner.Name = "ExportSpinner";
             this.ExportSpinner.Size = new System.Drawing.Size(68, 68);
@@ -1312,7 +1365,7 @@
             // lblExportStatus
             // 
             this.lblExportStatus.AutoSize = true;
-            this.lblExportStatus.Location = new System.Drawing.Point(949, 199);
+            this.lblExportStatus.Location = new System.Drawing.Point(949, 223);
             this.lblExportStatus.Name = "lblExportStatus";
             this.lblExportStatus.Size = new System.Drawing.Size(111, 19);
             this.lblExportStatus.TabIndex = 53;
@@ -1341,7 +1394,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1196, 681);
             this.Controls.Add(this.lblExportStatus);
-            this.Controls.Add(this.pnTotais);
             this.Controls.Add(this.ExportSpinner);
             this.Controls.Add(this.btnTotaisDetalhamento);
             this.Controls.Add(this.metroLabel4);
@@ -1356,6 +1408,7 @@
             this.Controls.Add(this.pnExport);
             this.Controls.Add(this.pnFiltros);
             this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.pnTotais);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1212, 720);
             this.Name = "FRM_Report_ProdVendTotals";
@@ -1363,6 +1416,10 @@
             this.Text = "Relatório: Vendas de Produtos.";
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpckrPeriodoFinal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpckrHoraInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpckrPeriodoInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpckrHoraFinal)).EndInit();
             this.pnAgruparPor.ResumeLayout(false);
             this.pnAgruparPor.PerformLayout();
             this.pnOrdenarPor.ResumeLayout(false);
@@ -1395,10 +1452,8 @@
         private MetroFramework.Controls.MetroCheckBox chckFiltroVendedor;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroDateTime dtpckrPeriodoInicial;
         private MetroFramework.Controls.MetroButton btnConsultar;
         private MetroFramework.Controls.MetroButton btnRedefinirFiltros;
-        private MetroFramework.Controls.MetroDateTime dtpckrPeriodoFinal;
         private MetroFramework.Controls.MetroCheckBox chckFiltroDiaSemana;
         private MetroFramework.Controls.MetroCheckBox chckFiltroProduto;
         private MetroFramework.Controls.MetroCheckBox chckFiltroGrupoProduto;
@@ -1476,5 +1531,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DATA;
         private System.Windows.Forms.DataGridViewTextBoxColumn HORA;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOME_DIASEMANA;
+        private Telerik.WinControls.UI.RadTimePicker tmpckrHoraFinal;
+        private Telerik.WinControls.Themes.CrystalTheme crystalTheme1;
+        private Telerik.WinControls.UI.RadDateTimePicker dtpckrPeriodoInicial;
+        private Telerik.WinControls.Themes.CrystalDarkTheme crystalDarkTheme1;
+        private Telerik.WinControls.UI.RadTimePicker tmpckrHoraInicial;
+        private Telerik.WinControls.UI.RadDateTimePicker dtpckrPeriodoFinal;
+        private Telerik.WinControls.Themes.FluentTheme fluentTheme1;
+        private MetroFramework.Controls.MetroCheckBox chckbxPorHora;
     }
 }

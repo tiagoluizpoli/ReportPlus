@@ -154,29 +154,37 @@ namespace ReportPlus.DATABASE
         #endregion
 
         #region Carregar Relatório
-        public static void CarregarRelatorio(string sigla, DateTime periodoInicial, DateTime periodoFinal ,List<_reportData> lista_ReportData,_reportDataTotais totais, ref string complementoWhere, ref string complementoOrderBy, BackgroundWorker bgw, bool ordData, bool ordHora)
+        public static void CarregarRelatorio(string sigla, DateTime periodoInicial, DateTime periodoFinal ,List<_reportData> lista_ReportData,_reportDataTotais totais, ref string complementoWhere, ref string complementoOrderBy, BackgroundWorker bgw, bool ordData, bool ordHora, bool filtroPorHora)
         {
             try
             {
                 string query = string.Empty;
-
+                string periodo = string.Empty;
                 #region Seleciona Query
 
+                if (filtroPorHora)
+                {
+                    periodo = "m.data between @periodoInicial and @periodoFinal and CONVERT(VARCHAR(8),Horario,108) between CONVERT(VARCHAR(8),@periodoInicial,108) and CONVERT(VARCHAR(8),@periodoFinal,108) ";
+                }
+                else
+                {
+                    periodo = "m.data between @periodoInicial and @periodoFinal ";
+                }
                 
                 if (ordData)
                 {
                     if (ordHora)
                     {
-                        query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO, m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, m.data as DATA, DATEPART (WEEKDAY, m.data) AS NUM_DIASEMANA,  DATENAME(weekday, m.Data) AS NOME_DIASEMANA,  m.Horario as HORA, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.loja = @sigla and g.loja = @sigla and l.sigla = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere + " and m.Produto between 99999 and 120000 and m.iCombinado != 1 group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,m.data,l.sigla,l.nome,p.DescriProduto,m.Horario " + complementoOrderBy;
+                        query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO, m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, m.data as DATA, DATEPART (WEEKDAY, m.data) AS NUM_DIASEMANA,  DATENAME(weekday, m.Data) AS NOME_DIASEMANA,  m.Horario as HORA, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.loja = @sigla and g.loja = @sigla and l.sigla = @sigla and " + periodo + complementoWhere + " and m.Produto between 99999 and 120000 and m.iCombinado != 1 group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,m.data,l.sigla,l.nome,p.DescriProduto,m.Horario " + complementoOrderBy;
                     }
                     else
                     {
-                        query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, m.data as DATA, DATEPART (WEEKDAY, m.data) AS NUM_DIASEMANA,  DATENAME(weekday, m.Data) AS NOME_DIASEMANA, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.loja = @sigla and g.loja = @sigla and l.sigla = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere + " and m.Produto between 99999 and 120000 and m.iCombinado != 1 group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,m.data,l.sigla,l.nome,p.DescriProduto " + complementoOrderBy;
+                        query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, m.data as DATA, DATEPART (WEEKDAY, m.data) AS NUM_DIASEMANA,  DATENAME(weekday, m.Data) AS NOME_DIASEMANA, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.loja = @sigla and g.loja = @sigla and l.sigla = @sigla and " + periodo + complementoWhere + " and m.Produto between 99999 and 120000 and m.iCombinado != 1 group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,m.data,l.sigla,l.nome,p.DescriProduto " + complementoOrderBy;
                     }
                 }
                 else
                 {
-                    query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.loja = @sigla and g.loja = @sigla and l.sigla = @sigla and m.data between @periodoInicial and @periodoFinal " + complementoWhere + " and m.Produto between 99999 and 120000 and m.iCombinado != 1 group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,l.sigla,l.nome,p.DescriProduto " + complementoOrderBy;
+                    query = @"SET LANGUAGE 'Portuguese'; SELECT l.sigla as NUM_LOJA, l.nome as LOJA, m.motoqueiro as VENDEDOR, g.Descricao AS GRUPO,  m.descricao as PRODUTO, m.Valor as VALOR_UNITARIO, sum(m.Qtde * m.Valor) as VALOR_TOTAL, sum(m.Qtde) as QUANTIDADE, p.Grupo AS COD_GRUPO, p.CodProduto as COD_PRODUTO from mov m inner join Produto p on m.Produto = p.CodProduto inner join GRUPO g on p.Grupo = g.Grupo inner join LOJA l on l.sigla = p.loja where p.loja = @sigla and m.loja = @sigla and g.loja = @sigla and l.sigla = @sigla and " + periodo + complementoWhere + " and m.Produto between 99999 and 120000 and m.iCombinado != 1 group by m.Descricao, m.motoqueiro, p.CodProduto, p.Grupo, g.Descricao,m.Valor,l.sigla,l.nome,p.DescriProduto " + complementoOrderBy;
                 }
                 #endregion
 
@@ -185,6 +193,8 @@ namespace ReportPlus.DATABASE
                 db_Connection.com.Parameters.AddWithValue("@sigla", sigla);
                 db_Connection.com.Parameters.AddWithValue("@periodoInicial", periodoInicial);
                 db_Connection.com.Parameters.AddWithValue("@periodoFinal", periodoFinal);
+                db_Connection.com.Parameters.AddWithValue("@peridoHoraInicial", periodoInicial.ToLongTimeString());
+                db_Connection.com.Parameters.AddWithValue("@peridoHoraFinal", periodoFinal.ToLongTimeString());
                 db_Connection.com.CommandText = query;
                 db_Connection.AbrirConexao();
                 SqlDataReader r = db_Connection.com.ExecuteReader();

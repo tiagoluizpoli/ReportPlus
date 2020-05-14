@@ -109,7 +109,6 @@ D:\Backup\repos\PoliFamily\ReportPlus\bin\Debug\ExcelNumberFormat.xml
 D:\Backup\repos\PoliFamily\ReportPlus\bin\Debug\itextsharp.xml
 D:\Backup\repos\PoliFamily\ReportPlus\bin\Debug\MoreLinq.xml
 D:\Backup\repos\PoliFamily\ReportPlus\bin\Debug\System.ValueTuple.xml
-D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.csprojAssemblyReference.cache
 D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Config.resources
 D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Main.resources
 D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.FRM_Report_ProdVendTotals.resources
@@ -121,3 +120,6 @@ D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.application
 D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.csproj.CopyComplete
 D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.exe
 D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.pdb
+D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.exe.licenses
+D:\Backup\repos\PoliFamily\ReportPlus\obj\Debug\ReportPlus.csprojAssemblyReference.cache
+D:\Backup\repos\PoliFamily\ReportPlus\bin\Debug\System.Linq.Dynamic.dll
