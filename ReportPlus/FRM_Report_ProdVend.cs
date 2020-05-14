@@ -1477,17 +1477,23 @@ namespace ReportPlus
                 //ExcelExport.ExportarRelatorioExcel(lista_ReportData, reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
                 if (columnIndex_Sorting > -1)
                 {
+                    List<_reportData> listaReordenada = new List<_reportData>();
                     if (sortingAscending)
                     {
-                        ExcelExport.ExportarRelatorioExcel(lista_ReportData.OrderBy(dtgvwMainReportScreen.Columns[columnIndex_Sorting].DataPropertyName).ToList(), reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
+                        listaReordenada = lista_ReportData.OrderBy(dtgvwMainReportScreen.Columns[columnIndex_Sorting].DataPropertyName).ToList();
                     }
                     else
                     {
-                        ExcelExport.ExportarRelatorioExcel(lista_ReportData.OrderBy(dtgvwMainReportScreen.Columns[columnIndex_Sorting].DataPropertyName).Reverse().ToList(), reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
+                        listaReordenada = lista_ReportData.OrderBy(dtgvwMainReportScreen.Columns[columnIndex_Sorting].DataPropertyName).Reverse().ToList();
+                        
                     }
+                    ExcelExport.ExportarRelatorioExcel(listaReordenada, reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
                 }
-
-                ExcelExport.ExportarRelatorioExcel(lista_ReportData, reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
+                else
+                {
+                    ExcelExport.ExportarRelatorioExcel(lista_ReportData, reportDataTotais, filtros, sfdExcelExport.FileName, chckAgruparData.Checked, chckAgruparHora.Checked);
+                }
+                
                 bgwExportExcel.ReportProgress(2);
                 Thread.Sleep(4000);
                 bgwExportExcel.ReportProgress(3);

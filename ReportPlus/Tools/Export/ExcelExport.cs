@@ -19,7 +19,7 @@ namespace ReportPlus.Tools.Export
                 var back = XLColor.FromArgb(0, 0, 0);
                 var fore = XLColor.FromArgb(255, 255, 255); 
                 Excel_Script_Detalhamento(Pasta, listaReportData, "Detalhamento", ref data, ref hora, back, fore);
-                Excel_Script_Totais(Pasta, totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_VENDEDOR, totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_GRUPO, totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_DATA, data, "Totais", back, fore);
+                Excel_Script_Totais(Pasta, totais, data, "Totais", back, fore);
                 Excel_Script_Filtros(Pasta, filtros, "Filtros", back, fore);
 
                 Pasta.SaveAs(path);
@@ -161,45 +161,90 @@ namespace ReportPlus.Tools.Export
             }
         }
 
-        private static void Excel_Script_Totais(IXLWorkbook Pasta, List<_reportTotal> ListaReportTotaisPorVendedor, List<_reportTotal> ListaReportTotaisPorGrupo, List<_reportTotal> ListaReportTotaisPorData, bool data, string planilhaNome, XLColor backColor, XLColor foreColor)
+        private static void Excel_Script_Totais(IXLWorkbook Pasta, _reportDataTotais totais, bool data, string planilhaNome, XLColor backColor, XLColor foreColor)
         {
             try
             {
+               
                 IXLWorksheet Planilha = Pasta.Worksheets.Add(planilhaNome);
-                
-                Planilha.Cell("A1").Value = "TOTAIS POR VENDEDOR";
-                Planilha.Cell("E1").Value = "TOTAIS POR GRUPO";
+
+                #region Totais
+                Planilha.Cell("A2").Value = "TOTAIS";
+                Planilha.Cell("D2").Value = "QUANTIDADE PRODUTOS VENDIDOS:";
+                Planilha.Cell("D3").Value = "VALOR PRODUTOS VENDIDOS:";
+                Planilha.Cell("F2").Value = totais.TOTAL_QTD_PRODUTOS_VENDIDOS;
+                Planilha.Cell("F3").Value = totais.TOTAL_VALOR_PRODUTOS_VENDIDOS;
+
+                var rangeTotaisTiulo = Planilha.Range("A2:C3").Merge();
+                rangeTotaisTiulo.Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Fill.BackgroundColor = backColor;
+                rangeTotaisTiulo.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                rangeTotaisTiulo.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                rangeTotaisTiulo.Style.Font.SetBold().Font.FontColor = foreColor;
+                rangeTotaisTiulo.Style.Font.FontSize = 20;
 
 
-                Planilha.Cell("A2").Value = "VENDEDOR";
-                Planilha.Cell("B2").Value = "QUANTIDADE";
-                Planilha.Cell("C2").Value = "VALOR TOTAL";
+                var rangeTotaisQtdTitulo = Planilha.Range("D2:E2").Merge();
+                rangeTotaisQtdTitulo.Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Font.FontSize = 11;
+                rangeTotaisQtdTitulo.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+                rangeTotaisQtdTitulo.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                rangeTotaisQtdTitulo.Style.Font.Bold = true;
 
-                Planilha.Cell("E2").Value = "GRUPO";
-                Planilha.Cell("F2").Value = "QUANTIDADE";
-                Planilha.Cell("G2").Value = "VALOR TOTAL";
+                var rangeTotaisValTitulo = Planilha.Range("D3:E3").Merge();
+                rangeTotaisValTitulo.Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Font.FontSize = 11;
+                rangeTotaisValTitulo.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+                rangeTotaisValTitulo.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                rangeTotaisValTitulo.Style.Font.Bold = true;
+
+                var rangeTotaisQtd = Planilha.Range("F2:G2").Merge();
+                rangeTotaisQtd.Style.Font.SetBold().Font.SetFontSize(16).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right).Alignment.SetVertical(XLAlignmentVerticalValues.Center).Border.SetOutsideBorder(XLBorderStyleValues.Thin);
+
+                var rangeTotaisVal = Planilha.Range("F3:G3").Merge();
+                rangeTotaisVal.Style.Font.SetBold().Font.SetFontSize(16).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right).Alignment.SetVertical(XLAlignmentVerticalValues.Center).Border.SetOutsideBorder(XLBorderStyleValues.Thin).NumberFormat.Format = "R$0.00";
+
+                var rangeTotais = Planilha.Range("A2:G3");
+                rangeTotais.Style.Border.SetOutsideBorder(XLBorderStyleValues.Medium);
+                #endregion
+
+
+
+
+                Planilha.Cell("A5").Value = "TOTAIS POR VENDEDOR";
+                Planilha.Cell("E5").Value = "TOTAIS POR GRUPO";
+
+
+                Planilha.Cell("A6").Value = "VENDEDOR";
+                Planilha.Cell("B6").Value = "QUANTIDADE";
+                Planilha.Cell("C6").Value = "VALOR TOTAL";
+
+                Planilha.Cell("E6").Value = "GRUPO";
+                Planilha.Cell("F6").Value = "QUANTIDADE";
+                Planilha.Cell("G6").Value = "VALOR TOTAL";
 
                 if (data)
                 {
-                    Planilha.Cell("I1").Value = "TOTAIS POR DATA";
-                    Planilha.Cell("I2").Value = "DATA";
-                    Planilha.Cell("J2").Value = "DIA DA SEMANA";
-                    Planilha.Cell("K2").Value = "QUANTIDADE";
-                    Planilha.Cell("L2").Value = "VALOR TOTAL";
+                    Planilha.Cell("I5").Value = "TOTAIS POR DATA";
+                    Planilha.Cell("I6").Value = "DATA";
+                    Planilha.Cell("J6").Value = "DIA DA SEMANA";
+                    Planilha.Cell("K6").Value = "QUANTIDADE";
+                    Planilha.Cell("L6").Value = "VALOR TOTAL";
                 }
 
-                Planilha.Row(1).Height = 25;
-                Planilha.Row(2).Style.Font.SetFontSize(10).Alignment.WrapText = true;
+                Planilha.Row(2).Height = 25;
+                Planilha.Row(3).Height = 25;
+                Planilha.Row(4).Height = 25;
+                Planilha.Row(5).Style.Font.SetFontSize(10).Alignment.WrapText = true;
+
+
                 #region Vendedores
 
-                var rangeTopVend = Planilha.Range("A1:C1").Merge();
+                var rangeTopVend = Planilha.Range("A5:C5").Merge();
                 rangeTopVend.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                 rangeTopVend.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
                 rangeTopVend.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
                 rangeTopVend.Style.Fill.BackgroundColor = backColor;
                 rangeTopVend.Style.Font.SetBold().Font.FontColor = foreColor;
 
-                var rangeVend = Planilha.Range("A2:c2");                
+                var rangeVend = Planilha.Range("A6:c5");                
                 rangeVend.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
                 rangeVend.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                 rangeVend.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
@@ -211,14 +256,14 @@ namespace ReportPlus.Tools.Export
 
                 #region Grupos
 
-                var rangeTopGroup = Planilha.Range("E1:G1").Merge();
+                var rangeTopGroup = Planilha.Range("E5:G5").Merge();
                 rangeTopGroup.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                 rangeTopGroup.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
                 rangeTopGroup.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
                 rangeTopGroup.Style.Fill.BackgroundColor = backColor;
                 rangeTopGroup.Style.Font.SetBold().Font.FontColor = foreColor;
 
-                var rangeGroup = Planilha.Range("E2:G2");
+                var rangeGroup = Planilha.Range("E6:G6");
                 rangeGroup.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
                 rangeGroup.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                 rangeGroup.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
@@ -230,14 +275,14 @@ namespace ReportPlus.Tools.Export
                 #region Datas
                 if (data)
                 {
-                    var rangeTopData = Planilha.Range("I1:L1").Merge();
+                    var rangeTopData = Planilha.Range("I5:L5").Merge();
                     rangeTopData.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                     rangeTopData.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
                     rangeTopData.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
                     rangeTopData.Style.Fill.BackgroundColor = backColor;
                     rangeTopData.Style.Font.SetBold().Font.FontColor = foreColor;
 
-                    var rangeData = Planilha.Range("I2:L2");
+                    var rangeData = Planilha.Range("I6:L6");
                     rangeData.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
                     rangeData.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                     rangeData.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
@@ -247,16 +292,15 @@ namespace ReportPlus.Tools.Export
                 }
                 #endregion
 
-
                 #region Preenchimento
 
-                int linha = 3;
-                for (int i = 0; i < ListaReportTotaisPorVendedor.Count; i++)
+                int linha = 6;
+                for (int i = 0; i < totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_VENDEDOR.Count; i++)
                 {
                     
-                    Planilha.Cell("A" + linha.ToString()).Value = ListaReportTotaisPorVendedor[i].VENDEDOR_TOT;
-                    Planilha.Cell("B" + linha.ToString()).Value = ListaReportTotaisPorVendedor[i].QUANTIDADE_TOT_VEND;
-                    Planilha.Cell("C" + linha.ToString()).Value = ListaReportTotaisPorVendedor[i].VALOR_TOT_VEND;   
+                    Planilha.Cell("A" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_VENDEDOR[i].VENDEDOR_TOT;
+                    Planilha.Cell("B" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_VENDEDOR[i].QUANTIDADE_TOT_VEND;
+                    Planilha.Cell("C" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_VENDEDOR[i].VALOR_TOT_VEND;   
 
                     Planilha.Cell("A" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
                     Planilha.Cell("B" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
@@ -265,13 +309,13 @@ namespace ReportPlus.Tools.Export
                 }
                 
 
-                linha = 3;
-                for (int i = 0; i < ListaReportTotaisPorGrupo.Count; i++)
+                linha = 6;
+                for (int i = 0; i < totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_GRUPO.Count; i++)
                 {
 
-                    Planilha.Cell("E" + linha.ToString()).Value = ListaReportTotaisPorGrupo[i].GRUPO_TOT;
-                    Planilha.Cell("F" + linha.ToString()).Value = ListaReportTotaisPorGrupo[i].QUANTIDADE_TOT_GRUPO;
-                    Planilha.Cell("G" + linha.ToString()).Value = ListaReportTotaisPorGrupo[i].VALOR_TOT_GRUPO;
+                    Planilha.Cell("E" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_GRUPO[i].GRUPO_TOT;
+                    Planilha.Cell("F" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_GRUPO[i].QUANTIDADE_TOT_GRUPO;
+                    Planilha.Cell("G" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_GRUPO[i].VALOR_TOT_GRUPO;
 
                     Planilha.Cell("E" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Left);
                     Planilha.Cell("F" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin).Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
@@ -283,14 +327,14 @@ namespace ReportPlus.Tools.Export
 
                 if (data)
                 {
-                    linha = 3;
-                    for (int i = 0; i < ListaReportTotaisPorData.Count; i++)
+                    linha = 6;
+                    for (int i = 0; i < totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_DATA.Count; i++)
                     {
 
-                        Planilha.Cell("I" + linha.ToString()).Value = ListaReportTotaisPorData[i].DATA_TOT;
-                        Planilha.Cell("J" + linha.ToString()).Value = ListaReportTotaisPorData[i].NOME_DIASEMANA_TOT;
-                        Planilha.Cell("K" + linha.ToString()).Value = ListaReportTotaisPorData[i].QUANTIDADE_TOT_DATA;
-                        Planilha.Cell("L" + linha.ToString()).Value = ListaReportTotaisPorData[i].VALOR_TOT_DATA;
+                        Planilha.Cell("I" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_DATA[i].DATA_TOT;
+                        Planilha.Cell("J" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_DATA[i].NOME_DIASEMANA_TOT;
+                        Planilha.Cell("K" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_DATA[i].QUANTIDADE_TOT_DATA;
+                        Planilha.Cell("L" + linha.ToString()).Value = totais.LISTA_TOTAL_PRODUTOS_VENDIDOS_POR_DATA[i].VALOR_TOT_DATA;
 
                         Planilha.Cell("I" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
                         Planilha.Cell("J" + linha.ToString()).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
@@ -316,6 +360,10 @@ namespace ReportPlus.Tools.Export
                 Planilha.Column("E").Width = 30;
                 Planilha.Column("F").Width = 12;
                 Planilha.Column("G").Width = 12;
+
+                Planilha.Column("D").Width = 3;
+                Planilha.Column("H").Width = 3;
+
 
                 if (data)
                 {
@@ -385,7 +433,7 @@ namespace ReportPlus.Tools.Export
                 rangeOutSideBorderC4D4.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
 
 
-                Planilha.Cell("A5").Value = "De [ " + filtros.periodoInicial.ToShortDateString() + " ] até [" + filtros.periodoFinal.ToShortDateString() + " ]";
+                Planilha.Cell("A5").Value = "De [ " + filtros.periodoInicial.ToShortDateString() + " ] até [ " + filtros.periodoFinal.ToShortDateString() + " ]";
                 var rangeOutSideBorderA5B5 = Planilha.Range("A5:B5").Merge();
                 rangeOutSideBorderA5B5.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
 
