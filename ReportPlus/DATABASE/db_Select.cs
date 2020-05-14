@@ -164,11 +164,11 @@ namespace ReportPlus.DATABASE
 
                 if (filtroPorHora)
                 {
-                    periodo = "m.data between @periodoInicial and @periodoFinal and CONVERT(VARCHAR(8),Horario,108) between CONVERT(VARCHAR(8),@periodoInicial,108) and CONVERT(VARCHAR(8),@periodoFinal,108) ";
+                    periodo = "CAST(m.data as date) between CAST(@periodoInicial as date) and CAST(@periodoFinal as date) and CONVERT(VARCHAR(8),Horario,108) between CONVERT(VARCHAR(8),@periodoInicial,108) and CONVERT(VARCHAR(8),@periodoFinal,108) ";
                 }
                 else
                 {
-                    periodo = "m.data between @periodoInicial and @periodoFinal ";
+                    periodo = "CAST(m.data as date) between CAST(@periodoInicial as date) and CAST(@periodoFinal as date) ";
                 }
                 
                 if (ordData)
