@@ -53,6 +53,7 @@
             this.lblLoguedUsuario = new MetroFramework.Controls.MetroLabel();
             this.lblLoguedLoja = new MetroFramework.Controls.MetroLabel();
             this.lblTrial = new MetroFramework.Controls.MetroLabel();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
@@ -172,7 +173,7 @@
             // 
             this.lblReportPlus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblReportPlus.AutoSize = true;
-            this.lblReportPlus.Location = new System.Drawing.Point(352, 323);
+            this.lblReportPlus.Location = new System.Drawing.Point(352, 367);
             this.lblReportPlus.Name = "lblReportPlus";
             this.lblReportPlus.Size = new System.Drawing.Size(89, 19);
             this.lblReportPlus.TabIndex = 12;
@@ -217,7 +218,7 @@
             // 
             this.pbConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pbConfig.Image = global::ReportPlus.Properties.Resources.settings_1_;
-            this.pbConfig.Location = new System.Drawing.Point(12, 319);
+            this.pbConfig.Location = new System.Drawing.Point(12, 363);
             this.pbConfig.Name = "pbConfig";
             this.pbConfig.Size = new System.Drawing.Size(23, 20);
             this.pbConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -247,6 +248,7 @@
             // 
             // pnLogued
             // 
+            this.pnLogued.Controls.Add(this.metroButton4);
             this.pnLogued.Controls.Add(this.metroButton3);
             this.pnLogued.Controls.Add(this.metroButton2);
             this.pnLogued.Controls.Add(this.metroButton1);
@@ -262,7 +264,7 @@
             this.pnLogued.HorizontalScrollbarSize = 10;
             this.pnLogued.Location = new System.Drawing.Point(99, 12);
             this.pnLogued.Name = "pnLogued";
-            this.pnLogued.Size = new System.Drawing.Size(255, 272);
+            this.pnLogued.Size = new System.Drawing.Size(255, 352);
             this.pnLogued.TabIndex = 15;
             this.pnLogued.VerticalScrollbar = true;
             this.pnLogued.VerticalScrollbarBarColor = true;
@@ -279,7 +281,7 @@
             this.metroButton3.Size = new System.Drawing.Size(239, 23);
             this.metroButton3.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroButton3.TabIndex = 12;
-            this.metroButton3.Text = "Produtos ";
+            this.metroButton3.Text = "Cardápio";
             this.metroButton3.UseSelectable = true;
             this.metroButton3.UseStyleColors = true;
             this.metroButton3.Visible = false;
@@ -294,7 +296,7 @@
             this.metroButton2.Size = new System.Drawing.Size(239, 23);
             this.metroButton2.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroButton2.TabIndex = 11;
-            this.metroButton2.Text = "Vendas por Grupo de Produto";
+            this.metroButton2.Text = "Auditoria Conta a Conta";
             this.metroButton2.UseSelectable = true;
             this.metroButton2.UseStyleColors = true;
             this.metroButton2.Visible = false;
@@ -309,7 +311,7 @@
             this.metroButton1.Size = new System.Drawing.Size(239, 23);
             this.metroButton1.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroButton1.TabIndex = 10;
-            this.metroButton1.Text = "Vendas por Vendedor";
+            this.metroButton1.Text = "Faturamento";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.UseStyleColors = true;
             this.metroButton1.Visible = false;
@@ -318,7 +320,7 @@
             // 
             this.btnSairSelecaoRel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSairSelecaoRel.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnSairSelecaoRel.Location = new System.Drawing.Point(91, 240);
+            this.btnSairSelecaoRel.Location = new System.Drawing.Point(91, 320);
             this.btnSairSelecaoRel.Name = "btnSairSelecaoRel";
             this.btnSairSelecaoRel.Size = new System.Drawing.Size(73, 23);
             this.btnSairSelecaoRel.Style = MetroFramework.MetroColorStyle.Silver;
@@ -388,18 +390,33 @@
             this.lblTrial.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblTrial.Location = new System.Drawing.Point(314, 35);
             this.lblTrial.Name = "lblTrial";
-            this.lblTrial.Size = new System.Drawing.Size(127, 19);
+            this.lblTrial.Size = new System.Drawing.Size(107, 15);
             this.lblTrial.TabIndex = 16;
             this.lblTrial.Text = "Versão de Avaliação";
             this.lblTrial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblTrial.Visible = false;
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroButton4.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.metroButton4.ForeColor = System.Drawing.Color.White;
+            this.metroButton4.Location = new System.Drawing.Point(8, 197);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(239, 23);
+            this.metroButton4.Style = MetroFramework.MetroColorStyle.Silver;
+            this.metroButton4.TabIndex = 13;
+            this.metroButton4.Text = "Descontos | Cancelamentos | Transferências";
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.UseStyleColors = true;
+            this.metroButton4.Visible = false;
             // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(453, 351);
+            this.ClientSize = new System.Drawing.Size(453, 395);
             this.ControlBox = false;
             this.Controls.Add(this.lblTrial);
             this.Controls.Add(this.pnLogued);
@@ -453,6 +470,7 @@
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Controls.MetroLabel lblTrial;
+        private MetroFramework.Controls.MetroButton metroButton4;
     }
 }
 

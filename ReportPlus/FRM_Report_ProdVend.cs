@@ -42,6 +42,7 @@ namespace ReportPlus
         _reportDataTotais reportDataTotais = new _reportDataTotais();
         _FiltrosExport filtros = new _FiltrosExport();
         _usuario UsuarioLogado = new _usuario();
+        DateTime periodoInicialCompleto = new DateTime(), periodoFinalCompleto = new DateTime();
         private _loja loja;
         string complementoWhere = string.Empty;
         string complementoOrderBy = string.Empty;
@@ -1209,20 +1210,12 @@ namespace ReportPlus
         {
             
             bgwFiltroRelatorio.ReportProgress(db_Select.carregarRelatorioCount(loja.Sigla, dtpckrPeriodoInicial.Value, dtpckrPeriodoFinal.Value, ref complementoWhere, ref complementoOrderBy), true);
-            DateTime periodoInicialCompleto = new DateTime(), periodoFinalCompleto = new DateTime();
-            if (chckbxPorHora.Checked)
-            {
-                periodoInicialCompleto = new DateTime(dtpckrPeriodoInicial.Value.Year, dtpckrPeriodoInicial.Value.Month, dtpckrPeriodoInicial.Value.Day, tmpckrHoraInicial.Value.Value.Hour, tmpckrHoraInicial.Value.Value.Minute, tmpckrHoraInicial.Value.Value.Second);
-                periodoFinalCompleto = new DateTime(dtpckrPeriodoFinal.Value.Year, dtpckrPeriodoFinal.Value.Month, dtpckrPeriodoFinal.Value.Day, tmpckrHoraFinal.Value.Value.Hour, tmpckrHoraFinal.Value.Value.Minute, tmpckrHoraFinal.Value.Value.Second);
-            }
-            else
-            {
-                periodoInicialCompleto = dtpckrPeriodoInicial.Value;
-                periodoFinalCompleto = dtpckrPeriodoFinal.Value;
-            }
+
+            MontarDataHoraFiltro();
 
             db_Select.CarregarRelatorio(loja.Sigla, periodoInicialCompleto, periodoFinalCompleto, lista_ReportData, reportDataTotais, ref complementoWhere, ref complementoOrderBy, bgwFiltroRelatorio, chckAgruparData.Checked, chckAgruparHora.Checked, chckbxPorHora.Checked);
             e.Result = lista_ReportData;
+            
         }
 
         private void bgwFiltroRelatorio_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1550,8 +1543,9 @@ namespace ReportPlus
 
         private void PreencherFiltros()
         {
-            filtros.periodoInicial = dtpckrPeriodoInicial.Value;
-            filtros.periodoFinal = dtpckrPeriodoFinal.Value;
+            MontarDataHoraFiltro();
+            filtros.periodoInicial = periodoInicialCompleto;
+            filtros.periodoFinal = periodoFinalCompleto;
             filtros.agora = DateTime.Now;
 
             #region Listas
@@ -1636,6 +1630,29 @@ namespace ReportPlus
             filtros.loja = loja;
             filtros.usuario = UsuarioLogado;
 
+        }
+
+        private void MontarDataHoraFiltro()
+        {
+            try
+            {
+                if (chckbxPorHora.Checked)
+                {
+                    periodoInicialCompleto = new DateTime(dtpckrPeriodoInicial.Value.Year, dtpckrPeriodoInicial.Value.Month, dtpckrPeriodoInicial.Value.Day, tmpckrHoraInicial.Value.Value.Hour, tmpckrHoraInicial.Value.Value.Minute, tmpckrHoraInicial.Value.Value.Second);
+                    periodoFinalCompleto = new DateTime(dtpckrPeriodoFinal.Value.Year, dtpckrPeriodoFinal.Value.Month, dtpckrPeriodoFinal.Value.Day, tmpckrHoraFinal.Value.Value.Hour, tmpckrHoraFinal.Value.Value.Minute, tmpckrHoraFinal.Value.Value.Second);
+
+
+                }
+                else
+                {
+                    periodoInicialCompleto = dtpckrPeriodoInicial.Value;
+                    periodoFinalCompleto = dtpckrPeriodoFinal.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
     }

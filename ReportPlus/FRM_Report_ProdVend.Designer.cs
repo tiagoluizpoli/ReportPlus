@@ -142,6 +142,8 @@
             this.crystalTheme1 = new Telerik.WinControls.Themes.CrystalTheme();
             this.crystalDarkTheme1 = new Telerik.WinControls.Themes.CrystalDarkTheme();
             this.fluentTheme1 = new Telerik.WinControls.Themes.FluentTheme();
+            this.crystalDarkTheme2 = new Telerik.WinControls.Themes.CrystalDarkTheme();
+            this.txtbxApagar = new MetroFramework.Controls.MetroLabel();
             this.pnFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpckrPeriodoFinal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmpckrHoraInicial)).BeginInit();
@@ -565,7 +567,7 @@
             this.pnReport.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnReport.Location = new System.Drawing.Point(12, 277);
             this.pnReport.Name = "pnReport";
-            this.pnReport.Size = new System.Drawing.Size(1172, 392);
+            this.pnReport.Size = new System.Drawing.Size(1172, 292);
             this.pnReport.TabIndex = 28;
             // 
             // dtgvwMainReportScreen
@@ -630,7 +632,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgvwMainReportScreen.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvwMainReportScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1172, 392);
+            this.dtgvwMainReportScreen.Size = new System.Drawing.Size(1172, 292);
             this.dtgvwMainReportScreen.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwMainReportScreen.TabIndex = 0;
             this.dtgvwMainReportScreen.UseCustomBackColor = true;
@@ -749,7 +751,7 @@
             this.pnTotais.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnTotais.Location = new System.Drawing.Point(12, 277);
             this.pnTotais.Name = "pnTotais";
-            this.pnTotais.Size = new System.Drawing.Size(1172, 392);
+            this.pnTotais.Size = new System.Drawing.Size(1172, 292);
             this.pnTotais.TabIndex = 29;
             this.pnTotais.Visible = false;
             // 
@@ -842,7 +844,7 @@
             this.dtgvwTotaisPorDia.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dtgvwTotaisPorDia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorDia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorDia.Size = new System.Drawing.Size(410, 373);
+            this.dtgvwTotaisPorDia.Size = new System.Drawing.Size(410, 273);
             this.dtgvwTotaisPorDia.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorDia.TabIndex = 2;
             this.dtgvwTotaisPorDia.UseCustomBackColor = true;
@@ -939,7 +941,7 @@
             this.dtgvwTotaisPorGrupoProdutos.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dtgvwTotaisPorGrupoProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorGrupoProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorGrupoProdutos.Size = new System.Drawing.Size(376, 373);
+            this.dtgvwTotaisPorGrupoProdutos.Size = new System.Drawing.Size(376, 273);
             this.dtgvwTotaisPorGrupoProdutos.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorGrupoProdutos.TabIndex = 1;
             this.dtgvwTotaisPorGrupoProdutos.UseCustomBackColor = true;
@@ -1027,7 +1029,7 @@
             this.dtgvwTotaisPorVendedor.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dtgvwTotaisPorVendedor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtgvwTotaisPorVendedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvwTotaisPorVendedor.Size = new System.Drawing.Size(372, 373);
+            this.dtgvwTotaisPorVendedor.Size = new System.Drawing.Size(372, 273);
             this.dtgvwTotaisPorVendedor.Style = MetroFramework.MetroColorStyle.Black;
             this.dtgvwTotaisPorVendedor.TabIndex = 0;
             this.dtgvwTotaisPorVendedor.UseCustomBackColor = true;
@@ -1387,12 +1389,22 @@
             this.bgwExportExcel.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwExportExcel_ProgressChanged);
             this.bgwExportExcel.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwExportExcel_RunWorkerCompleted);
             // 
+            // txtbxApagar
+            // 
+            this.txtbxApagar.AutoSize = true;
+            this.txtbxApagar.Location = new System.Drawing.Point(854, 98);
+            this.txtbxApagar.Name = "txtbxApagar";
+            this.txtbxApagar.Size = new System.Drawing.Size(60, 19);
+            this.txtbxApagar.TabIndex = 54;
+            this.txtbxApagar.Text = "Exportar";
+            // 
             // FRM_Report_ProdVendTotals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1196, 681);
+            this.ClientSize = new System.Drawing.Size(1196, 581);
+            this.Controls.Add(this.txtbxApagar);
             this.Controls.Add(this.lblExportStatus);
             this.Controls.Add(this.ExportSpinner);
             this.Controls.Add(this.btnTotaisDetalhamento);
@@ -1410,7 +1422,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.pnTotais);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1212, 720);
+            this.MinimumSize = new System.Drawing.Size(1212, 568);
             this.Name = "FRM_Report_ProdVendTotals";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório: Vendas de Produtos.";
@@ -1539,5 +1551,7 @@
         private Telerik.WinControls.UI.RadDateTimePicker dtpckrPeriodoFinal;
         private Telerik.WinControls.Themes.FluentTheme fluentTheme1;
         private MetroFramework.Controls.MetroCheckBox chckbxPorHora;
+        private Telerik.WinControls.Themes.CrystalDarkTheme crystalDarkTheme2;
+        private MetroFramework.Controls.MetroLabel txtbxApagar;
     }
 }

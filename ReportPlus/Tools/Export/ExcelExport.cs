@@ -15,6 +15,7 @@ namespace ReportPlus.Tools.Export
         {
             try
             {
+                
                 XLWorkbook Pasta = new XLWorkbook();
                 var back = XLColor.FromArgb(0, 0, 0);
                 var fore = XLColor.FromArgb(255, 255, 255); 
@@ -433,7 +434,7 @@ namespace ReportPlus.Tools.Export
                 rangeOutSideBorderC4D4.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
 
 
-                Planilha.Cell("A5").Value = "De [ " + filtros.periodoInicial.ToShortDateString() + " ] até [ " + filtros.periodoFinal.ToShortDateString() + " ]";
+                Planilha.Cell("A5").Value = "De [ " + filtros.periodoInicial.ToString() + " ] até [ " + filtros.periodoFinal.ToString() + " ]";
                 var rangeOutSideBorderA5B5 = Planilha.Range("A5:B5").Merge();
                 rangeOutSideBorderA5B5.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
 
