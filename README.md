@@ -8,7 +8,7 @@ Anyways, i've learned a lot with it and even if it isn't the best of what i can 
 **This is a report that shows "sold products", filtered by user, group, product, day of week, plus a ton of other filter possibilities.**
 
 ## What i've learned and evolved
-See below some of the skills and technologies i've had to sharpenned and learn for this project.
+See below some of the skills and technologies i've had to sharpenned or learn for this project.
 	
 
  - [x] Structred SQL queries 
@@ -27,7 +27,7 @@ Among every other difficulties that i had to overcome to reach the main goal.
 
 ### Application
 
-#### Login (With access to a config screen, where infos like Database endpoint & credentials and logo can be configure)  
+#### Login (With access to a config screen, where infos like Database endpoint & credentials and logo can be configured)  
 ![image](https://user-images.githubusercontent.com/22990007/132974056-d14f5b57-5b4a-4743-8db4-d3c61ca5f683.png)
 
 #### Config  
